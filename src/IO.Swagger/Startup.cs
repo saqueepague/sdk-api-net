@@ -63,16 +63,15 @@ namespace IO.Swagger
             services
                 .AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("1.17.0", new Info
+                    c.SwaggerDoc("v1", new Info
                     {
-                        Version = "1.17.0",
+                        Version = "1.0",
                         Title = "Saque e Pague Transaction",
-                        Description = "Saque e Pague Transaction (ASP.NET Core 2.0)",
+                        Description = "Saque e Pague Transaction (ASP.NET Core 2.2)",
                         Contact = new Contact()
                         {
                            Name = "SEP Team",
                            Url = "http://www.saqueepague.com.br",
-                           Email = "captura_atm@saqueepague.com.br"
                         },
                         TermsOfService = ""
                     });
@@ -80,7 +79,7 @@ namespace IO.Swagger
                     c.DescribeAllEnumsAsStrings();
                     c.IncludeXmlComments($"{AppContext.BaseDirectory}{Path.DirectorySeparatorChar}{_hostingEnv.ApplicationName}.xml");
                     // Sets the basePath property in the Swagger document generated
-                    c.DocumentFilter<BasePathFilter>("/saqueepague/SepTransaction/1.17.0");
+                    c.DocumentFilter<BasePathFilter>("/saqueepague-transaction/v1");
 
                     // Include DataAnnotation attributes on Controller Action parameters as Swagger validation rules (e.g required, pattern, ..)
                     // Use [ValidateModelState] on Actions to actually validate it in C# as well!
@@ -104,7 +103,7 @@ namespace IO.Swagger
                 .UseSwaggerUI(c =>
                 {
                     //TODO: Either use the SwaggerGen generated Swagger contract (generated from C# classes)
-                    c.SwaggerEndpoint("/swagger/1.17.0/swagger.json", "Saque e Pague Transaction");
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Saque e Pague Transaction");
 
                     //TODO: Or alternatively use the original Swagger contract that's included in the static files
                     // c.SwaggerEndpoint("/swagger-original.json", "Saque e Pague Transaction Original");

@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/src/IO.Swagger/bin/Debug/netcoreapp2.1/IO.Swagger.dll",
+            "program": "${workspaceFolder}/src/IO.Swagger/bin/Debug/netcoreapp2.2/IO.Swagger.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/IO.Swagger",
             "stopAtEntry": false,

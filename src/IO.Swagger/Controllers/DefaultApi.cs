@@ -41,7 +41,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de autenticação.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/autenticacao")]
+        [Route("/saqueepague-transaction/v1/autenticacao")]
         [ValidateModelState]
         [SwaggerOperation("AutenticacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(AutenticacaoResp), description: "Retorno com sucesso.")]
@@ -70,7 +70,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Dados de identificação do agendamento.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/cancelaAgendamento")]
+        [Route("/saqueepague-transaction/v1/cancelaAgendamento")]
         [ValidateModelState]
         [SwaggerOperation("CancelaAgendamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(AgendamentoIdentificaoResp), description: "Retorno com sucesso.")]
@@ -99,7 +99,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de compra de titulos de capitalizacao</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/compraTitulosCapitalizacaoConf")]
+        [Route("/saqueepague-transaction/v1/compraTitulosCapitalizacaoConf")]
         [ValidateModelState]
         [SwaggerOperation("CompraTitulosCapitalizacaoConfPost")]
         public virtual IActionResult CompraTitulosCapitalizacaoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -121,7 +121,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de compra de títulos de capitalização.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/compraTitulosCapitalizacao")]
+        [Route("/saqueepague-transaction/v1/compraTitulosCapitalizacao")]
         [ValidateModelState]
         [SwaggerOperation("CompraTitulosCapitalizacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(CompraTitulosCapitalizacaoResp), description: "Retorno com sucesso.")]
@@ -149,7 +149,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaAgendamentos")]
+        [Route("/saqueepague-transaction/v1/consultaAgendamentos")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaAgendamentosPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaAgendamentoResp), description: "Retorno com sucesso.")]
@@ -178,7 +178,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Dados de identificação do pagamento a qual deseja-se obter uma segunda via do comprovante.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaComprovantePagamento")]
+        [Route("/saqueepague-transaction/v1/consultaComprovantePagamento")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaComprovantePagamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(InfPagamentoResp), description: "Retorno com sucesso.")]
@@ -206,7 +206,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaComprovantes")]
+        [Route("/saqueepague-transaction/v1/consultaComprovantes")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaComprovantesPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaComprovantesResp), description: "Retorno com sucesso.")]
@@ -235,7 +235,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta de conta.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaConta")]
+        [Route("/saqueepague-transaction/v1/consultaConta")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaContaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaContaResp), description: "Retorno com sucesso.")]
@@ -264,7 +264,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta limites de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaLimitesEmprestimo")]
+        [Route("/saqueepague-transaction/v1/consultaLimitesEmprestimo")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaLimitesEmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaLimitesEmprestimoResp), description: "Retorno com sucesso.")]
@@ -293,7 +293,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta de pagamentos.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaPagamento")]
+        [Route("/saqueepague-transaction/v1/consultaPagamento")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaPagamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaPagamentoResp), description: "Retorno com sucesso.")]
@@ -322,7 +322,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta parcelas de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaParcelasEmprestimo")]
+        [Route("/saqueepague-transaction/v1/consultaParcelasEmprestimo")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaParcelasEmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaParcelasEmprestimoResp), description: "Retorno com sucesso.")]
@@ -351,7 +351,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta produtos de recarga.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaProdutosRecarga")]
+        [Route("/saqueepague-transaction/v1/consultaProdutosRecarga")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaProdutosRecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaProdutosRecargaResp), description: "Retorno com sucesso.")]
@@ -380,7 +380,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaSaque")]
+        [Route("/saqueepague-transaction/v1/consultaSaque")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaSaquePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaSaqueResp), description: "Retorno com sucesso.")]
@@ -409,7 +409,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta de taxas.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaTaxas")]
+        [Route("/saqueepague-transaction/v1/consultaTaxas")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaTaxasPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaTaxasResp), description: "Retorno com sucesso.")]
@@ -438,7 +438,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta produtos de títulos de capitalização.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaTitulosCapitalizacao")]
+        [Route("/saqueepague-transaction/v1/consultaTitulosCapitalizacao")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaTitulosCapitalizacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaTitulosCapitalizacaoResp), description: "Retorno com sucesso.")]
@@ -467,7 +467,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de consulta valores de recarga.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/consultaValoresRecarga")]
+        [Route("/saqueepague-transaction/v1/consultaValoresRecarga")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaValoresRecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaValoresRecargaResp), description: "Retorno com sucesso.")]
@@ -496,7 +496,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de depósito.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/depositoConf")]
+        [Route("/saqueepague-transaction/v1/depositoConf")]
         [ValidateModelState]
         [SwaggerOperation("DepositoConfPost")]
         public virtual IActionResult DepositoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -518,7 +518,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de depósito.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/deposito")]
+        [Route("/saqueepague-transaction/v1/deposito")]
         [ValidateModelState]
         [SwaggerOperation("DepositoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(DepositoResp), description: "Retorno com sucesso.")]
@@ -547,7 +547,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/emprestimoConf")]
+        [Route("/saqueepague-transaction/v1/emprestimoConf")]
         [ValidateModelState]
         [SwaggerOperation("EmprestimoConfPost")]
         public virtual IActionResult EmprestimoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -569,7 +569,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/emprestimo")]
+        [Route("/saqueepague-transaction/v1/emprestimo")]
         [ValidateModelState]
         [SwaggerOperation("EmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(EmprestimoResp), description: "Retorno com sucesso.")]
@@ -598,7 +598,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de extrato.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/extratoConf")]
+        [Route("/saqueepague-transaction/v1/extratoConf")]
         [ValidateModelState]
         [SwaggerOperation("ExtratoConfPost")]
         public virtual IActionResult ExtratoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -620,7 +620,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de extrato.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/extrato")]
+        [Route("/saqueepague-transaction/v1/extrato")]
         [ValidateModelState]
         [SwaggerOperation("ExtratoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ExtratoResp), description: "Retorno com sucesso.")]
@@ -649,7 +649,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de identificação.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/identificacao")]
+        [Route("/saqueepague-transaction/v1/identificacao")]
         [ValidateModelState]
         [SwaggerOperation("IdentificacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(IdentificacaoResp), description: "Retorno com sucesso.")]
@@ -678,7 +678,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de pagamento ou agendamento de pagamento.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/pagamentoConf")]
+        [Route("/saqueepague-transaction/v1/pagamentoConf")]
         [ValidateModelState]
         [SwaggerOperation("PagamentoConfPost")]
         public virtual IActionResult PagamentoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -700,7 +700,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de pagamento ou agendamento de pagamento.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/pagamento")]
+        [Route("/saqueepague-transaction/v1/pagamento")]
         [ValidateModelState]
         [SwaggerOperation("PagamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(PagamentoResp), description: "Retorno com sucesso.")]
@@ -729,7 +729,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de recarga.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/recargaConf")]
+        [Route("/saqueepague-transaction/v1/recargaConf")]
         [ValidateModelState]
         [SwaggerOperation("RecargaConfPost")]
         public virtual IActionResult RecargaConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -751,7 +751,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de recarga.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/recarga")]
+        [Route("/saqueepague-transaction/v1/recarga")]
         [ValidateModelState]
         [SwaggerOperation("RecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(RecargaResp), description: "Retorno com sucesso.")]
@@ -780,7 +780,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Dados de identificação do comprovante de pgamento.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/reimpressaoComprovante")]
+        [Route("/saqueepague-transaction/v1/reimpressaoComprovante")]
         [ValidateModelState]
         [SwaggerOperation("ReimpressaoComprovantePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ReimpressaoComprovanteResp), description: "Retorno com sucesso.")]
@@ -809,7 +809,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de consulta de saldo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/saldoConf")]
+        [Route("/saqueepague-transaction/v1/saldoConf")]
         [ValidateModelState]
         [SwaggerOperation("SaldoConfPost")]
         public virtual IActionResult SaldoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -831,7 +831,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de consulta de saldo.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/saldo")]
+        [Route("/saqueepague-transaction/v1/saldo")]
         [ValidateModelState]
         [SwaggerOperation("SaldoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(SaldoResp), description: "Retorno com sucesso.")]
@@ -860,7 +860,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de confirmação de operação de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/saqueConf")]
+        [Route("/saqueepague-transaction/v1/saqueConf")]
         [ValidateModelState]
         [SwaggerOperation("SaqueConfPost")]
         public virtual IActionResult SaqueConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -882,7 +882,7 @@ namespace IO.Swagger.Controllers
         /// <param name="body">Requisição de operação de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.17.0/saque")]
+        [Route("/saqueepague-transaction/v1/saque")]
         [ValidateModelState]
         [SwaggerOperation("SaquePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(SaqueResp), description: "Retorno com sucesso.")]

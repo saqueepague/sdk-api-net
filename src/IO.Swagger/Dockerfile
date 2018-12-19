@@ -1,11 +1,26 @@
-FROM microsoft/dotnet:1.0.3-sdk-projectjson
+FROM microsoft/dotnet:2.2-sdk AS build-env
 
 ENV DOTNET_CLI_TELEMETRY_OPTOUT 1
 
-WORKDIR /app/IO.Swagger
-COPY . /app/IO.Swagger
+WORKDIR /app
 
-EXPOSE 5000/tcp
-
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
 RUN ["dotnet", "restore"]
-ENTRYPOINT ["dotnet", "run", "-p", "project.json", "web"]
+
+# Copy everything else and build
+COPY . ./
+
+RUN ["dotnet", "publish", "-c", "Release", "-o", "out"]
+
+# Build runtime image
+FROM microsoft/dotnet:2.2-aspnetcore-runtime
+WORKDIR /app
+COPY --from=build-env /app/out .
+
+# EXPOSE 5000/tcp
+
+ENTRYPOINT ["dotnet", "IO.Swagger.dll"]
+
+
+

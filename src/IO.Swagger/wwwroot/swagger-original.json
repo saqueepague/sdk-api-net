@@ -11,7 +11,7 @@
     }
   },
   "host" : "virtserver.swaggerhub.com",
-  "basePath" : "/saqueepague/SepTransaction/1.17.0",
+  "basePath" : "/saqueepague-transaction/v1",
   "tags" : [ ],
   "schemes" : [ "http" ],
   "consumes" : [ "application/json" ],
