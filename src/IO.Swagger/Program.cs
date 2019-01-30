@@ -31,9 +31,6 @@ namespace IO.Swagger
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .ConfigureKestrel((context, options) => {
-                    // Set properties and call methods on options
-                })
                 .Build();
     }
 }
