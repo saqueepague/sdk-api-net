@@ -35,9 +35,9 @@ namespace IO.Swagger.Models
         public string NomeCliente { get; set; }
 
         /// <summary>
-        /// Lista de possíveis perguntas a serem mostradas para o usuário para autorizar o saque.
+        /// Lista de possíveis perguntas a serem mostradas para o usuário para autorizar o saque. A cada saque, uma pergunta é selecionada aleatoriamente para ser apresentada.
         /// </summary>
-        /// <value>Lista de possíveis perguntas a serem mostradas para o usuário para autorizar o saque.</value>
+        /// <value>Lista de possíveis perguntas a serem mostradas para o usuário para autorizar o saque. A cada saque, uma pergunta é selecionada aleatoriamente para ser apresentada.</value>
         [DataMember(Name="perguntas")]
         public List<WithdrawConsultQuestionObj> Perguntas { get; set; }
 

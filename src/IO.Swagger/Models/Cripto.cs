@@ -42,9 +42,9 @@ namespace IO.Swagger.Models
         public string Hash { get; set; }
 
         /// <summary>
-        /// Identificação positiva informada pelo usuário, caso utilizada. Corresponde às posições (botões) selecionadas pelo usuário em cada tela apresentada. Pode ser criptografada ou não.
+        /// Identificação positiva informada pelo usuário, caso utilizada, com 8 dígitos corresponde às posições (botões) em cada tela apresentada. Caso a senha tenha menos de oito sílabas, são adicionados zeros para as telas não existentes. Pode ser criptografada ou não.
         /// </summary>
-        /// <value>Identificação positiva informada pelo usuário, caso utilizada. Corresponde às posições (botões) selecionadas pelo usuário em cada tela apresentada. Pode ser criptografada ou não.</value>
+        /// <value>Identificação positiva informada pelo usuário, caso utilizada, com 8 dígitos corresponde às posições (botões) em cada tela apresentada. Caso a senha tenha menos de oito sílabas, são adicionados zeros para as telas não existentes. Pode ser criptografada ou não.</value>
         [DataMember(Name="idPositiva")]
         public string IdPositiva { get; set; }
 

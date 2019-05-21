@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações da resposta da requisição de identificação.
+    /// Informações da resposta da requisição de identificação. Contém informações de como o usuário deve se identificar durante alguma futura transação. Usuário pode usar uma pergunta, token ou senha de sílabas.
     /// </summary>
     [DataContract]
     public partial class InfIdentificacaoResp : IEquatable<InfIdentificacaoResp>

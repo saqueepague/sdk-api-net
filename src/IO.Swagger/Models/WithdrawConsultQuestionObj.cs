@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Pergunta mostrada ao usuário para se identificar antes do saque. Esta pergunta é selecionada aleatoriamente através da lista mandada na requisição de identificação.
     /// </summary>
     [DataContract]
     public partial class WithdrawConsultQuestionObj : IEquatable<WithdrawConsultQuestionObj>

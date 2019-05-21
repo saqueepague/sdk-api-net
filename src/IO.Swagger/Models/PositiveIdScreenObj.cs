@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Lista de conjuntos de letras/sílabas a serem mostradas nas teclas em cada tela (até 19 caracteres por tecla). A quantidade de telas da lista será igual ao número de dígitos esperados da identificicação positiva.
+    /// Lista de conjuntos de letras/sílabas para o usuário selecionar, antes de uma transação. Cada posição é análoga a um botão mostrado, em posição aleatória, nesta tela. Contudo a resposta mandada na transação manterá a posição original retornada por este objeto.
     /// </summary>
     [DataContract]
     public partial class PositiveIdScreenObj : IEquatable<PositiveIdScreenObj>

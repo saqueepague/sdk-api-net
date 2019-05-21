@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Pergunta mostrada ao usuário para se identificar antes de uma transação. Esta pergunta é selecionada aleatoriamente através da lista mandada na requisição de identificação.
     /// </summary>
     [DataContract]
     public partial class PositiveIdQuestionsObj : IEquatable<PositiveIdQuestionsObj>
@@ -44,13 +44,6 @@ namespace IO.Swagger.Models
         public string Pergunta { get; set; }
 
         /// <summary>
-        /// Resposta da pergunta (campo preenchido na requisição da transação financeira associada).
-        /// </summary>
-        /// <value>Resposta da pergunta (campo preenchido na requisição da transação financeira associada).</value>
-        [DataMember(Name="resposta")]
-        public string Resposta { get; set; }
-
-        /// <summary>
         /// Número de dígitos esperado para a resposta.
         /// </summary>
         /// <value>Número de dígitos esperado para a resposta.</value>
@@ -68,7 +61,6 @@ namespace IO.Swagger.Models
             sb.Append("class PositiveIdQuestionsObj {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Pergunta: ").Append(Pergunta).Append("\n");
-            sb.Append("  Resposta: ").Append(Resposta).Append("\n");
             sb.Append("  TamResposta: ").Append(TamResposta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -117,11 +109,6 @@ namespace IO.Swagger.Models
                     Pergunta.Equals(other.Pergunta)
                 ) && 
                 (
-                    Resposta == other.Resposta ||
-                    Resposta != null &&
-                    Resposta.Equals(other.Resposta)
-                ) && 
-                (
                     TamResposta == other.TamResposta ||
                     TamResposta != null &&
                     TamResposta.Equals(other.TamResposta)
@@ -142,8 +129,6 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + Id.GetHashCode();
                     if (Pergunta != null)
                     hashCode = hashCode * 59 + Pergunta.GetHashCode();
-                    if (Resposta != null)
-                    hashCode = hashCode * 59 + Resposta.GetHashCode();
                     if (TamResposta != null)
                     hashCode = hashCode * 59 + TamResposta.GetHashCode();
                 return hashCode;

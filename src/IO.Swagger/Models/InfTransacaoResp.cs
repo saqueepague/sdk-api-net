@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações sobre a resposta da resquisição de transação.
+    /// Informações sobre a resposta da requisição de transação.
     /// </summary>
     [DataContract]
     public partial class InfTransacaoResp : IEquatable<InfTransacaoResp>

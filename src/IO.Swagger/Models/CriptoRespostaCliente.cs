@@ -22,7 +22,7 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Resposta do cliente à pergunta feita na identificação.
+    /// Resposta do cliente à pergunta feita na identificação (somente respostas numéricas).
     /// </summary>
     [DataContract]
     public partial class CriptoRespostaCliente : IEquatable<CriptoRespostaCliente>
@@ -31,13 +31,15 @@ namespace IO.Swagger.Models
         /// Identificador da pergunta.
         /// </summary>
         /// <value>Identificador da pergunta.</value>
+        [Required]
         [DataMember(Name="id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Pergunta feita ao cliente (somente o id é prenchido).
+        /// Pergunta feita ao cliente (somente o id é preenchido).
         /// </summary>
-        /// <value>Pergunta feita ao cliente (somente o id é prenchido).</value>
+        /// <value>Pergunta feita ao cliente (somente o id é preenchido).</value>
+        [Required]
         [DataMember(Name="pergunta")]
         public string Pergunta { get; set; }
 
@@ -45,6 +47,7 @@ namespace IO.Swagger.Models
         /// Resposta da pergunta (dado criptografado).
         /// </summary>
         /// <value>Resposta da pergunta (dado criptografado).</value>
+        [Required]
         [DataMember(Name="resposta")]
         public string Resposta { get; set; }
 
