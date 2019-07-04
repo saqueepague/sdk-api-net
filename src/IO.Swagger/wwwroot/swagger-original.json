@@ -2,14 +2,14 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.17.1",
+    "version" : "1.17.2",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
       "url" : "http://www.saqueepague.com.br"
     }
   },
-  "basePath" : "/saqueepague/SepTransaction/1.17.1",
+  "basePath" : "/saqueepague/SepTransaction/1.17.2",
   "schemes" : [ "http" ],
   "paths" : {
     "/autenticacao" : {
@@ -2114,6 +2114,7 @@
         "InfIdentificacao" : {
           "pedirToken" : "01",
           "frase" : "Informe o token gerado em seu app:",
+          "numAgencia" : "4029",
           "perguntas" : [ {
             "pergunta" : "Qual é o dia de seu aniversário?",
             "tamResposta" : "2",
@@ -2144,6 +2145,7 @@
             "pos2" : "MA/QU/NE",
             "pos3" : "14 50 96"
           } ],
+          "numConta" : "0082348296",
           "transacValidas" : "068101068010",
           "saldo" : "000000005000"
         },
@@ -3247,6 +3249,18 @@
             "$ref" : "#/definitions/positiveIdScreenObj"
           }
         },
+        "numAgencia" : {
+          "type" : "string",
+          "example" : "4029",
+          "description" : "Número da agência identificada (usado em operações em própria conta para o usuário não precisar preencher os dados).",
+          "pattern" : "^\\d+$"
+        },
+        "numConta" : {
+          "type" : "string",
+          "example" : "0082348296",
+          "description" : "Número da conta identificada (usado em operações em própria conta para o usuário não precisar preencher os dados).",
+          "pattern" : "^\\d+$"
+        },
         "pedirToken" : {
           "type" : "string",
           "example" : "01",
@@ -3277,6 +3291,7 @@
       "example" : {
         "pedirToken" : "01",
         "frase" : "Informe o token gerado em seu app:",
+        "numAgencia" : "4029",
         "perguntas" : [ {
           "pergunta" : "Qual é o dia de seu aniversário?",
           "tamResposta" : "2",
@@ -3307,6 +3322,7 @@
           "pos2" : "MA/QU/NE",
           "pos3" : "14 50 96"
         } ],
+        "numConta" : "0082348296",
         "transacValidas" : "068101068010",
         "saldo" : "000000005000"
       }
