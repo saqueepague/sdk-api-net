@@ -34,12 +34,13 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>Operação de autenticacao de cliente sem cartão, chamada para retornar o nome do cliente autenticado.</remarks>
+        /// <remarks>Operação de autenticação de cliente sem cartão, chamada para retornar o nome do cliente autenticado.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de autenticação.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/autenticacao")]
         [ValidateModelState]
@@ -49,6 +50,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(AutenticacaoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"InfAutenticacao\" : {\n    \"nomeCliente\" : \"Carl Edward Sagan\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -69,6 +73,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de compra de titulos de capitalizacao</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/compraTitulosCapitalizacaoConf")]
         [ValidateModelState]
@@ -77,6 +82,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -91,6 +99,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de operação de compra de títulos de capitalização.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/compraTitulosCapitalizacao")]
         [ValidateModelState]
@@ -100,6 +109,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(CompraTitulosCapitalizacaoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfCompraTitulosCapitalizacao\" : {\n    \"recibo\" : \"@               TITULOS COMPRADOS                @                                                @ NOME DO TITULO:  XXXXXXXXXXXXX                 @ QUANTIDADE: 2                                  @ VALOR: R$ 25,00                                @ VALOR TOTAL: R$ 50,00                          @ TELEFONE: 05199999999                          @ CPF: 02358422785                               \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -120,6 +132,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta de conta.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaConta")]
         [ValidateModelState]
@@ -129,6 +142,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaContaResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaConta\" : {\n    \"solicDoc\" : \"00\",\n    \"modalidadeDeposito\" : \"00\",\n    \"nomeCliente\" : \"Carl Edward Sagan\",\n    \"depositoIdentificado\" : \"00\",\n    \"habilitaDeposito\" : \"01\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -149,6 +165,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta limites de empréstimo, usando dados do cartão.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaLimitesEmprestimo")]
         [ValidateModelState]
@@ -158,6 +175,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaLimitesEmprestimoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaLimitesEmprestimo\" : {\n    \"limiteMinimoEmprestimo\" : \"000000500000\",\n    \"limiteMaximoEmprestimo\" : \"000005000000\",\n    \"nomeAgenciaBancaria\" : \"Agência bancária\",\n    \"nomeTitularConta\" : \"Carl Edward Sagan\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -178,6 +198,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta parcelas de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaParcelasEmprestimo")]
         [ValidateModelState]
@@ -187,6 +208,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaParcelasEmprestimoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfConsultaParcelasEmprestimo\" : {\n    \"opcoesParcelas\" : [ {\n      \"valorParcela\" : \"000000005000\",\n      \"qntParcelas\" : \"5\"\n    }, {\n      \"valorParcela\" : \"000000005000\",\n      \"qntParcelas\" : \"5\"\n    } ],\n    \"dataPrimeiraParcela\" : \"20181122\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -201,12 +225,46 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>Operação de consulta dos possíveis produtos de recarga de cartão pré-pago. Operação relacionada a transação consultaPrePago.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de consulta produtos de recarga de cartão pré-pago.</param>
+        /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.17.2/consultaPrePago")]
+        [ValidateModelState]
+        [SwaggerOperation("ConsultaPrePagoPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ConsultaPrePagoResp), description: "Retorno com sucesso.")]
+        public virtual IActionResult ConsultaPrePagoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]ConsultaPrePagoReq body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(ConsultaPrePagoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+            string exampleJson = null;
+            exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaPrePago\" : {\n    \"produtos\" : [ {\n      \"valorMaximo\" : \"1500\",\n      \"idProduto\" : \"CLARO\",\n      \"nomeOperadora\" : \"CLARO\",\n      \"valorMinimo\" : \"1000\"\n    }, {\n      \"valorMaximo\" : \"1500\",\n      \"idProduto\" : \"CLARO\",\n      \"nomeOperadora\" : \"CLARO\",\n      \"valorMinimo\" : \"1000\"\n    } ]\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<ConsultaPrePagoResp>(exampleJson)
+            : default(ConsultaPrePagoResp);
+            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <remarks>Operação de consulta dos possíveis produtos de recarga de transporte para o cartão informado pelo cliente. Operação relacionada a transação consultaProdutosRecarga.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta produtos de recarga disponíveis para um cartão.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaProdutosRecarga")]
         [ValidateModelState]
@@ -216,6 +274,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaProdutosRecargaResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaProdutosRecarga\" : {\n    \"products\" : [ {\n      \"name\" : \"Produto de Recarga\",\n      \"id\" : \"1\"\n    }, {\n      \"name\" : \"Produto de Recarga\",\n      \"id\" : \"1\"\n    } ]\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -236,6 +297,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaSaque")]
         [ValidateModelState]
@@ -245,6 +307,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaSaqueResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaSaque\" : {\n    \"perguntas\" : [ {\n      \"pergunta\" : \"Informe os 3 primeiros dígitos do seu CPF\",\n      \"tamResposta\" : \"3\",\n      \"id\" : \"1\"\n    }, {\n      \"pergunta\" : \"Informe os 3 primeiros dígitos do seu CPF\",\n      \"tamResposta\" : \"3\",\n      \"id\" : \"1\"\n    } ],\n    \"nomeCliente\" : \"Carl Edward Sagan\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -265,6 +330,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta de taxas.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaTaxas")]
         [ValidateModelState]
@@ -274,6 +340,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaTaxasResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfConsultaTaxas\" : {\n    \"transactions_fees\" : [ {\n      \"fees\" : [ {\n        \"min_amount\" : \"000\",\n        \"max_amount\" : \"10000\",\n        \"id\" : \"0201\",\n        \"value\" : \"000\"\n      }, {\n        \"min_amount\" : \"000\",\n        \"max_amount\" : \"10000\",\n        \"id\" : \"0201\",\n        \"value\" : \"000\"\n      } ],\n      \"name\" : \"deposit\",\n      \"id\" : \"01\"\n    }, {\n      \"fees\" : [ {\n        \"min_amount\" : \"000\",\n        \"max_amount\" : \"10000\",\n        \"id\" : \"0201\",\n        \"value\" : \"000\"\n      }, {\n        \"min_amount\" : \"000\",\n        \"max_amount\" : \"10000\",\n        \"id\" : \"0201\",\n        \"value\" : \"000\"\n      } ],\n      \"name\" : \"deposit\",\n      \"id\" : \"01\"\n    } ]\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -294,6 +363,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta produtos de títulos de capitalização.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaTitulosCapitalizacao")]
         [ValidateModelState]
@@ -303,6 +373,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaTitulosCapitalizacaoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaTitulosCapitalizacao\" : {\n    \"produtos\" : [ {\n      \"limiteMaximoCompra\" : \"4\",\n      \"tema\" : {\n        \"estilos\" : [ {\n          \"valor\" : \"#00288C\",\n          \"nome\" : \"cor-fundo ou cor-botao\"\n        }, {\n          \"valor\" : \"#00288C\",\n          \"nome\" : \"cor-fundo ou cor-botao\"\n        } ]\n      },\n      \"valor\" : \"000000000500\",\n      \"nome\" : \"Grêmio Mais\",\n      \"id\" : \"7\",\n      \"dataFimVigencia\" : \"20181130\",\n      \"dataInicioVigencia\" : \"20181122\",\n      \"detalhes\" : \"Edição ouro de mais um produto do Grêmio Mais\",\n      \"descricao\" : \"Edição 115 Anos\"\n    }, {\n      \"limiteMaximoCompra\" : \"4\",\n      \"tema\" : {\n        \"estilos\" : [ {\n          \"valor\" : \"#00288C\",\n          \"nome\" : \"cor-fundo ou cor-botao\"\n        }, {\n          \"valor\" : \"#00288C\",\n          \"nome\" : \"cor-fundo ou cor-botao\"\n        } ]\n      },\n      \"valor\" : \"000000000500\",\n      \"nome\" : \"Grêmio Mais\",\n      \"id\" : \"7\",\n      \"dataFimVigencia\" : \"20181130\",\n      \"dataInicioVigencia\" : \"20181122\",\n      \"detalhes\" : \"Edição ouro de mais um produto do Grêmio Mais\",\n      \"descricao\" : \"Edição 115 Anos\"\n    } ]\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -323,6 +396,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de consulta valores de recarga de cartão.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/consultaValoresRecarga")]
         [ValidateModelState]
@@ -332,6 +406,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ConsultaValoresRecargaResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaValoresRecarga\" : {\n    \"valores\" : {\n      \"issuers\" : [ {\n        \"card_number_mask\" : \"XXXXXXXXXXXXXX-X\",\n        \"card_number_length\" : 15,\n        \"name\" : \"TEU\",\n        \"id\" : 1,\n        \"products\" : [ {\n          \"min_value\" : \"1000\",\n          \"fee\" : \"200\",\n          \"values\" : [ {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          }, {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          } ],\n          \"name\" : \"Bilhete Antecipado\",\n          \"id\" : \"1\",\n          \"max_value\" : \"9000\"\n        }, {\n          \"min_value\" : \"1000\",\n          \"fee\" : \"200\",\n          \"values\" : [ {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          }, {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          } ],\n          \"name\" : \"Bilhete Antecipado\",\n          \"id\" : \"1\",\n          \"max_value\" : \"9000\"\n        } ]\n      }, {\n        \"card_number_mask\" : \"XXXXXXXXXXXXXX-X\",\n        \"card_number_length\" : 15,\n        \"name\" : \"TEU\",\n        \"id\" : 1,\n        \"products\" : [ {\n          \"min_value\" : \"1000\",\n          \"fee\" : \"200\",\n          \"values\" : [ {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          }, {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          } ],\n          \"name\" : \"Bilhete Antecipado\",\n          \"id\" : \"1\",\n          \"max_value\" : \"9000\"\n        }, {\n          \"min_value\" : \"1000\",\n          \"fee\" : \"200\",\n          \"values\" : [ {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          }, {\n            \"fee\" : \"200\",\n            \"id\" : \"1\",\n            \"value\" : \"2000\"\n          } ],\n          \"name\" : \"Bilhete Antecipado\",\n          \"id\" : \"1\",\n          \"max_value\" : \"9000\"\n        } ]\n      } ]\n    }\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -352,6 +429,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de depósito.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/depositoConf")]
         [ValidateModelState]
@@ -360,6 +438,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -374,6 +455,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Objeto da requisição de depósito, cartão é opcional.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/deposito")]
         [ValidateModelState]
@@ -383,6 +465,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(DepositoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"InfDeposito\" : {\n    \"recibo\" : \"@            COMPROVANTE DE DEPOSITO             @------------------------------------------------@ Agencia....: 0101                              @ Conta......: 74414-0                           @ Nome.......: EUGENIO SCHMITT COELHO            @@------------------------------------------------@ Favorecido: EUGENIO SCHMITT COELHO             @ Agencia Destino:                           0101@ Conta Destino:         Conta Corrente - 74414-0@@Tipo            NSU                        Valor@Dinheiro        697841472523             R$20,00@------------------------------------------------@               SAC - 0800 123 4569@      SAC - DEF. AUDITIVO - 0800 123 4568@            OUVIDORIA - 0800 123 4567@@             www.siteparceiro.com.br@\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -403,6 +488,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/emprestimoConf")]
         [ValidateModelState]
@@ -411,6 +497,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -425,6 +514,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de empréstimo.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/emprestimo")]
         [ValidateModelState]
@@ -434,6 +524,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(EmprestimoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -454,6 +547,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de extrato.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/extratoConf")]
         [ValidateModelState]
@@ -462,6 +556,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -476,6 +573,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de operação de extrato.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/extrato")]
         [ValidateModelState]
@@ -485,6 +583,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(ExtratoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfExtrato\" : {\n    \"recibo\" : \"@                EXTRATO DE CONTA                @                                                @ CLIENTE: EUGENIO SCHMITT COELHO                @ AGENCIA: 0150 CONTA: 03.013689.0-1             @ SALDO DA CONTA                                 @ SALDO DEVEDOR...............R$          450,35-@ TOTAL DEVEDOR...............R$          450,35-@ LIMITE DA CONTA.............R$          100,00 @ LIMITE DA CONTA DISPONIVEL..R$          350,35-@--------- MOVIMENTOS DA CONTA CORRENTE ---------@@    SALDO ANT EM 18/01/2019               93,56-@    MOVIMENTOS JAN/2019                         @    COMPRAS           201218              85,68-@    COMPRAS           201218             139,14-@    COMPRAS           211218              20,70-@    COMPRAS           211218              39,00-@    SALDO NA DATA                        378,08-@\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -505,6 +606,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de identificação.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/identificacao")]
         [ValidateModelState]
@@ -514,6 +616,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(IdentificacaoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfIdentificacao\" : {\n    \"pedirToken\" : \"01\",\n    \"frase\" : \"Informe o token gerado em seu app:\",\n    \"numAgencia\" : \"4029\",\n    \"perguntas\" : [ {\n      \"pergunta\" : \"Qual é o dia de seu aniversário?\",\n      \"tamResposta\" : \"2\",\n      \"id\" : \"1\"\n    }, {\n      \"pergunta\" : \"Qual é o dia de seu aniversário?\",\n      \"tamResposta\" : \"2\",\n      \"id\" : \"1\"\n    } ],\n    \"idPositiva\" : [ {\n      \"pos8\" : \"4E-8G-1P\",\n      \"idTela\" : \"1\",\n      \"pos4\" : \"P1-G8-E4\",\n      \"pos5\" : \"REG SOS\",\n      \"pos6\" : \"EN/UQ/AM\",\n      \"pos7\" : \"69 05 41\",\n      \"pos1\" : \"SOS GER\",\n      \"pos2\" : \"MA/QU/NE\",\n      \"pos3\" : \"14 50 96\"\n    }, {\n      \"pos8\" : \"4E-8G-1P\",\n      \"idTela\" : \"1\",\n      \"pos4\" : \"P1-G8-E4\",\n      \"pos5\" : \"REG SOS\",\n      \"pos6\" : \"EN/UQ/AM\",\n      \"pos7\" : \"69 05 41\",\n      \"pos1\" : \"SOS GER\",\n      \"pos2\" : \"MA/QU/NE\",\n      \"pos3\" : \"14 50 96\"\n    } ],\n    \"numConta\" : \"0082348296\",\n    \"transacValidas\" : \"068101068010\",\n    \"saldo\" : \"000000005000\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -534,6 +639,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de recarga.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/recargaConf")]
         [ValidateModelState]
@@ -542,6 +648,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -556,6 +665,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de operação de recarga de um cartão.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/recarga")]
         [ValidateModelState]
@@ -565,6 +675,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(RecargaResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfRecarga\" : {\n    \"recibo\" : \"@             TEU BILHETE ANTECIPADO             @                                                @ CARTAO: 036200005433591                        @ VALOR DA RECARGA: R$ 48,00                     @ TAXAS: R$ 2,00                                 @ TOTAL PAGO: R$ 50,00                           \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -579,12 +692,77 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>Confirmação de operação de recarga.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de confirmação de operação de recarga de celular pré-pago.</param>
+        /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.17.2/recargaPrePagoConf")]
+        [ValidateModelState]
+        [SwaggerOperation("RecargaPrePagoConfPost")]
+        public virtual IActionResult RecargaPrePagoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Operação de recarga de celular pré-pago.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição para recarga de celular pré-pago.</param>
+        /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="400">Operação de recarga não pode ser efetuada.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.17.2/recargaPrePago")]
+        [ValidateModelState]
+        [SwaggerOperation("RecargaPrePagoPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(RecargaPrePagoResp), description: "Retorno com sucesso.")]
+        [SwaggerResponse(statusCode: 400, type: typeof(RecargaPrePagoResp), description: "Operação de recarga não pode ser efetuada.")]
+        public virtual IActionResult RecargaPrePagoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]RecargaPrePagoReq body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(RecargaPrePagoResp));
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400, default(RecargaPrePagoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+            string exampleJson = null;
+            exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfRecargaPrePago\" : {\n    \"idRecarga\" : \"b1a5c4bd-a914-4506-8d1d-744a6b3a285c\",\n    \"bonus\" : \"000000000400\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<RecargaPrePagoResp>(exampleJson)
+            : default(RecargaPrePagoResp);
+            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <remarks>Confirmação de operação de consulta de saldo.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de consulta de saldo.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/saldoConf")]
         [ValidateModelState]
@@ -593,6 +771,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -607,6 +788,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de operação de consulta de saldo.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/saldo")]
         [ValidateModelState]
@@ -616,6 +798,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SaldoResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfSaldo\" : {\n    \"recibo\" : \"                 SALDO EM CONTA                @                036200005433591                @               13/10/2018  20:24                @          BANCO: BANCO SAQUE E PAGUE           @          AGENCIA: 4029                        @          CONTA: 0082348296                    @          VALOR NA DATA: R$ 50,00              \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
@@ -636,6 +821,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de confirmação de operação de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/saqueConf")]
         [ValidateModelState]
@@ -644,6 +830,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
 
             throw new NotImplementedException();
@@ -658,6 +847,7 @@ namespace IO.Swagger.Controllers
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
         /// <param name="body">Requisição de operação de saque.</param>
         /// <response code="200">Retorno com sucesso.</response>
+        /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
         [Route("/saqueepague/SepTransaction/1.17.2/saque")]
         [ValidateModelState]
@@ -667,6 +857,9 @@ namespace IO.Swagger.Controllers
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200, default(SaqueResp));
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
 
             string exampleJson = null;
             exampleJson = "{\n  \"InfSaque\" : {\n    \"recibo\" : \"                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
