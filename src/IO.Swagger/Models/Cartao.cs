@@ -69,16 +69,16 @@ namespace IO.Swagger.Models
         public ModoEntradaEnum? ModoEntrada { get; set; }
 
         /// <summary>
-        /// PAN/Número do cartão utilizado (16 a 19 caracteres normais ou 48 criptografados).
+        /// PAN/Número do cartão utilizado (dado criptografado).
         /// </summary>
-        /// <value>PAN/Número do cartão utilizado (16 a 19 caracteres normais ou 48 criptografados).</value>
+        /// <value>PAN/Número do cartão utilizado (dado criptografado).</value>
         [DataMember(Name="pan")]
         public string Pan { get; set; }
 
         /// <summary>
-        /// Trilha 2 do cartão utilizado (37 caracteres normais ou 80 criptografados).
+        /// Trilha 2 do cartão utilizado (dado criptografado).
         /// </summary>
-        /// <value>Trilha 2 do cartão utilizado (37 caracteres normais ou 80 criptografados).</value>
+        /// <value>Trilha 2 do cartão utilizado (dado criptografado).</value>
         [DataMember(Name="trilha2")]
         public string Trilha2 { get; set; }
 
