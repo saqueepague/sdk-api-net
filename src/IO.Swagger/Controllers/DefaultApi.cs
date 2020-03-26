@@ -42,7 +42,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/autenticacao")]
+        [Route("/saqueepague/SepTransaction/1.18.1/autenticacao")]
         [ValidateModelState]
         [SwaggerOperation("AutenticacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(AutenticacaoResp), description: "Retorno com sucesso.")]
@@ -75,7 +75,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/compraTitulosCapitalizacaoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/compraTitulosCapitalizacaoConf")]
         [ValidateModelState]
         [SwaggerOperation("CompraTitulosCapitalizacaoConfPost")]
         public virtual IActionResult CompraTitulosCapitalizacaoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -101,7 +101,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/compraTitulosCapitalizacao")]
+        [Route("/saqueepague/SepTransaction/1.18.1/compraTitulosCapitalizacao")]
         [ValidateModelState]
         [SwaggerOperation("CompraTitulosCapitalizacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(CompraTitulosCapitalizacaoResp), description: "Retorno com sucesso.")]
@@ -134,7 +134,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaConta")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaConta")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaContaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaContaResp), description: "Retorno com sucesso.")]
@@ -167,7 +167,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaLimitesEmprestimo")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaLimitesEmprestimo")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaLimitesEmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaLimitesEmprestimoResp), description: "Retorno com sucesso.")]
@@ -201,7 +201,7 @@ namespace IO.Swagger.Controllers
         /// <response code="400">Operação de consulta de pagamento não pode ser efetuada.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaPagamento")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaPagamento")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaPagamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaPagamentoResp), description: "Retorno com sucesso.")]
@@ -238,7 +238,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaParcelasEmprestimo")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaParcelasEmprestimo")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaParcelasEmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaParcelasEmprestimoResp), description: "Retorno com sucesso.")]
@@ -271,7 +271,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaPrePago")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaPrePago")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaPrePagoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaPrePagoResp), description: "Retorno com sucesso.")]
@@ -304,7 +304,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaProdutosRecarga")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaProdutosRecarga")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaProdutosRecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaProdutosRecargaResp), description: "Retorno com sucesso.")]
@@ -337,7 +337,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaSaque")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaSaque")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaSaquePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaSaqueResp), description: "Retorno com sucesso.")]
@@ -370,7 +370,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaTaxas")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaTaxas")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaTaxasPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaTaxasResp), description: "Retorno com sucesso.")]
@@ -403,7 +403,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaTitulosCapitalizacao")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaTitulosCapitalizacao")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaTitulosCapitalizacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaTitulosCapitalizacaoResp), description: "Retorno com sucesso.")]
@@ -436,7 +436,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/consultaValoresRecarga")]
+        [Route("/saqueepague/SepTransaction/1.18.1/consultaValoresRecarga")]
         [ValidateModelState]
         [SwaggerOperation("ConsultaValoresRecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ConsultaValoresRecargaResp), description: "Retorno com sucesso.")]
@@ -469,7 +469,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/depositoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/depositoConf")]
         [ValidateModelState]
         [SwaggerOperation("DepositoConfPost")]
         public virtual IActionResult DepositoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -495,7 +495,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/deposito")]
+        [Route("/saqueepague/SepTransaction/1.18.1/deposito")]
         [ValidateModelState]
         [SwaggerOperation("DepositoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(DepositoResp), description: "Retorno com sucesso.")]
@@ -528,7 +528,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/emprestimoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/emprestimoConf")]
         [ValidateModelState]
         [SwaggerOperation("EmprestimoConfPost")]
         public virtual IActionResult EmprestimoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -554,7 +554,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/emprestimo")]
+        [Route("/saqueepague/SepTransaction/1.18.1/emprestimo")]
         [ValidateModelState]
         [SwaggerOperation("EmprestimoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(EmprestimoResp), description: "Retorno com sucesso.")]
@@ -587,7 +587,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/extratoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/extratoConf")]
         [ValidateModelState]
         [SwaggerOperation("ExtratoConfPost")]
         public virtual IActionResult ExtratoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -613,7 +613,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/extrato")]
+        [Route("/saqueepague/SepTransaction/1.18.1/extrato")]
         [ValidateModelState]
         [SwaggerOperation("ExtratoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(ExtratoResp), description: "Retorno com sucesso.")]
@@ -646,7 +646,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/identificacao")]
+        [Route("/saqueepague/SepTransaction/1.18.1/identificacao")]
         [ValidateModelState]
         [SwaggerOperation("IdentificacaoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(IdentificacaoResp), description: "Retorno com sucesso.")]
@@ -679,7 +679,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/pagamentoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/pagamentoConf")]
         [ValidateModelState]
         [SwaggerOperation("PagamentoConfPost")]
         public virtual IActionResult PagamentoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -706,7 +706,7 @@ namespace IO.Swagger.Controllers
         /// <response code="400">Operação de pagamento não pode ser efetuada.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/pagamento")]
+        [Route("/saqueepague/SepTransaction/1.18.1/pagamento")]
         [ValidateModelState]
         [SwaggerOperation("PagamentoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(PagamentoResp), description: "Retorno com sucesso.")]
@@ -743,7 +743,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/recargaConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/recargaConf")]
         [ValidateModelState]
         [SwaggerOperation("RecargaConfPost")]
         public virtual IActionResult RecargaConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -769,7 +769,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/recarga")]
+        [Route("/saqueepague/SepTransaction/1.18.1/recarga")]
         [ValidateModelState]
         [SwaggerOperation("RecargaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(RecargaResp), description: "Retorno com sucesso.")]
@@ -802,7 +802,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/recargaPrePagoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/recargaPrePagoConf")]
         [ValidateModelState]
         [SwaggerOperation("RecargaPrePagoConfPost")]
         public virtual IActionResult RecargaPrePagoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -829,7 +829,7 @@ namespace IO.Swagger.Controllers
         /// <response code="400">Operação de recarga não pode ser efetuada.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/recargaPrePago")]
+        [Route("/saqueepague/SepTransaction/1.18.1/recargaPrePago")]
         [ValidateModelState]
         [SwaggerOperation("RecargaPrePagoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(RecargaPrePagoResp), description: "Retorno com sucesso.")]
@@ -866,7 +866,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/saldoConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/saldoConf")]
         [ValidateModelState]
         [SwaggerOperation("SaldoConfPost")]
         public virtual IActionResult SaldoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -892,7 +892,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/saldo")]
+        [Route("/saqueepague/SepTransaction/1.18.1/saldo")]
         [ValidateModelState]
         [SwaggerOperation("SaldoPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(SaldoResp), description: "Retorno com sucesso.")]
@@ -925,7 +925,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/saqueConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/saqueConf")]
         [ValidateModelState]
         [SwaggerOperation("SaqueConfPost")]
         public virtual IActionResult SaqueConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -951,7 +951,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/saque")]
+        [Route("/saqueepague/SepTransaction/1.18.1/saque")]
         [ValidateModelState]
         [SwaggerOperation("SaquePost")]
         [SwaggerResponse(statusCode: 200, type: typeof(SaqueResp), description: "Retorno com sucesso.")]
@@ -984,7 +984,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/transferenciaConf")]
+        [Route("/saqueepague/SepTransaction/1.18.1/transferenciaConf")]
         [ValidateModelState]
         [SwaggerOperation("TransferenciaConfPost")]
         public virtual IActionResult TransferenciaConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
@@ -1010,7 +1010,7 @@ namespace IO.Swagger.Controllers
         /// <response code="200">Retorno com sucesso.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.18.0/transferencia")]
+        [Route("/saqueepague/SepTransaction/1.18.1/transferencia")]
         [ValidateModelState]
         [SwaggerOperation("TransferenciaPost")]
         [SwaggerResponse(statusCode: 200, type: typeof(TransferenciaResp), description: "Retorno com sucesso.")]
