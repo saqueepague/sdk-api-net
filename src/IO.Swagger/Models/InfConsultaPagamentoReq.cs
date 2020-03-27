@@ -37,7 +37,6 @@ namespace IO.Swagger.Models
         /// <summary>
         /// Gets or Sets CodBarras
         /// </summary>
-        [Required]
         [DataMember(Name="codBarras")]
         public InfConsultaPagamentoReqCodBarras CodBarras { get; set; }
 
