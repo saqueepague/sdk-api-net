@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.18.1",
+    "version" : "1.18.2",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.18.1",
+  "basePath" : "/saqueepague/SepTransaction/1.18.2",
   "schemes" : [ "https" ],
   "paths" : {
     "/autenticacao" : {
@@ -4256,6 +4256,9 @@
           "description" : "Valor de desconto (12 dígitos, incluindo centavos).",
           "pattern" : "^\\d{12}$"
         },
+        "codBarras" : {
+          "$ref" : "#/definitions/infConsultaPagamentoResp_codBarras"
+        },
         "cip" : {
           "$ref" : "#/definitions/infConsultaPagamentoResp_cip"
         },
@@ -4288,6 +4291,9 @@
           "valorMultaCalculadada" : "000000000499"
         },
         "valorMinimo" : "000000000500",
+        "codBarras" : {
+          "codigo" : "codigo"
+        },
         "cedente" : "Saque e Pague"
       }
     },
@@ -4931,6 +4937,9 @@
             "valorMultaCalculadada" : "000000000499"
           },
           "valorMinimo" : "000000000500",
+          "codBarras" : {
+            "codigo" : "codigo"
+          },
           "cedente" : "Saque e Pague"
         }
       }
@@ -5379,7 +5388,6 @@
       }
     },
     "infConsultaPagamentoReq_codBarras" : {
-      "required" : [ "codigo", "modoEntrada" ],
       "properties" : {
         "codigo" : {
           "type" : "string",
@@ -5392,6 +5400,18 @@
           "description" : "Forma de entrada do código de barras (0 = escaneado, 1 = digitado).",
           "enum" : [ "0", "1" ]
         }
+      }
+    },
+    "infConsultaPagamentoResp_codBarras" : {
+      "properties" : {
+        "codigo" : {
+          "type" : "string",
+          "description" : "Código de barras do documento.Necessário caso no ConsultaPagamento o objeto infConsultaPagamento tenha sido apenas com CPF.",
+          "pattern" : "^\\d+$"
+        }
+      },
+      "example" : {
+        "codigo" : "codigo"
       }
     },
     "infConsultaPagamentoResp_cip" : {

@@ -22,18 +22,17 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações da resposta da requisição de autenticação.
+    /// 
     /// </summary>
     [DataContract]
-    public partial class InfAutenticacaoResp : IEquatable<InfAutenticacaoResp>
+    public partial class InfConsultaPagamentoRespCodBarras : IEquatable<InfConsultaPagamentoRespCodBarras>
     { 
         /// <summary>
-        /// Nome do cliente se autenticando.
+        /// Código de barras do documento.Necessário caso no ConsultaPagamento o objeto infConsultaPagamento tenha sido apenas com CPF.
         /// </summary>
-        /// <value>Nome do cliente se autenticando.</value>
-        [Required]
-        [DataMember(Name="nomeCliente")]
-        public string NomeCliente { get; set; }
+        /// <value>Código de barras do documento.Necessário caso no ConsultaPagamento o objeto infConsultaPagamento tenha sido apenas com CPF.</value>
+        [DataMember(Name="codigo")]
+        public string Codigo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -42,8 +41,8 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfAutenticacaoResp {\n");
-            sb.Append("  NomeCliente: ").Append(NomeCliente).Append("\n");
+            sb.Append("class InfConsultaPagamentoRespCodBarras {\n");
+            sb.Append("  Codigo: ").Append(Codigo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -66,24 +65,24 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfAutenticacaoResp)obj);
+            return obj.GetType() == GetType() && Equals((InfConsultaPagamentoRespCodBarras)obj);
         }
 
         /// <summary>
-        /// Returns true if InfAutenticacaoResp instances are equal
+        /// Returns true if InfConsultaPagamentoRespCodBarras instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfAutenticacaoResp to be compared</param>
+        /// <param name="other">Instance of InfConsultaPagamentoRespCodBarras to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfAutenticacaoResp other)
+        public bool Equals(InfConsultaPagamentoRespCodBarras other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    NomeCliente == other.NomeCliente ||
-                    NomeCliente != null &&
-                    NomeCliente.Equals(other.NomeCliente)
+                    Codigo == other.Codigo ||
+                    Codigo != null &&
+                    Codigo.Equals(other.Codigo)
                 );
         }
 
@@ -97,8 +96,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (NomeCliente != null)
-                    hashCode = hashCode * 59 + NomeCliente.GetHashCode();
+                    if (Codigo != null)
+                    hashCode = hashCode * 59 + Codigo.GetHashCode();
                 return hashCode;
             }
         }
@@ -106,12 +105,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfAutenticacaoResp left, InfAutenticacaoResp right)
+        public static bool operator ==(InfConsultaPagamentoRespCodBarras left, InfConsultaPagamentoRespCodBarras right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfAutenticacaoResp left, InfAutenticacaoResp right)
+        public static bool operator !=(InfConsultaPagamentoRespCodBarras left, InfConsultaPagamentoRespCodBarras right)
         {
             return !Equals(left, right);
         }
