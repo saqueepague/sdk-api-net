@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.18.2",
+    "version" : "1.18.3",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.18.2",
+  "basePath" : "/saqueepague/SepTransaction/1.18.3",
   "schemes" : [ "https" ],
   "paths" : {
     "/autenticacao" : {
@@ -50,10 +50,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/autenticacaoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -98,10 +101,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/compraTitulosCapitalizacaoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -146,7 +152,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -191,10 +200,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaContaResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -239,10 +251,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaLimitesEmprestimoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -287,10 +302,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaParcelasEmprestimoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -335,10 +353,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaPrePagoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -383,10 +404,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaProdutosRecargaResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -431,10 +455,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaSaqueResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -479,10 +506,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaTaxasResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -527,10 +557,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaTitulosCapitalizacaoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -575,10 +608,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaValoresRecargaResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -623,10 +659,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/depositoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -671,7 +710,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -716,10 +758,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/emprestimoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -764,7 +809,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -809,10 +857,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/extratoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -857,7 +908,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -902,10 +956,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/identificacaoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -950,10 +1007,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/recargaResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -998,7 +1058,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1043,16 +1106,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/pagamentoResp"
             }
           },
           "400" : {
-            "description" : "Operação de pagamento não pode ser efetuada.",
-            "schema" : {
-              "$ref" : "#/definitions/pagamentoResp"
-            }
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1097,16 +1157,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/consultaPagamentoResp"
             }
           },
           "400" : {
-            "description" : "Operação de consulta de pagamento não pode ser efetuada.",
-            "schema" : {
-              "$ref" : "#/definitions/consultaPagamentoResp"
-            }
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1151,16 +1208,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/recargaPrePagoResp"
             }
           },
           "400" : {
-            "description" : "Operação de recarga não pode ser efetuada.",
-            "schema" : {
-              "$ref" : "#/definitions/recargaPrePagoResp"
-            }
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1205,7 +1259,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1250,10 +1307,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/saldoResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1298,7 +1358,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1343,10 +1406,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/saqueResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1391,7 +1457,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1436,7 +1505,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1481,10 +1553,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso.",
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
             "schema" : {
               "$ref" : "#/definitions/transferenciaResp"
             }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -1529,7 +1604,10 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "Retorno com sucesso."
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
           },
           "401" : {
             "description" : "Acesso não autorizado."
@@ -4291,7 +4369,8 @@
         },
         "valorMinimo" : "000000000500",
         "codBarras" : {
-          "codigo" : "codigo"
+          "codigo" : "12345678912346579812345678912345678913456789123456789",
+          "dataVencimento" : "20181122"
         },
         "cedente" : "Saque e Pague"
       }
@@ -4547,7 +4626,7 @@
         "errorMessage" : {
           "type" : "string",
           "example" : "",
-          "description" : "Mensagem de erro, caso ocorra."
+          "description" : "Caso ocorra erro, este campo preenchido identifica que um erro ocorreu e seu valor."
         },
         "horaLocal" : {
           "type" : "string",
@@ -4558,7 +4637,7 @@
         "mensagemCliente" : {
           "type" : "string",
           "example" : "",
-          "description" : "Mensagem para ser mostrada na tela para o cliente, em caso de erro"
+          "description" : "Mensagem para ser mostrada na tela para o cliente, em caso de erro (objeto errorMessage deve estar preenchido para identificação de um erro)"
         },
         "nsu" : {
           "type" : "string",
@@ -4937,7 +5016,8 @@
           },
           "valorMinimo" : "000000000500",
           "codBarras" : {
-            "codigo" : "codigo"
+            "codigo" : "12345678912346579812345678912345678913456789123456789",
+            "dataVencimento" : "20181122"
           },
           "cedente" : "Saque e Pague"
         }
@@ -5348,10 +5428,11 @@
       }
     },
     "infPagamentoReq_codBarras" : {
-      "required" : [ "codigo", "dataPagamento", "dataVencimento", "modoEntrada", "numTitular", "valor" ],
+      "required" : [ "codigo", "dataPagamento", "dataVencimento", "modoEntrada", "valor" ],
       "properties" : {
         "codigo" : {
           "type" : "string",
+          "example" : "12345678912346579812345678912345678913456789123456789",
           "description" : "Código de barras do pagamento.",
           "pattern" : "^\\d+$"
         },
@@ -5390,6 +5471,7 @@
       "properties" : {
         "codigo" : {
           "type" : "string",
+          "example" : "12345678912346579812345678912345678913456789123456789",
           "description" : "Código de barras do documento.",
           "pattern" : "^\\d+$"
         },
@@ -5405,12 +5487,20 @@
       "properties" : {
         "codigo" : {
           "type" : "string",
+          "example" : "12345678912346579812345678912345678913456789123456789",
           "description" : "Código de barras do documento.Necessário caso no ConsultaPagamento o objeto infConsultaPagamento tenha sido apenas com CPF.",
           "pattern" : "^\\d+$"
+        },
+        "dataVencimento" : {
+          "type" : "string",
+          "example" : "20181122",
+          "description" : "Data de vencimento (AAAAMMDD).",
+          "pattern" : "^\\d{8}$"
         }
       },
       "example" : {
-        "codigo" : "codigo"
+        "codigo" : "12345678912346579812345678912345678913456789123456789",
+        "dataVencimento" : "20181122"
       }
     },
     "infConsultaPagamentoResp_cip" : {
