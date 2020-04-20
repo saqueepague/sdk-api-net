@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.18.3",
+    "version" : "1.19.0",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,11 +10,61 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.18.3",
+  "basePath" : "/saqueepague/SepTransaction/1.19.0",
+  "tags" : [ {
+    "name" : "Depósito com Cartão",
+    "description" : "Transações necessárias para efetuar um Depósito com Cartão."
+  }, {
+    "name" : "Depósito sem Cartão",
+    "description" : "Transações necessárias para efetuar um Depósito sem Cartão."
+  }, {
+    "name" : "Depósito via Carteira Digital",
+    "description" : "Transações necessárias para efetuar transação de Depósito via Carteira Digital."
+  }, {
+    "name" : "Empréstimo com Cartão",
+    "description" : "Transações necessárias para efetuar um Depósito sem Cartão."
+  }, {
+    "name" : "Extrato com Cartão",
+    "description" : "Transações necessárias para efetuar um Extrato com Cartão."
+  }, {
+    "name" : "Pagamento com Cartão",
+    "description" : "Transações necessárias para efetuar um Pagamento com Cartão."
+  }, {
+    "name" : "Pagamento sem Cartão",
+    "description" : "Transações necessárias para efetuar um Pagamento sem Cartão."
+  }, {
+    "name" : "Recarga",
+    "description" : "Transações necessárias para efetuar uma Recarga de cartão Pré-Pago."
+  }, {
+    "name" : "Recarga Celular",
+    "description" : "Transações necessárias para efetuar uma Recarga de celular Pré-Pago."
+  }, {
+    "name" : "Saldo com Cartão",
+    "description" : "Transações necessárias para efetuar um Saldo com Cartão."
+  }, {
+    "name" : "Saque com Cartão",
+    "description" : "Transações necessárias para efetuar um Saque com Cartão."
+  }, {
+    "name" : "Saque sem Cartão",
+    "description" : "Transações necessárias para efetuar um Saque sem Cartão."
+  }, {
+    "name" : "Saque via Carteira Digital",
+    "description" : "Transações necessárias para efetuar transação de Saque via Carteira Digital."
+  }, {
+    "name" : "Transferência com Cartão",
+    "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
+  }, {
+    "name" : "Transferência sem Cartão",
+    "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
+  }, {
+    "name" : "Títulos de Capitalização",
+    "description" : "Transações de compra de Títulos de Capitalização."
+  } ],
   "schemes" : [ "https" ],
   "paths" : {
     "/autenticacao" : {
       "post" : {
+        "tags" : [ "Saque via Carteira Digital" ],
         "description" : "Operação de autenticação de cliente sem cartão, chamada para retornar o nome do cliente autenticado.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -66,6 +116,7 @@
     },
     "/compraTitulosCapitalizacao" : {
       "post" : {
+        "tags" : [ "Títulos de Capitalização" ],
         "description" : "Operação de compra de títulos de capitalização.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -117,6 +168,7 @@
     },
     "/compraTitulosCapitalizacaoConf" : {
       "post" : {
+        "tags" : [ "Títulos de Capitalização" ],
         "description" : "Confirmação de operação de compra de títulos de capitalização.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -165,6 +217,7 @@
     },
     "/consultaConta" : {
       "post" : {
+        "tags" : [ "Depósito sem Cartão", "Depósito via Carteira Digital", "Transferência com Cartão", "Transferência sem Cartão" ],
         "description" : "Operação de consulta de conta de favorecido, usada previamente ao depósito para verificar se a conta é válida e está habilitada para depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -216,6 +269,7 @@
     },
     "/consultaLimitesEmprestimo" : {
       "post" : {
+        "tags" : [ "Empréstimo com Cartão" ],
         "description" : "Operação de consulta dos limites disponíveis para empréstimo. Esta operação é válida somente com os dados do cartão.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -265,8 +319,61 @@
         }
       }
     },
+    "/consultaPagamento" : {
+      "post" : {
+        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "description" : "Operação de consulta de informações do boleto a ser pago em dinheiro ou débito em conta.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "authenticationType",
+          "in" : "header",
+          "description" : "Tipo de autenticação requerida.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "auth2"
+        }, {
+          "name" : "clientId",
+          "in" : "header",
+          "description" : "Identificação do cliente.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        }, {
+          "name" : "token",
+          "in" : "header",
+          "description" : "Chave para validação do acesso ao serviço.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Requisição para consulta de pagamento de boleto com cartão.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/consultaPagamentoReq"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
+            "schema" : {
+              "$ref" : "#/definitions/consultaPagamentoResp"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
+          },
+          "401" : {
+            "description" : "Acesso não autorizado."
+          }
+        }
+      }
+    },
     "/consultaParcelasEmprestimo" : {
       "post" : {
+        "tags" : [ "Empréstimo com Cartão" ],
         "description" : "Operação de consulta de condições disponíveis de parcelamento do empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -318,6 +425,7 @@
     },
     "/consultaPrePago" : {
       "post" : {
+        "tags" : [ "Recarga Celular" ],
         "description" : "Operação de consulta dos possíveis produtos de recarga de cartão pré-pago. Operação relacionada a transação consultaPrePago.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -369,6 +477,7 @@
     },
     "/consultaProdutosRecarga" : {
       "post" : {
+        "tags" : [ "Recarga" ],
         "description" : "Operação de consulta dos possíveis produtos de recarga de transporte para o cartão informado pelo cliente. Operação relacionada a transação consultaProdutosRecarga.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -420,6 +529,7 @@
     },
     "/consultaSaque" : {
       "post" : {
+        "tags" : [ "Saque sem Cartão" ],
         "description" : "Operação de consulta para saque de moeda estrangeira (câmbio). Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -471,6 +581,7 @@
     },
     "/consultaTaxas" : {
       "post" : {
+        "tags" : [ "Saque via Carteira Digital", "Depósito via Carteira Digital" ],
         "description" : "Operação de consulta de taxas dinâmicas, requisitado antes de depósito ou saque de carteira de digital.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -522,6 +633,7 @@
     },
     "/consultaTitulosCapitalizacao" : {
       "post" : {
+        "tags" : [ "Títulos de Capitalização" ],
         "description" : "Operação de consulta dos possíveis produtos de títulos de capitalização de uma operadora.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -573,6 +685,7 @@
     },
     "/consultaValoresRecarga" : {
       "post" : {
+        "tags" : [ "Recarga" ],
         "description" : "Operação de consulta dos produtos de recarga de cartão pré-pago de transporte. Traz uma lista de todas as operadoras e seus respectivos produtos/valores.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -624,6 +737,7 @@
     },
     "/deposito" : {
       "post" : {
+        "tags" : [ "Depósito sem Cartão", "Depósito com Cartão", "Depósito via Carteira Digital" ],
         "description" : "Operação de depósito em dinheiro, cartão é opcional nesta operação.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -675,6 +789,7 @@
     },
     "/depositoConf" : {
       "post" : {
+        "tags" : [ "Depósito sem Cartão", "Depósito com Cartão", "Depósito via Carteira Digital" ],
         "description" : "Confirmação de operação de depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -723,6 +838,7 @@
     },
     "/emprestimo" : {
       "post" : {
+        "tags" : [ "Empréstimo com Cartão" ],
         "description" : "Operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -774,6 +890,7 @@
     },
     "/emprestimoConf" : {
       "post" : {
+        "tags" : [ "Empréstimo com Cartão" ],
         "description" : "Confirmação de operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -822,6 +939,7 @@
     },
     "/extrato" : {
       "post" : {
+        "tags" : [ "Extrato com Cartão" ],
         "description" : "Operação de extrato.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -873,6 +991,7 @@
     },
     "/extratoConf" : {
       "post" : {
+        "tags" : [ "Extrato com Cartão" ],
         "description" : "Confirmação de operação de extrato.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -921,6 +1040,7 @@
     },
     "/identificacao" : {
       "post" : {
+        "tags" : [ "Saque com Cartão", "Saldo com Cartão", "Extrato com Cartão", "Depósito com Cartão", "Empréstimo com Cartão", "Pagamento com Cartão", "Transferência com Cartão" ],
         "description" : "Operação de identificação do cliente e informações adicionais de sua conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -970,8 +1090,110 @@
         }
       }
     },
+    "/pagamento" : {
+      "post" : {
+        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "description" : "Operação de pagamento de boleto de cobrança com cartão.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "authenticationType",
+          "in" : "header",
+          "description" : "Tipo de autenticação requerida.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "auth2"
+        }, {
+          "name" : "clientId",
+          "in" : "header",
+          "description" : "Identificação do cliente.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        }, {
+          "name" : "token",
+          "in" : "header",
+          "description" : "Chave para validação do acesso ao serviço.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Requisição para pagamento de boleto com cartão.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/pagamentoReq"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
+            "schema" : {
+              "$ref" : "#/definitions/pagamentoResp"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
+          },
+          "401" : {
+            "description" : "Acesso não autorizado."
+          }
+        }
+      }
+    },
+    "/pagamentoConf" : {
+      "post" : {
+        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "description" : "Confirmação de operação de pagamento de boleto de cobrança.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "authenticationType",
+          "in" : "header",
+          "description" : "Tipo de autenticação requerida.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "auth2"
+        }, {
+          "name" : "clientId",
+          "in" : "header",
+          "description" : "Identificação do cliente.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        }, {
+          "name" : "token",
+          "in" : "header",
+          "description" : "Chave para validação do acesso ao serviço.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Requisição de confirmação de operação de pagamento.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/transacConf"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retorno com sucesso ou com Erro de negócio."
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
+          },
+          "401" : {
+            "description" : "Acesso não autorizado."
+          }
+        }
+      }
+    },
     "/recarga" : {
       "post" : {
+        "tags" : [ "Recarga" ],
         "description" : "Operação de recarga de cartão pré-pago de transporte (bilhetagem) em dinheiro.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1023,6 +1245,7 @@
     },
     "/recargaConf" : {
       "post" : {
+        "tags" : [ "Recarga" ],
         "description" : "Operação de confirmação de recarga de cartão pré-pago de transporte (bilhetagem).",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1069,110 +1292,9 @@
         }
       }
     },
-    "/pagamento" : {
-      "post" : {
-        "description" : "Operação de pagamento de boleto de cobrança com cartão.",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "authenticationType",
-          "in" : "header",
-          "description" : "Tipo de autenticação requerida.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "auth2"
-        }, {
-          "name" : "clientId",
-          "in" : "header",
-          "description" : "Identificação do cliente.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "prd-client"
-        }, {
-          "name" : "token",
-          "in" : "header",
-          "description" : "Chave para validação do acesso ao serviço.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Requisição para pagamento de boleto com cartão.",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/pagamentoReq"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retorno com sucesso ou com Erro de negócio.",
-            "schema" : {
-              "$ref" : "#/definitions/pagamentoResp"
-            }
-          },
-          "400" : {
-            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
-          },
-          "401" : {
-            "description" : "Acesso não autorizado."
-          }
-        }
-      }
-    },
-    "/consultaPagamento" : {
-      "post" : {
-        "description" : "Operação de consulta de informações do boleto a ser pago em dinheiro ou débito em conta.",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "authenticationType",
-          "in" : "header",
-          "description" : "Tipo de autenticação requerida.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "auth2"
-        }, {
-          "name" : "clientId",
-          "in" : "header",
-          "description" : "Identificação do cliente.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "prd-client"
-        }, {
-          "name" : "token",
-          "in" : "header",
-          "description" : "Chave para validação do acesso ao serviço.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Requisição para consulta de pagamento de boleto com cartão.",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/consultaPagamentoReq"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retorno com sucesso ou com Erro de negócio.",
-            "schema" : {
-              "$ref" : "#/definitions/consultaPagamentoResp"
-            }
-          },
-          "400" : {
-            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
-          },
-          "401" : {
-            "description" : "Acesso não autorizado."
-          }
-        }
-      }
-    },
     "/recargaPrePago" : {
       "post" : {
+        "tags" : [ "Recarga Celular" ],
         "description" : "Operação de recarga de celular pré-pago.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1224,6 +1346,7 @@
     },
     "/recargaPrePagoConf" : {
       "post" : {
+        "tags" : [ "Recarga Celular" ],
         "description" : "Confirmação de operação de recarga.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1272,6 +1395,7 @@
     },
     "/saldo" : {
       "post" : {
+        "tags" : [ "Saldo com Cartão" ],
         "description" : "Operação de consulta do valor de saldo disponível em conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1323,6 +1447,7 @@
     },
     "/saldoConf" : {
       "post" : {
+        "tags" : [ "Saldo com Cartão" ],
         "description" : "Confirmação de operação de consulta de saldo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1371,6 +1496,7 @@
     },
     "/saque" : {
       "post" : {
+        "tags" : [ "Saque com Cartão", "Saque sem Cartão", "Saque via Carteira Digital" ],
         "description" : "Operação de saque de dinheiro em moeda local ou estrangeira.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1422,6 +1548,7 @@
     },
     "/saqueConf" : {
       "post" : {
+        "tags" : [ "Saque com Cartão", "Saque sem Cartão", "Saque via Carteira Digital" ],
         "description" : "Confirmação de operação de saque.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1468,56 +1595,9 @@
         }
       }
     },
-    "/pagamentoConf" : {
-      "post" : {
-        "description" : "Confirmação de operação de pagamento de boleto de cobrança.",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "authenticationType",
-          "in" : "header",
-          "description" : "Tipo de autenticação requerida.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "auth2"
-        }, {
-          "name" : "clientId",
-          "in" : "header",
-          "description" : "Identificação do cliente.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "prd-client"
-        }, {
-          "name" : "token",
-          "in" : "header",
-          "description" : "Chave para validação do acesso ao serviço.",
-          "required" : true,
-          "type" : "string",
-          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "Requisição de confirmação de operação de pagamento.",
-          "required" : true,
-          "schema" : {
-            "$ref" : "#/definitions/transacConf"
-          }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "Retorno com sucesso ou com Erro de negócio."
-          },
-          "400" : {
-            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
-          },
-          "401" : {
-            "description" : "Acesso não autorizado."
-          }
-        }
-      }
-    },
     "/transferencia" : {
       "post" : {
+        "tags" : [ "Transferência com Cartão", "Transferência sem Cartão" ],
         "description" : "Operação de transferência entre contas.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1569,6 +1649,7 @@
     },
     "/transferenciaConf" : {
       "post" : {
+        "tags" : [ "Transferência com Cartão", "Transferência sem Cartão" ],
         "description" : "Confirmação de operação de transferência.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1652,7 +1733,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -1733,7 +1814,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -1792,7 +1873,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -1855,7 +1936,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -1927,7 +2008,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -1980,7 +2061,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2034,7 +2115,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2097,7 +2178,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2159,7 +2240,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2252,7 +2333,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2302,7 +2383,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2391,7 +2472,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2585,7 +2666,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2647,7 +2728,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2713,7 +2794,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -2813,7 +2894,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -4257,6 +4338,7 @@
         },
         "mensagem" : {
           "type" : "string",
+          "example" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "description" : "Mensagem informativa quanto à alteração de valores e/ou data de pagamento pelo paceiro."
         },
         "qtdeViasComprovante" : {
@@ -4283,7 +4365,7 @@
         "qtdeViasComprovante" : "1",
         "dataPagamento" : "20181122",
         "desconto" : "000000000499",
-        "mensagem" : "mensagem",
+        "mensagem" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
         "valor" : "000000005000",
         "cedente" : "Saque e Pague"
       }
@@ -4325,6 +4407,7 @@
         },
         "mensagem" : {
           "type" : "string",
+          "example" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "description" : "Mensagem informativa quanto à alteração de valores e/ou data de pagamento pelo paceiro."
         },
         "desconto" : {
@@ -4357,7 +4440,7 @@
         "aceitaPagamentoParcial" : "01",
         "dataPagamento" : "20181122",
         "desconto" : "000000000499",
-        "mensagem" : "mensagem",
+        "mensagem" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
         "valor" : "000000005000",
         "cip" : {
           "valorMaximoPermitidoPagamento" : "000000050000",
@@ -4636,8 +4719,8 @@
         },
         "mensagemCliente" : {
           "type" : "string",
-          "example" : "",
-          "description" : "Mensagem para ser mostrada na tela para o cliente, em caso de erro (objeto errorMessage deve estar preenchido para identificação de um erro)"
+          "example" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "description" : "Mensagem para ser mostrada na tela para o cliente, em caso de erro (objeto errorMessage deve estar preenchido para identificação de um erro)."
         },
         "nsu" : {
           "type" : "string",
@@ -4661,7 +4744,7 @@
       "description" : "Informações sobre a resposta da requisição de transação.",
       "example" : {
         "cdProc" : "029100",
-        "mensagemCliente" : "",
+        "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
         "nsu" : "000080247206",
         "codMoeda" : "986",
         "codOperadora" : "00000000914",
@@ -4851,7 +4934,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -4916,13 +4999,13 @@
           "qtdeViasComprovante" : "1",
           "dataPagamento" : "20181122",
           "desconto" : "000000000499",
-          "mensagem" : "mensagem",
+          "mensagem" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "valor" : "000000005000",
           "cedente" : "Saque e Pague"
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -4981,7 +5064,7 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -5004,7 +5087,7 @@
           "aceitaPagamentoParcial" : "01",
           "dataPagamento" : "20181122",
           "desconto" : "000000000499",
-          "mensagem" : "mensagem",
+          "mensagem" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "valor" : "000000005000",
           "cip" : {
             "valorMaximoPermitidoPagamento" : "000000050000",
@@ -5067,7 +5150,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -5132,7 +5215,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
@@ -5203,7 +5286,7 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
           "nsu" : "000080247206",
           "codMoeda" : "986",
           "codOperadora" : "00000000914",
