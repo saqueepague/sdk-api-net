@@ -22,17 +22,24 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Lista de todas as operadoras e seus respectivos produtos/valores.
+    /// Informações da requisição de consulta de Token.
     /// </summary>
     [DataContract]
-    public partial class InfConsultaValoresRecargaRespValores : IEquatable<InfConsultaValoresRecargaRespValores>
+    public partial class InfTokenResp : IEquatable<InfTokenResp>
     { 
         /// <summary>
-        /// Gets or Sets Issuers
+        /// Token retornado.
         /// </summary>
-        [Required]
-        [DataMember(Name="issuers")]
-        public List<IssuerObj> Issuers { get; set; }
+        /// <value>Token retornado.</value>
+        [DataMember(Name="access_token")]
+        public string AccessToken { get; set; }
+
+        /// <summary>
+        /// Tipo do token.
+        /// </summary>
+        /// <value>Tipo do token.</value>
+        [DataMember(Name="token_type")]
+        public string TokenType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -41,8 +48,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfConsultaValoresRecargaRespValores {\n");
-            sb.Append("  Issuers: ").Append(Issuers).Append("\n");
+            sb.Append("class InfTokenResp {\n");
+            sb.Append("  AccessToken: ").Append(AccessToken).Append("\n");
+            sb.Append("  TokenType: ").Append(TokenType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -65,24 +73,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfConsultaValoresRecargaRespValores)obj);
+            return obj.GetType() == GetType() && Equals((InfTokenResp)obj);
         }
 
         /// <summary>
-        /// Returns true if InfConsultaValoresRecargaRespValores instances are equal
+        /// Returns true if InfTokenResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfConsultaValoresRecargaRespValores to be compared</param>
+        /// <param name="other">Instance of InfTokenResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfConsultaValoresRecargaRespValores other)
+        public bool Equals(InfTokenResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Issuers == other.Issuers ||
-                    Issuers != null &&
-                    Issuers.SequenceEqual(other.Issuers)
+                    AccessToken == other.AccessToken ||
+                    AccessToken != null &&
+                    AccessToken.Equals(other.AccessToken)
+                ) && 
+                (
+                    TokenType == other.TokenType ||
+                    TokenType != null &&
+                    TokenType.Equals(other.TokenType)
                 );
         }
 
@@ -96,8 +109,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Issuers != null)
-                    hashCode = hashCode * 59 + Issuers.GetHashCode();
+                    if (AccessToken != null)
+                    hashCode = hashCode * 59 + AccessToken.GetHashCode();
+                    if (TokenType != null)
+                    hashCode = hashCode * 59 + TokenType.GetHashCode();
                 return hashCode;
             }
         }
@@ -105,12 +120,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfConsultaValoresRecargaRespValores left, InfConsultaValoresRecargaRespValores right)
+        public static bool operator ==(InfTokenResp left, InfTokenResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfConsultaValoresRecargaRespValores left, InfConsultaValoresRecargaRespValores right)
+        public static bool operator !=(InfTokenResp left, InfTokenResp right)
         {
             return !Equals(left, right);
         }

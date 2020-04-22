@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.19.0",
+    "version" : "1.19.1",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,27 +10,27 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.19.0",
+  "basePath" : "/saqueepague/SepTransaction/1.19.1",
   "tags" : [ {
-    "name" : "Depósito com Cartão",
+    "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
   }, {
-    "name" : "Depósito sem Cartão",
-    "description" : "Transações necessárias para efetuar um Depósito sem Cartão."
+    "name" : "Deposito sem Cartao",
+    "description" : "Transações necessárias para efetuar um Deposito via Carteira Digital."
   }, {
-    "name" : "Depósito via Carteira Digital",
-    "description" : "Transações necessárias para efetuar transação de Depósito via Carteira Digital."
+    "name" : "Deposito via Carteira Digital",
+    "description" : "Transações necessárias para efetuar transação de Extrato com Cartaoia Carteira Digital."
   }, {
-    "name" : "Empréstimo com Cartão",
-    "description" : "Transações necessárias para efetuar um Depósito sem Cartão."
+    "name" : "Emprestimo com Cartao",
+    "description" : "Transações necessárias para efetuar um Empréstimo com Cartão."
   }, {
-    "name" : "Extrato com Cartão",
-    "description" : "Transações necessárias para efetuar um Extrato com Cartão."
+    "name" : "Extrato com Cartao",
+    "description" : "Transações necessárias para efetuar um Pagamento com Cartao."
   }, {
-    "name" : "Pagamento com Cartão",
+    "name" : "Pagamento com Cartao",
     "description" : "Transações necessárias para efetuar um Pagamento com Cartão."
   }, {
-    "name" : "Pagamento sem Cartão",
+    "name" : "Pagamento sem Cartao",
     "description" : "Transações necessárias para efetuar um Pagamento sem Cartão."
   }, {
     "name" : "Recarga",
@@ -39,32 +39,35 @@
     "name" : "Recarga Celular",
     "description" : "Transações necessárias para efetuar uma Recarga de celular Pré-Pago."
   }, {
-    "name" : "Saldo com Cartão",
+    "name" : "Saldo com Cartao",
     "description" : "Transações necessárias para efetuar um Saldo com Cartão."
   }, {
-    "name" : "Saque com Cartão",
+    "name" : "Saque com Cartao",
     "description" : "Transações necessárias para efetuar um Saque com Cartão."
   }, {
-    "name" : "Saque sem Cartão",
+    "name" : "Saque sem Cartao",
     "description" : "Transações necessárias para efetuar um Saque sem Cartão."
   }, {
     "name" : "Saque via Carteira Digital",
     "description" : "Transações necessárias para efetuar transação de Saque via Carteira Digital."
   }, {
-    "name" : "Transferência com Cartão",
+    "name" : "Transferencia com Cartao",
     "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
   }, {
-    "name" : "Transferência sem Cartão",
-    "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
+    "name" : "Transferencia sem Cartao",
+    "description" : "Transações necessárias para efetuar uma Transferência sem Cartão."
   }, {
-    "name" : "Títulos de Capitalização",
+    "name" : "Titulos de Capitalizacao",
     "description" : "Transações de compra de Títulos de Capitalização."
+  }, {
+    "name" : "Default",
+    "description" : "Todas transações da Saque e Pague."
   } ],
   "schemes" : [ "https" ],
   "paths" : {
     "/autenticacao" : {
       "post" : {
-        "tags" : [ "Saque via Carteira Digital" ],
+        "tags" : [ "Saque via Carteira Digital", "Default" ],
         "description" : "Operação de autenticação de cliente sem cartão, chamada para retornar o nome do cliente autenticado.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -116,7 +119,7 @@
     },
     "/compraTitulosCapitalizacao" : {
       "post" : {
-        "tags" : [ "Títulos de Capitalização" ],
+        "tags" : [ "Titulos de Capitalizacao", "Default" ],
         "description" : "Operação de compra de títulos de capitalização.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -168,7 +171,7 @@
     },
     "/compraTitulosCapitalizacaoConf" : {
       "post" : {
-        "tags" : [ "Títulos de Capitalização" ],
+        "tags" : [ "Titulos de Capitalizacao", "Default" ],
         "description" : "Confirmação de operação de compra de títulos de capitalização.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -217,7 +220,7 @@
     },
     "/consultaConta" : {
       "post" : {
-        "tags" : [ "Depósito sem Cartão", "Depósito via Carteira Digital", "Transferência com Cartão", "Transferência sem Cartão" ],
+        "tags" : [ "Deposito sem Cartao", "Deposito via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Default" ],
         "description" : "Operação de consulta de conta de favorecido, usada previamente ao depósito para verificar se a conta é válida e está habilitada para depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -269,7 +272,7 @@
     },
     "/consultaLimitesEmprestimo" : {
       "post" : {
-        "tags" : [ "Empréstimo com Cartão" ],
+        "tags" : [ "Emprestimo com Cartao", "Default" ],
         "description" : "Operação de consulta dos limites disponíveis para empréstimo. Esta operação é válida somente com os dados do cartão.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -321,7 +324,7 @@
     },
     "/consultaPagamento" : {
       "post" : {
-        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "tags" : [ "Pagamento com Cartao", "Pagamento sem Cartao", "Default" ],
         "description" : "Operação de consulta de informações do boleto a ser pago em dinheiro ou débito em conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -373,7 +376,7 @@
     },
     "/consultaParcelasEmprestimo" : {
       "post" : {
-        "tags" : [ "Empréstimo com Cartão" ],
+        "tags" : [ "Emprestimo com Cartao", "Default" ],
         "description" : "Operação de consulta de condições disponíveis de parcelamento do empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -425,7 +428,7 @@
     },
     "/consultaPrePago" : {
       "post" : {
-        "tags" : [ "Recarga Celular" ],
+        "tags" : [ "Recarga Celular", "Default" ],
         "description" : "Operação de consulta dos possíveis produtos de recarga de cartão pré-pago. Operação relacionada a transação consultaPrePago.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -477,7 +480,7 @@
     },
     "/consultaProdutosRecarga" : {
       "post" : {
-        "tags" : [ "Recarga" ],
+        "tags" : [ "Recarga", "Default" ],
         "description" : "Operação de consulta dos possíveis produtos de recarga de transporte para o cartão informado pelo cliente. Operação relacionada a transação consultaProdutosRecarga.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -529,7 +532,7 @@
     },
     "/consultaSaque" : {
       "post" : {
-        "tags" : [ "Saque sem Cartão" ],
+        "tags" : [ "Saque sem Cartao", "Default" ],
         "description" : "Operação de consulta para saque de moeda estrangeira (câmbio). Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -581,7 +584,7 @@
     },
     "/consultaTaxas" : {
       "post" : {
-        "tags" : [ "Saque via Carteira Digital", "Depósito via Carteira Digital" ],
+        "tags" : [ "Saque via Carteira Digital", "Deposito via Carteira Digital", "Default" ],
         "description" : "Operação de consulta de taxas dinâmicas, requisitado antes de depósito ou saque de carteira de digital.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -633,7 +636,7 @@
     },
     "/consultaTitulosCapitalizacao" : {
       "post" : {
-        "tags" : [ "Títulos de Capitalização" ],
+        "tags" : [ "Titulos de Capitalizacao", "Default" ],
         "description" : "Operação de consulta dos possíveis produtos de títulos de capitalização de uma operadora.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -685,7 +688,7 @@
     },
     "/consultaValoresRecarga" : {
       "post" : {
-        "tags" : [ "Recarga" ],
+        "tags" : [ "Recarga", "Default" ],
         "description" : "Operação de consulta dos produtos de recarga de cartão pré-pago de transporte. Traz uma lista de todas as operadoras e seus respectivos produtos/valores.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -737,7 +740,7 @@
     },
     "/deposito" : {
       "post" : {
-        "tags" : [ "Depósito sem Cartão", "Depósito com Cartão", "Depósito via Carteira Digital" ],
+        "tags" : [ "Deposito sem Cartao", "Deposito com Cartao", "Deposito via Carteira Digital", "Default" ],
         "description" : "Operação de depósito em dinheiro, cartão é opcional nesta operação.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -789,7 +792,7 @@
     },
     "/depositoConf" : {
       "post" : {
-        "tags" : [ "Depósito sem Cartão", "Depósito com Cartão", "Depósito via Carteira Digital" ],
+        "tags" : [ "Deposito sem Cartao", "Deposito com Cartao", "Deposito via Carteira Digital", "Default" ],
         "description" : "Confirmação de operação de depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -838,7 +841,7 @@
     },
     "/emprestimo" : {
       "post" : {
-        "tags" : [ "Empréstimo com Cartão" ],
+        "tags" : [ "Emprestimo com Cartao", "Default" ],
         "description" : "Operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -890,7 +893,7 @@
     },
     "/emprestimoConf" : {
       "post" : {
-        "tags" : [ "Empréstimo com Cartão" ],
+        "tags" : [ "Emprestimo com Cartao", "Default" ],
         "description" : "Confirmação de operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -939,7 +942,7 @@
     },
     "/extrato" : {
       "post" : {
-        "tags" : [ "Extrato com Cartão" ],
+        "tags" : [ "Extrato com Cartao", "Default" ],
         "description" : "Operação de extrato.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -991,7 +994,7 @@
     },
     "/extratoConf" : {
       "post" : {
-        "tags" : [ "Extrato com Cartão" ],
+        "tags" : [ "Extrato com Cartao", "Default" ],
         "description" : "Confirmação de operação de extrato.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1040,7 +1043,7 @@
     },
     "/identificacao" : {
       "post" : {
-        "tags" : [ "Saque com Cartão", "Saldo com Cartão", "Extrato com Cartão", "Depósito com Cartão", "Empréstimo com Cartão", "Pagamento com Cartão", "Transferência com Cartão" ],
+        "tags" : [ "Saque com Cartao", "Saldo com Cartao", "Extrato com Cartao", "Deposito com Cartao", "Emprestimo com Cartao", "Pagamento com Cartao", "Transferencia com Cartao", "Default" ],
         "description" : "Operação de identificação do cliente e informações adicionais de sua conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1092,7 +1095,7 @@
     },
     "/pagamento" : {
       "post" : {
-        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "tags" : [ "Pagamento com Cartao", "Pagamento sem Cartao", "Default" ],
         "description" : "Operação de pagamento de boleto de cobrança com cartão.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1144,7 +1147,7 @@
     },
     "/pagamentoConf" : {
       "post" : {
-        "tags" : [ "Pagamento com Cartão", "Pagamento sem Cartão" ],
+        "tags" : [ "Pagamento com Cartao", "Pagamento sem Cartao", "Default" ],
         "description" : "Confirmação de operação de pagamento de boleto de cobrança.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1193,7 +1196,7 @@
     },
     "/recarga" : {
       "post" : {
-        "tags" : [ "Recarga" ],
+        "tags" : [ "Recarga", "Default" ],
         "description" : "Operação de recarga de cartão pré-pago de transporte (bilhetagem) em dinheiro.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1245,7 +1248,7 @@
     },
     "/recargaConf" : {
       "post" : {
-        "tags" : [ "Recarga" ],
+        "tags" : [ "Recarga", "Default" ],
         "description" : "Operação de confirmação de recarga de cartão pré-pago de transporte (bilhetagem).",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1294,7 +1297,7 @@
     },
     "/recargaPrePago" : {
       "post" : {
-        "tags" : [ "Recarga Celular" ],
+        "tags" : [ "Recarga Celular", "Default" ],
         "description" : "Operação de recarga de celular pré-pago.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1346,7 +1349,7 @@
     },
     "/recargaPrePagoConf" : {
       "post" : {
-        "tags" : [ "Recarga Celular" ],
+        "tags" : [ "Recarga Celular", "Default" ],
         "description" : "Confirmação de operação de recarga.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1395,7 +1398,7 @@
     },
     "/saldo" : {
       "post" : {
-        "tags" : [ "Saldo com Cartão" ],
+        "tags" : [ "Saldo com Cartao", "Default" ],
         "description" : "Operação de consulta do valor de saldo disponível em conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1447,7 +1450,7 @@
     },
     "/saldoConf" : {
       "post" : {
-        "tags" : [ "Saldo com Cartão" ],
+        "tags" : [ "Saldo com Cartao", "Default" ],
         "description" : "Confirmação de operação de consulta de saldo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1496,7 +1499,7 @@
     },
     "/saque" : {
       "post" : {
-        "tags" : [ "Saque com Cartão", "Saque sem Cartão", "Saque via Carteira Digital" ],
+        "tags" : [ "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Default" ],
         "description" : "Operação de saque de dinheiro em moeda local ou estrangeira.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1548,7 +1551,7 @@
     },
     "/saqueConf" : {
       "post" : {
-        "tags" : [ "Saque com Cartão", "Saque sem Cartão", "Saque via Carteira Digital" ],
+        "tags" : [ "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Default" ],
         "description" : "Confirmação de operação de saque.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1595,9 +1598,46 @@
         }
       }
     },
+    "/token" : {
+      "post" : {
+        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Extrato com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Titulos de Capitalizacao" ],
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "authenticationType",
+          "in" : "header",
+          "description" : "Tipo de autenticação requerida.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "auth2"
+        }, {
+          "name" : "clientId",
+          "in" : "header",
+          "description" : "Identificação do cliente.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        }, {
+          "name" : "clientSecret",
+          "in" : "header",
+          "description" : "Cliente Secret.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
+            "schema" : {
+              "$ref" : "#/definitions/infTokenResp"
+            }
+          }
+        }
+      }
+    },
     "/transferencia" : {
       "post" : {
-        "tags" : [ "Transferência com Cartão", "Transferência sem Cartão" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
         "description" : "Operação de transferência entre contas.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1649,7 +1689,7 @@
     },
     "/transferenciaConf" : {
       "post" : {
-        "tags" : [ "Transferência com Cartão", "Transferência sem Cartão" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
         "description" : "Confirmação de operação de transferência.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -3541,6 +3581,26 @@
         "max_amount" : "10000",
         "id" : "0201",
         "value" : "000"
+      }
+    },
+    "infTokenResp" : {
+      "type" : "object",
+      "properties" : {
+        "access_token" : {
+          "type" : "string",
+          "example" : "847c2530-9819-434b-82fb-a9058a1ec957",
+          "description" : "Token retornado."
+        },
+        "token_type" : {
+          "type" : "string",
+          "example" : "bearer",
+          "description" : "Tipo do token."
+        }
+      },
+      "description" : "Informações da requisição de consulta de Token.",
+      "example" : {
+        "access_token" : "847c2530-9819-434b-82fb-a9058a1ec957",
+        "token_type" : "bearer"
       }
     },
     "infConsultaTitulosCapitalizacaoResp" : {
