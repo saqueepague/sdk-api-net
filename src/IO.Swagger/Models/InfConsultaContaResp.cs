@@ -152,6 +152,34 @@ namespace IO.Swagger.Models
         public SolicDocEnum? SolicDoc { get; set; }
 
         /// <summary>
+        /// Indica se a conta em questão permite Depósito Varejista  (00 = Não / 01 = Sim).
+        /// </summary>
+        /// <value>Indica se a conta em questão permite Depósito Varejista  (00 = Não / 01 = Sim).</value>
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public enum DepositoVarejistaEnum
+        {
+            
+            /// <summary>
+            /// Enum _00Enum for 00
+            /// </summary>
+            [EnumMember(Value = "00")]
+            _00Enum = 1,
+            
+            /// <summary>
+            /// Enum _01Enum for 01
+            /// </summary>
+            [EnumMember(Value = "01")]
+            _01Enum = 2
+        }
+
+        /// <summary>
+        /// Indica se a conta em questão permite Depósito Varejista  (00 &#x3D; Não / 01 &#x3D; Sim).
+        /// </summary>
+        /// <value>Indica se a conta em questão permite Depósito Varejista  (00 &#x3D; Não / 01 &#x3D; Sim).</value>
+        [DataMember(Name="depositoVarejista")]
+        public DepositoVarejistaEnum? DepositoVarejista { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -164,6 +192,7 @@ namespace IO.Swagger.Models
             sb.Append("  ModalidadeDeposito: ").Append(ModalidadeDeposito).Append("\n");
             sb.Append("  NomeCliente: ").Append(NomeCliente).Append("\n");
             sb.Append("  SolicDoc: ").Append(SolicDoc).Append("\n");
+            sb.Append("  DepositoVarejista: ").Append(DepositoVarejista).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +253,11 @@ namespace IO.Swagger.Models
                     SolicDoc == other.SolicDoc ||
                     SolicDoc != null &&
                     SolicDoc.Equals(other.SolicDoc)
+                ) && 
+                (
+                    DepositoVarejista == other.DepositoVarejista ||
+                    DepositoVarejista != null &&
+                    DepositoVarejista.Equals(other.DepositoVarejista)
                 );
         }
 
@@ -247,6 +281,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + NomeCliente.GetHashCode();
                     if (SolicDoc != null)
                     hashCode = hashCode * 59 + SolicDoc.GetHashCode();
+                    if (DepositoVarejista != null)
+                    hashCode = hashCode * 59 + DepositoVarejista.GetHashCode();
                 return hashCode;
             }
         }
