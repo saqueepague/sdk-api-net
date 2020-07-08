@@ -22,34 +22,17 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Pergunta mostrada ao usuário para se identificar antes do saque. Esta pergunta é selecionada aleatoriamente através da lista mandada na requisição de identificação.
+    /// Informações da resposta da requisição de simulação de empréstimo.
     /// </summary>
     [DataContract]
-    public partial class WithdrawConsultQuestionObj : IEquatable<WithdrawConsultQuestionObj>
+    public partial class InfSimulacaoEmprestimoResp : IEquatable<InfSimulacaoEmprestimoResp>
     { 
         /// <summary>
-        /// Identificador da pergunta.
+        /// Mensagem informativa para ser mostrada ao cliente após a simulação. Os caracteres \&quot;&lt;/\&quot; indicam uma quebra de linha.
         /// </summary>
-        /// <value>Identificador da pergunta.</value>
-        [Required]
-        [DataMember(Name="id")]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Pergunta de identificação.
-        /// </summary>
-        /// <value>Pergunta de identificação.</value>
-        [Required]
-        [DataMember(Name="pergunta")]
-        public string Pergunta { get; set; }
-
-        /// <summary>
-        /// Tamanho da resposta da pergunta.
-        /// </summary>
-        /// <value>Tamanho da resposta da pergunta.</value>
-        [Required]
-        [DataMember(Name="tamResposta")]
-        public string TamResposta { get; set; }
+        /// <value>Mensagem informativa para ser mostrada ao cliente após a simulação. Os caracteres \&quot;&lt;/\&quot; indicam uma quebra de linha.</value>
+        [DataMember(Name="mensagem")]
+        public string Mensagem { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,10 +41,8 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class WithdrawConsultQuestionObj {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Pergunta: ").Append(Pergunta).Append("\n");
-            sb.Append("  TamResposta: ").Append(TamResposta).Append("\n");
+            sb.Append("class InfSimulacaoEmprestimoResp {\n");
+            sb.Append("  Mensagem: ").Append(Mensagem).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,34 +65,24 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((WithdrawConsultQuestionObj)obj);
+            return obj.GetType() == GetType() && Equals((InfSimulacaoEmprestimoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if WithdrawConsultQuestionObj instances are equal
+        /// Returns true if InfSimulacaoEmprestimoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of WithdrawConsultQuestionObj to be compared</param>
+        /// <param name="other">Instance of InfSimulacaoEmprestimoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WithdrawConsultQuestionObj other)
+        public bool Equals(InfSimulacaoEmprestimoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    Pergunta == other.Pergunta ||
-                    Pergunta != null &&
-                    Pergunta.Equals(other.Pergunta)
-                ) && 
-                (
-                    TamResposta == other.TamResposta ||
-                    TamResposta != null &&
-                    TamResposta.Equals(other.TamResposta)
+                    Mensagem == other.Mensagem ||
+                    Mensagem != null &&
+                    Mensagem.Equals(other.Mensagem)
                 );
         }
 
@@ -125,12 +96,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Pergunta != null)
-                    hashCode = hashCode * 59 + Pergunta.GetHashCode();
-                    if (TamResposta != null)
-                    hashCode = hashCode * 59 + TamResposta.GetHashCode();
+                    if (Mensagem != null)
+                    hashCode = hashCode * 59 + Mensagem.GetHashCode();
                 return hashCode;
             }
         }
@@ -138,12 +105,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(WithdrawConsultQuestionObj left, WithdrawConsultQuestionObj right)
+        public static bool operator ==(InfSimulacaoEmprestimoResp left, InfSimulacaoEmprestimoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(WithdrawConsultQuestionObj left, WithdrawConsultQuestionObj right)
+        public static bool operator !=(InfSimulacaoEmprestimoResp left, InfSimulacaoEmprestimoResp right)
         {
             return !Equals(left, right);
         }
