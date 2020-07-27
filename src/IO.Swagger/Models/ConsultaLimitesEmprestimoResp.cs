@@ -25,7 +25,7 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class TransacConf : IEquatable<TransacConf>
+    public partial class ConsultaLimitesEmprestimoResp : IEquatable<ConsultaLimitesEmprestimoResp>
     { 
         /// <summary>
         /// Gets or Sets Cripto
@@ -34,11 +34,18 @@ namespace IO.Swagger.Models
         public CriptoResp Cripto { get; set; }
 
         /// <summary>
+        /// Gets or Sets InfConsultaLimitesEmprestimo
+        /// </summary>
+        [Required]
+        [DataMember(Name="InfConsultaLimitesEmprestimo")]
+        public InfConsultaLimitesEmprestimoResp InfConsultaLimitesEmprestimo { get; set; }
+
+        /// <summary>
         /// Gets or Sets InfTransacao
         /// </summary>
         [Required]
         [DataMember(Name="InfTransacao")]
-        public InfTransacaoConf InfTransacao { get; set; }
+        public InfTransacaoResp InfTransacao { get; set; }
 
         /// <summary>
         /// Gets or Sets Terminal
@@ -54,8 +61,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransacConf {\n");
+            sb.Append("class ConsultaLimitesEmprestimoResp {\n");
             sb.Append("  Cripto: ").Append(Cripto).Append("\n");
+            sb.Append("  InfConsultaLimitesEmprestimo: ").Append(InfConsultaLimitesEmprestimo).Append("\n");
             sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
             sb.Append("  Terminal: ").Append(Terminal).Append("\n");
             sb.Append("}\n");
@@ -80,15 +88,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((TransacConf)obj);
+            return obj.GetType() == GetType() && Equals((ConsultaLimitesEmprestimoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if TransacConf instances are equal
+        /// Returns true if ConsultaLimitesEmprestimoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of TransacConf to be compared</param>
+        /// <param name="other">Instance of ConsultaLimitesEmprestimoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransacConf other)
+        public bool Equals(ConsultaLimitesEmprestimoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -98,6 +106,11 @@ namespace IO.Swagger.Models
                     Cripto == other.Cripto ||
                     Cripto != null &&
                     Cripto.Equals(other.Cripto)
+                ) && 
+                (
+                    InfConsultaLimitesEmprestimo == other.InfConsultaLimitesEmprestimo ||
+                    InfConsultaLimitesEmprestimo != null &&
+                    InfConsultaLimitesEmprestimo.Equals(other.InfConsultaLimitesEmprestimo)
                 ) && 
                 (
                     InfTransacao == other.InfTransacao ||
@@ -123,6 +136,8 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (Cripto != null)
                     hashCode = hashCode * 59 + Cripto.GetHashCode();
+                    if (InfConsultaLimitesEmprestimo != null)
+                    hashCode = hashCode * 59 + InfConsultaLimitesEmprestimo.GetHashCode();
                     if (InfTransacao != null)
                     hashCode = hashCode * 59 + InfTransacao.GetHashCode();
                     if (Terminal != null)
@@ -134,12 +149,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(TransacConf left, TransacConf right)
+        public static bool operator ==(ConsultaLimitesEmprestimoResp left, ConsultaLimitesEmprestimoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TransacConf left, TransacConf right)
+        public static bool operator !=(ConsultaLimitesEmprestimoResp left, ConsultaLimitesEmprestimoResp right)
         {
             return !Equals(left, right);
         }

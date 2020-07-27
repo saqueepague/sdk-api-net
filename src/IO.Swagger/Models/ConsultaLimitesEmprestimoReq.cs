@@ -25,20 +25,21 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class TransacConf : IEquatable<TransacConf>
+    public partial class ConsultaLimitesEmprestimoReq : IEquatable<ConsultaLimitesEmprestimoReq>
     { 
         /// <summary>
-        /// Gets or Sets Cripto
+        /// Gets or Sets Cartao
         /// </summary>
-        [DataMember(Name="Cripto")]
-        public CriptoResp Cripto { get; set; }
+        [Required]
+        [DataMember(Name="Cartao")]
+        public Cartao Cartao { get; set; }
 
         /// <summary>
         /// Gets or Sets InfTransacao
         /// </summary>
         [Required]
         [DataMember(Name="InfTransacao")]
-        public InfTransacaoConf InfTransacao { get; set; }
+        public InfTransacaoReq InfTransacao { get; set; }
 
         /// <summary>
         /// Gets or Sets Terminal
@@ -54,8 +55,8 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TransacConf {\n");
-            sb.Append("  Cripto: ").Append(Cripto).Append("\n");
+            sb.Append("class ConsultaLimitesEmprestimoReq {\n");
+            sb.Append("  Cartao: ").Append(Cartao).Append("\n");
             sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
             sb.Append("  Terminal: ").Append(Terminal).Append("\n");
             sb.Append("}\n");
@@ -80,24 +81,24 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((TransacConf)obj);
+            return obj.GetType() == GetType() && Equals((ConsultaLimitesEmprestimoReq)obj);
         }
 
         /// <summary>
-        /// Returns true if TransacConf instances are equal
+        /// Returns true if ConsultaLimitesEmprestimoReq instances are equal
         /// </summary>
-        /// <param name="other">Instance of TransacConf to be compared</param>
+        /// <param name="other">Instance of ConsultaLimitesEmprestimoReq to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TransacConf other)
+        public bool Equals(ConsultaLimitesEmprestimoReq other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Cripto == other.Cripto ||
-                    Cripto != null &&
-                    Cripto.Equals(other.Cripto)
+                    Cartao == other.Cartao ||
+                    Cartao != null &&
+                    Cartao.Equals(other.Cartao)
                 ) && 
                 (
                     InfTransacao == other.InfTransacao ||
@@ -121,8 +122,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Cripto != null)
-                    hashCode = hashCode * 59 + Cripto.GetHashCode();
+                    if (Cartao != null)
+                    hashCode = hashCode * 59 + Cartao.GetHashCode();
                     if (InfTransacao != null)
                     hashCode = hashCode * 59 + InfTransacao.GetHashCode();
                     if (Terminal != null)
@@ -134,12 +135,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(TransacConf left, TransacConf right)
+        public static bool operator ==(ConsultaLimitesEmprestimoReq left, ConsultaLimitesEmprestimoReq right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(TransacConf left, TransacConf right)
+        public static bool operator !=(ConsultaLimitesEmprestimoReq left, ConsultaLimitesEmprestimoReq right)
         {
             return !Equals(left, right);
         }

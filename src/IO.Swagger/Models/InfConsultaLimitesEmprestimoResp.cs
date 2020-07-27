@@ -22,18 +22,11 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações da resposta da requisição de consulta de condições de parcelamento de empréstimo.
+    /// Informações da resposta da requisição de consulta de limite de empréstimos.
     /// </summary>
     [DataContract]
-    public partial class InfConsultaParcelasEmprestimoResp : IEquatable<InfConsultaParcelasEmprestimoResp>
+    public partial class InfConsultaLimitesEmprestimoResp : IEquatable<InfConsultaLimitesEmprestimoResp>
     { 
-        /// <summary>
-        /// Data da primeira parcela do empréstimo (AAAAMMDD).
-        /// </summary>
-        /// <value>Data da primeira parcela do empréstimo (AAAAMMDD).</value>
-        [DataMember(Name="dataPrimeiraParcela")]
-        public  DataPrimeiraParcela { get; set; }
-
         /// <summary>
         /// Nome do titular da conta.
         /// </summary>
@@ -67,26 +60,17 @@ namespace IO.Swagger.Models
         public string LimiteMaximoEmprestimo { get; set; }
 
         /// <summary>
-        /// Gets or Sets OpcoesParcelas
-        /// </summary>
-        [Required]
-        [DataMember(Name="opcoesParcelas")]
-        public List<InstallmentsOptionObj> OpcoesParcelas { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfConsultaParcelasEmprestimoResp {\n");
-            sb.Append("  DataPrimeiraParcela: ").Append(DataPrimeiraParcela).Append("\n");
+            sb.Append("class InfConsultaLimitesEmprestimoResp {\n");
             sb.Append("  NomeTitularConta: ").Append(NomeTitularConta).Append("\n");
             sb.Append("  NomeAgenciaBancaria: ").Append(NomeAgenciaBancaria).Append("\n");
             sb.Append("  LimiteMinimoEmprestimo: ").Append(LimiteMinimoEmprestimo).Append("\n");
             sb.Append("  LimiteMaximoEmprestimo: ").Append(LimiteMaximoEmprestimo).Append("\n");
-            sb.Append("  OpcoesParcelas: ").Append(OpcoesParcelas).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,25 +93,20 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfConsultaParcelasEmprestimoResp)obj);
+            return obj.GetType() == GetType() && Equals((InfConsultaLimitesEmprestimoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if InfConsultaParcelasEmprestimoResp instances are equal
+        /// Returns true if InfConsultaLimitesEmprestimoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfConsultaParcelasEmprestimoResp to be compared</param>
+        /// <param name="other">Instance of InfConsultaLimitesEmprestimoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfConsultaParcelasEmprestimoResp other)
+        public bool Equals(InfConsultaLimitesEmprestimoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
-                (
-                    DataPrimeiraParcela == other.DataPrimeiraParcela ||
-                    DataPrimeiraParcela != null &&
-                    DataPrimeiraParcela.Equals(other.DataPrimeiraParcela)
-                ) && 
                 (
                     NomeTitularConta == other.NomeTitularConta ||
                     NomeTitularConta != null &&
@@ -147,11 +126,6 @@ namespace IO.Swagger.Models
                     LimiteMaximoEmprestimo == other.LimiteMaximoEmprestimo ||
                     LimiteMaximoEmprestimo != null &&
                     LimiteMaximoEmprestimo.Equals(other.LimiteMaximoEmprestimo)
-                ) && 
-                (
-                    OpcoesParcelas == other.OpcoesParcelas ||
-                    OpcoesParcelas != null &&
-                    OpcoesParcelas.SequenceEqual(other.OpcoesParcelas)
                 );
         }
 
@@ -165,8 +139,6 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (DataPrimeiraParcela != null)
-                    hashCode = hashCode * 59 + DataPrimeiraParcela.GetHashCode();
                     if (NomeTitularConta != null)
                     hashCode = hashCode * 59 + NomeTitularConta.GetHashCode();
                     if (NomeAgenciaBancaria != null)
@@ -175,8 +147,6 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + LimiteMinimoEmprestimo.GetHashCode();
                     if (LimiteMaximoEmprestimo != null)
                     hashCode = hashCode * 59 + LimiteMaximoEmprestimo.GetHashCode();
-                    if (OpcoesParcelas != null)
-                    hashCode = hashCode * 59 + OpcoesParcelas.GetHashCode();
                 return hashCode;
             }
         }
@@ -184,12 +154,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfConsultaParcelasEmprestimoResp left, InfConsultaParcelasEmprestimoResp right)
+        public static bool operator ==(InfConsultaLimitesEmprestimoResp left, InfConsultaLimitesEmprestimoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfConsultaParcelasEmprestimoResp left, InfConsultaParcelasEmprestimoResp right)
+        public static bool operator !=(InfConsultaLimitesEmprestimoResp left, InfConsultaLimitesEmprestimoResp right)
         {
             return !Equals(left, right);
         }
