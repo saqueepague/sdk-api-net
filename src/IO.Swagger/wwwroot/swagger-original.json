@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.19.9",
+    "version" : "1.19.10",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.19.9",
+  "basePath" : "/saqueepague/SepTransaction/1.19.10",
   "tags" : [ {
     "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
@@ -2077,6 +2077,7 @@
           } ],
           "limiteMinimoEmprestimo" : "000000500000",
           "limiteMaximoEmprestimo" : "000005000000",
+          "valorTotalDisponivel" : "000000700000",
           "dataPrimeiraParcela" : "20181122",
           "nomeAgenciaBancaria" : "Agência bancária",
           "nomeTitularConta" : "Carl Edward Sagan"
@@ -3218,7 +3219,7 @@
     },
     "infConsultaParcelasEmprestimoResp" : {
       "type" : "object",
-      "required" : [ "limiteMaximoEmprestimo", "limiteMinimoEmprestimo", "nomeAgenciaBancaria", "nomeTitularConta", "opcoesParcelas" ],
+      "required" : [ "limiteMaximoEmprestimo", "limiteMinimoEmprestimo", "nomeAgenciaBancaria", "nomeTitularConta", "opcoesParcelas", "valorTotalDisponivel" ],
       "properties" : {
         "dataPrimeiraParcela" : {
           "example" : "20181122",
@@ -3233,6 +3234,12 @@
           "type" : "string",
           "example" : "Agência bancária",
           "description" : "Nome da agencia bancária."
+        },
+        "valorTotalDisponivel" : {
+          "type" : "string",
+          "example" : "000000700000",
+          "description" : "Valor total disponível para empréstimo (12 caracteres, incluindo centavos).",
+          "pattern" : "^\\d{12}$"
         },
         "limiteMinimoEmprestimo" : {
           "type" : "string",
@@ -3290,6 +3297,7 @@
         } ],
         "limiteMinimoEmprestimo" : "000000500000",
         "limiteMaximoEmprestimo" : "000005000000",
+        "valorTotalDisponivel" : "000000700000",
         "dataPrimeiraParcela" : "20181122",
         "nomeAgenciaBancaria" : "Agência bancária",
         "nomeTitularConta" : "Carl Edward Sagan"
