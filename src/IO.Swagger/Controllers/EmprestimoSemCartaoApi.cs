@@ -29,28 +29,28 @@ namespace IO.Swagger.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class SaqueSemCartaoApiController : Controller
+    public class EmprestimoSemCartaoApiController : Controller
     { 
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>Operação de consulta para saque de moeda estrangeira (câmbio). Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.</remarks>
+        /// <remarks>Operação de consulta de condições disponíveis de parcelamento do empréstimo.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de consulta de saque.</param>
+        /// <param name="body">Requisição de consulta parcelas de empréstimo.</param>
         /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
         /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.19.11/consultaSaque")]
+        [Route("/saqueepague/SepTransaction/1.19.11/consultaParcelasEmprestimo")]
         [ValidateModelState]
-        [SwaggerOperation("ConsultaSaquePost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(ConsultaSaqueResp), description: "Retorno com sucesso ou com Erro de negócio.")]
-        public virtual IActionResult ConsultaSaquePost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]ConsultaSaqueReq body)
+        [SwaggerOperation("ConsultaParcelasEmprestimoPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ConsultaParcelasEmprestimoResp), description: "Retorno com sucesso ou com Erro de negócio.")]
+        public virtual IActionResult ConsultaParcelasEmprestimoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]ConsultaParcelasEmprestimoReq body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(ConsultaSaqueResp));
+            // return StatusCode(200, default(ConsultaParcelasEmprestimoResp));
 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(400);
@@ -59,11 +59,11 @@ namespace IO.Swagger.Controllers
             // return StatusCode(401);
 
             string exampleJson = null;
-            exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"InfConsultaSaque\" : {\n    \"perguntas\" : [ {\n      \"pergunta\" : \"Informe os 3 primeiros dígitos do seu CPF\",\n      \"tamResposta\" : \"3\",\n      \"id\" : \"1\"\n    }, {\n      \"pergunta\" : \"Informe os 3 primeiros dígitos do seu CPF\",\n      \"tamResposta\" : \"3\",\n      \"id\" : \"1\"\n    } ],\n    \"nomeCliente\" : \"Carl Edward Sagan\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            exampleJson = "{\n  \"InfConsultaParcelasEmprestimo\" : {\n    \"opcoesParcelas\" : [ {\n      \"valorParcela\" : \"000000005000\",\n      \"qntParcelas\" : \"5\",\n      \"tributos\" : {\n        \"taxaJurosMensal\" : \"0809445\",\n        \"iof\" : \"0809445\",\n        \"cetAnual\" : \"0809445\",\n        \"cetMensal\" : \"0809445\",\n        \"valorSolicitado\" : \"000000000499\",\n        \"dataContratacao\" : \"20200928\",\n        \"valorJuros\" : \"0002422\",\n        \"taxaJurosAnual\" : \"0809445\",\n        \"ultimoVencimento\" : \"20200928\",\n        \"iofAdicional\" : \"0809445\",\n        \"primeiroVencimento\" : \"20200928\"\n      }\n    }, {\n      \"valorParcela\" : \"000000005000\",\n      \"qntParcelas\" : \"5\",\n      \"tributos\" : {\n        \"taxaJurosMensal\" : \"0809445\",\n        \"iof\" : \"0809445\",\n        \"cetAnual\" : \"0809445\",\n        \"cetMensal\" : \"0809445\",\n        \"valorSolicitado\" : \"000000000499\",\n        \"dataContratacao\" : \"20200928\",\n        \"valorJuros\" : \"0002422\",\n        \"taxaJurosAnual\" : \"0809445\",\n        \"ultimoVencimento\" : \"20200928\",\n        \"iofAdicional\" : \"0809445\",\n        \"primeiroVencimento\" : \"20200928\"\n      }\n    } ],\n    \"limiteMinimoEmprestimo\" : \"000000500000\",\n    \"limiteMaximoEmprestimo\" : \"000005000000\",\n    \"valorTotalDisponivel\" : \"000000700000\",\n    \"dataPrimeiraParcela\" : \"20181122\",\n    \"nomeAgenciaBancaria\" : \"Agência bancária\",\n    \"nomeTitularConta\" : \"Carl Edward Sagan\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<ConsultaSaqueResp>(exampleJson)
-            : default(ConsultaSaqueResp);
+            ? JsonConvert.DeserializeObject<ConsultaParcelasEmprestimoResp>(exampleJson)
+            : default(ConsultaParcelasEmprestimoResp);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -71,19 +71,19 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>Confirmação de operação de saque.</remarks>
+        /// <remarks>Confirmação de operação de empréstimo.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de confirmação de operação de saque.</param>
+        /// <param name="body">Requisição de confirmação de operação de empréstimo.</param>
         /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
         /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.19.11/saqueConf")]
+        [Route("/saqueepague/SepTransaction/1.19.11/emprestimoConf")]
         [ValidateModelState]
-        [SwaggerOperation("SaqueConfPost")]
-        public virtual IActionResult SaqueConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
+        [SwaggerOperation("EmprestimoConfPost")]
+        public virtual IActionResult EmprestimoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(200);
@@ -101,23 +101,23 @@ namespace IO.Swagger.Controllers
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>Operação de saque de dinheiro em moeda local ou estrangeira.</remarks>
+        /// <remarks>Operação de empréstimo.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de operação de saque.</param>
+        /// <param name="body">Requisição de empréstimo.</param>
         /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
         /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.19.11/saque")]
+        [Route("/saqueepague/SepTransaction/1.19.11/emprestimo")]
         [ValidateModelState]
-        [SwaggerOperation("SaquePost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(SaqueResp), description: "Retorno com sucesso ou com Erro de negócio.")]
-        public virtual IActionResult SaquePost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]SaqueReq body)
+        [SwaggerOperation("EmprestimoPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(EmprestimoResp), description: "Retorno com sucesso ou com Erro de negócio.")]
+        public virtual IActionResult EmprestimoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]EmprestimoReq body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(SaqueResp));
+            // return StatusCode(200, default(EmprestimoResp));
 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(400);
@@ -126,11 +126,11 @@ namespace IO.Swagger.Controllers
             // return StatusCode(401);
 
             string exampleJson = null;
-            exampleJson = "{\n  \"InfSaque\" : {\n    \"recibo\" : \"                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  },\n  \"InfEmprestimo\" : {\n    \"recibo\" : \"@           COMPROVANTE DE EMPRESTIMO            @------------------------------------------------@ Agencia....: 0101                              @ Conta......: 74414-0                           @ Nome.......: EUGENIO SCHMITT COELHO            @@------------------------------------------------@ Favorecido: EUGENIO SCHMITT COELHO             @ Agencia Destino:                           0101@ Conta Destino:         Conta Corrente - 74414-0@@Tipo            NSU                        Valor@Dinheiro        697841472523             R$20,00@------------------------------------------------@               SAC - 0800 123 4569@      SAC - DEF. AUDITIVO - 0800 123 4568@            OUVIDORIA - 0800 123 4567@@             www.siteparceiro.com.br@\"\n  }\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<SaqueResp>(exampleJson)
-            : default(SaqueResp);
+            ? JsonConvert.DeserializeObject<EmprestimoResp>(exampleJson)
+            : default(EmprestimoResp);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.19.10",
+    "version" : "1.19.11",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.19.10",
+  "basePath" : "/saqueepague/SepTransaction/1.19.11",
   "tags" : [ {
     "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
@@ -19,13 +19,16 @@
     "description" : "Transações necessárias para efetuar um Deposito via Carteira Digital."
   }, {
     "name" : "Deposito via Carteira Digital",
-    "description" : "Transações necessárias para efetuar transação de Extrato com Cartaoia Carteira Digital."
+    "description" : "Transações necessárias para efetuar transação de Extrato com Cartão via Carteira Digital."
   }, {
     "name" : "Emprestimo com Cartao",
     "description" : "Transações necessárias para efetuar um Empréstimo com Cartão."
   }, {
+    "name" : "Emprestimo sem Cartao",
+    "description" : "Transações necessárias para efetuar um Empréstimo com Cartão."
+  }, {
     "name" : "Extrato com Cartao",
-    "description" : "Transações necessárias para efetuar um Pagamento com Cartao."
+    "description" : "Transações necessárias para efetuar um Pagamento com Cartão."
   }, {
     "name" : "Pagamento com Cartao",
     "description" : "Transações necessárias para efetuar um Pagamento com Cartão."
@@ -377,7 +380,7 @@
     },
     "/consultaParcelasEmprestimo" : {
       "post" : {
-        "tags" : [ "Emprestimo com Cartao", "Default" ],
+        "tags" : [ "Emprestimo com Cartao", "Emprestimo sem Cartao", "Default" ],
         "description" : "Operação de consulta de condições disponíveis de parcelamento do empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -842,7 +845,7 @@
     },
     "/emprestimo" : {
       "post" : {
-        "tags" : [ "Emprestimo com Cartao", "Default" ],
+        "tags" : [ "Emprestimo com Cartao", "Emprestimo sem Cartao", "Default" ],
         "description" : "Operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -894,7 +897,7 @@
     },
     "/emprestimoConf" : {
       "post" : {
-        "tags" : [ "Emprestimo com Cartao", "Default" ],
+        "tags" : [ "Emprestimo com Cartao", "Emprestimo sem Cartao", "Default" ],
         "description" : "Confirmação de operação de empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1601,7 +1604,7 @@
     },
     "/token" : {
       "post" : {
-        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Extrato com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Titulos de Capitalizacao" ],
+        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Emprestimo sem Cartao", "Extrato com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Titulos de Capitalizacao" ],
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -3213,6 +3216,24 @@
           "example" : "320",
           "description" : "Quantidade de parcelas informadas pelo cliente.",
           "pattern" : "^\\d{03}$"
+        },
+        "numAgencia" : {
+          "type" : "string",
+          "example" : "4029",
+          "description" : "Número da agência utilizada na operação.",
+          "pattern" : "^\\d+$"
+        },
+        "numConta" : {
+          "type" : "string",
+          "example" : "0082348296",
+          "description" : "Número da conta utilizada na operação.",
+          "pattern" : "^\\d+$"
+        },
+        "cpfFavorecido" : {
+          "type" : "string",
+          "example" : "02358422785",
+          "description" : "Número do CPF do cliente (11 dígitos).",
+          "pattern" : "^\\d{11}$"
         }
       },
       "description" : "Informações da requisição de consulta de condições de parcelamento de empréstimo."
@@ -4211,6 +4232,18 @@
           "type" : "string",
           "example" : "6",
           "description" : "Quantidade de parcelas.",
+          "pattern" : "^\\d+$"
+        },
+        "numAgencia" : {
+          "type" : "string",
+          "example" : "4029",
+          "description" : "Número da agência utilizada na operação.",
+          "pattern" : "^\\d+$"
+        },
+        "numConta" : {
+          "type" : "string",
+          "example" : "0082348296",
+          "description" : "Número da conta utilizada na operação.",
           "pattern" : "^\\d+$"
         }
       },
