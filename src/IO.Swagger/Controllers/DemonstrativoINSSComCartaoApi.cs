@@ -29,8 +29,75 @@ namespace IO.Swagger.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class SaldoComCartaoApiController : Controller
+    public class DemonstrativoINSSComCartaoApiController : Controller
     { 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Confirmação de operação de demonstrativo INSS.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de confirmação de operação de demonstrativo INSS.</param>
+        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
+        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.20.0/demonstrativoINSSConf")]
+        [ValidateModelState]
+        [SwaggerOperation("DemonstrativoINSSConfPost")]
+        public virtual IActionResult DemonstrativoINSSConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Operação de extrato.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de operação de demonstrativo INSS.</param>
+        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
+        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.20.0/demonstrativoINSS")]
+        [ValidateModelState]
+        [SwaggerOperation("DemonstrativoINSSPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(DemonstrativoINSSResp), description: "Retorno com sucesso ou com Erro de negócio.")]
+        public virtual IActionResult DemonstrativoINSSPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]DemonstrativoINSSReq body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(DemonstrativoINSSResp));
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+            string exampleJson = null;
+            exampleJson = "{\n  \"InfDemonstrativoINSS\" : {\n    \"recibo\" : \"@                DEMONSTRATIVO INSS                @                                                @ CLIENTE: EUGENIO SCHMITT COELHO                @ AGENCIA: 0150 CONTA: 03.013689.0-1             @ SALDO DA CONTA                                 @ SALDO DEVEDOR...............R$          450,35-@ TOTAL DEVEDOR...............R$          450,35-@ LIMITE DA CONTA.............R$          100,00 @ LIMITE DA CONTA DISPONIVEL..R$          350,35-@--------- MOVIMENTOS DA CONTA CORRENTE ---------@@    SALDO ANT EM 18/01/2019               93,56-@    MOVIMENTOS JAN/2019                         @    COMPRAS           201218              85,68-@    COMPRAS           201218             139,14-@    COMPRAS           211218              20,70-@    COMPRAS           211218              39,00-@    SALDO NA DATA                        378,08-@\",\n    \"qtdPaginas\" : \"000010\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<DemonstrativoINSSResp>(exampleJson)
+            : default(DemonstrativoINSSResp);
+            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -64,73 +131,6 @@ namespace IO.Swagger.Controllers
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<IdentificacaoResp>(exampleJson)
             : default(IdentificacaoResp);
-            //TODO: Change the data returned
-            return new ObjectResult(example);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>Confirmação de operação de consulta de saldo.</remarks>
-        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
-        /// <param name="clientId">Identificação do cliente.</param>
-        /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de confirmação de operação de consulta de saldo.</param>
-        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
-        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
-        /// <response code="401">Acesso não autorizado.</response>
-        [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.20.0/saldoConf")]
-        [ValidateModelState]
-        [SwaggerOperation("SaldoConfPost")]
-        public virtual IActionResult SaldoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(401);
-
-
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>Operação de consulta do valor de saldo disponível em conta.</remarks>
-        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
-        /// <param name="clientId">Identificação do cliente.</param>
-        /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de operação de consulta de saldo.</param>
-        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
-        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
-        /// <response code="401">Acesso não autorizado.</response>
-        [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.20.0/saldo")]
-        [ValidateModelState]
-        [SwaggerOperation("SaldoPost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(SaldoResp), description: "Retorno com sucesso ou com Erro de negócio.")]
-        public virtual IActionResult SaldoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]SaldoReq body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(SaldoResp));
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(401);
-
-            string exampleJson = null;
-            exampleJson = "{\n  \"InfSaldo\" : {\n    \"recibo\" : \"                 SALDO EM CONTA                @                036200005433591                @               13/10/2018  20:24                @          BANCO: BANCO SAQUE E PAGUE           @          AGENCIA: 4029                        @          CONTA: 0082348296                    @          VALOR NA DATA: R$ 50,00              \"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
-            
-            var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<SaldoResp>(exampleJson)
-            : default(SaldoResp);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

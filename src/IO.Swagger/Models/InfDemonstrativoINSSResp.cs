@@ -22,37 +22,26 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Informações sobre a resposta de requisição de demonstrativo INSS.
     /// </summary>
     [DataContract]
-    public partial class ConsultaContaResp : IEquatable<ConsultaContaResp>
+    public partial class InfDemonstrativoINSSResp : IEquatable<InfDemonstrativoINSSResp>
     { 
         /// <summary>
-        /// Gets or Sets Cripto
+        /// Enviar a quantiade de páginas do demonstrativo, caso tenha apenas uma página, enviar 999999
         /// </summary>
-        [DataMember(Name="Cripto")]
-        public CriptoResp Cripto { get; set; }
+        /// <value>Enviar a quantiade de páginas do demonstrativo, caso tenha apenas uma página, enviar 999999</value>
+        [Required]
+        [DataMember(Name="qtdPaginas")]
+        public string QtdPaginas { get; set; }
 
         /// <summary>
-        /// Gets or Sets InfConsultaConta
+        /// Recibo com informações do demonstrativo INSS. Linhas com 48 posições separadas por \&quot;@\&quot;.
         /// </summary>
+        /// <value>Recibo com informações do demonstrativo INSS. Linhas com 48 posições separadas por \&quot;@\&quot;.</value>
         [Required]
-        [DataMember(Name="InfConsultaConta")]
-        public InfConsultaContaResp InfConsultaConta { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InfTransacao
-        /// </summary>
-        [Required]
-        [DataMember(Name="InfTransacao")]
-        public InfTransacaoResp InfTransacao { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Terminal
-        /// </summary>
-        [Required]
-        [DataMember(Name="Terminal")]
-        public Terminal Terminal { get; set; }
+        [DataMember(Name="recibo")]
+        public string Recibo { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,11 +50,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ConsultaContaResp {\n");
-            sb.Append("  Cripto: ").Append(Cripto).Append("\n");
-            sb.Append("  InfConsultaConta: ").Append(InfConsultaConta).Append("\n");
-            sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
-            sb.Append("  Terminal: ").Append(Terminal).Append("\n");
+            sb.Append("class InfDemonstrativoINSSResp {\n");
+            sb.Append("  QtdPaginas: ").Append(QtdPaginas).Append("\n");
+            sb.Append("  Recibo: ").Append(Recibo).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,39 +75,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((ConsultaContaResp)obj);
+            return obj.GetType() == GetType() && Equals((InfDemonstrativoINSSResp)obj);
         }
 
         /// <summary>
-        /// Returns true if ConsultaContaResp instances are equal
+        /// Returns true if InfDemonstrativoINSSResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of ConsultaContaResp to be compared</param>
+        /// <param name="other">Instance of InfDemonstrativoINSSResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConsultaContaResp other)
+        public bool Equals(InfDemonstrativoINSSResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Cripto == other.Cripto ||
-                    Cripto != null &&
-                    Cripto.Equals(other.Cripto)
+                    QtdPaginas == other.QtdPaginas ||
+                    QtdPaginas != null &&
+                    QtdPaginas.Equals(other.QtdPaginas)
                 ) && 
                 (
-                    InfConsultaConta == other.InfConsultaConta ||
-                    InfConsultaConta != null &&
-                    InfConsultaConta.Equals(other.InfConsultaConta)
-                ) && 
-                (
-                    InfTransacao == other.InfTransacao ||
-                    InfTransacao != null &&
-                    InfTransacao.Equals(other.InfTransacao)
-                ) && 
-                (
-                    Terminal == other.Terminal ||
-                    Terminal != null &&
-                    Terminal.Equals(other.Terminal)
+                    Recibo == other.Recibo ||
+                    Recibo != null &&
+                    Recibo.Equals(other.Recibo)
                 );
         }
 
@@ -134,14 +111,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Cripto != null)
-                    hashCode = hashCode * 59 + Cripto.GetHashCode();
-                    if (InfConsultaConta != null)
-                    hashCode = hashCode * 59 + InfConsultaConta.GetHashCode();
-                    if (InfTransacao != null)
-                    hashCode = hashCode * 59 + InfTransacao.GetHashCode();
-                    if (Terminal != null)
-                    hashCode = hashCode * 59 + Terminal.GetHashCode();
+                    if (QtdPaginas != null)
+                    hashCode = hashCode * 59 + QtdPaginas.GetHashCode();
+                    if (Recibo != null)
+                    hashCode = hashCode * 59 + Recibo.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +122,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(ConsultaContaResp left, ConsultaContaResp right)
+        public static bool operator ==(InfDemonstrativoINSSResp left, InfDemonstrativoINSSResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(ConsultaContaResp left, ConsultaContaResp right)
+        public static bool operator !=(InfDemonstrativoINSSResp left, InfDemonstrativoINSSResp right)
         {
             return !Equals(left, right);
         }
