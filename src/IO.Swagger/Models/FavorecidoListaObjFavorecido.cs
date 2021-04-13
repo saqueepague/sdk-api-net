@@ -22,50 +22,43 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações da requisição de demonstrativo INSS.
+    /// Informações sobre cada favorecido. (Manter o campo VAZIO, por compatibilidade, caso não exista informação).
     /// </summary>
     [DataContract]
-    public partial class InfDemonstrativoINSSReq : IEquatable<InfDemonstrativoINSSReq>
+    public partial class FavorecidoListaObjFavorecido : IEquatable<FavorecidoListaObjFavorecido>
     { 
         /// <summary>
-        /// Código do banco utilizado na operação (3 dígitos).
+        /// Código do banco do Favorecido Cadastrado (3 dígitos).
         /// </summary>
-        /// <value>Código do banco utilizado na operação (3 dígitos).</value>
+        /// <value>Código do banco do Favorecido Cadastrado (3 dígitos).</value>
         [DataMember(Name="codBanco")]
         public string CodBanco { get; set; }
 
         /// <summary>
-        /// Número do CPF do cliente realizando a operação (11 dígitos).
+        /// Nome do Banco Favorecido Cadastrado (sem acento).
         /// </summary>
-        /// <value>Número do CPF do cliente realizando a operação (11 dígitos).</value>
-        [DataMember(Name="cpf")]
-        public string Cpf { get; set; }
+        /// <value>Nome do Banco Favorecido Cadastrado (sem acento).</value>
+        [DataMember(Name="nomeBanco")]
+        public string NomeBanco { get; set; }
 
         /// <summary>
-        /// Número da agência utilizada na operação.
+        /// Número da agência do Favorecido Cadastrado.
         /// </summary>
-        /// <value>Número da agência utilizada na operação.</value>
+        /// <value>Número da agência do Favorecido Cadastrado.</value>
         [DataMember(Name="numAgencia")]
         public string NumAgencia { get; set; }
 
         /// <summary>
-        /// Número da conta utilizada na operação.
+        /// Número da conta do Favorecido Cadastrado.
         /// </summary>
-        /// <value>Número da conta utilizada na operação.</value>
+        /// <value>Número da conta do Favorecido Cadastrado.</value>
         [DataMember(Name="numConta")]
         public string NumConta { get; set; }
 
         /// <summary>
-        /// Telefone do cliente realizando a operação (11 dígitos &#x3D; DDD com 0 quando número tem 8 dígitos, sem 0 quando número tem 9 dígitos).
+        /// Tipo de conta do extrato do Favorecido Cadastrado (CC = conta corrente, CP = conta poupança).
         /// </summary>
-        /// <value>Telefone do cliente realizando a operação (11 dígitos &#x3D; DDD com 0 quando número tem 8 dígitos, sem 0 quando número tem 9 dígitos).</value>
-        [DataMember(Name="telefone")]
-        public string Telefone { get; set; }
-
-        /// <summary>
-        /// Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).
-        /// </summary>
-        /// <value>Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).</value>
+        /// <value>Tipo de conta do extrato do Favorecido Cadastrado (CC = conta corrente, CP = conta poupança).</value>
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public enum TipoContaEnum
         {
@@ -80,21 +73,29 @@ namespace IO.Swagger.Models
             /// Enum CPEnum for CP
             /// </summary>
             [EnumMember(Value = "CP")]
-            CPEnum = 2,
-            
-            /// <summary>
-            /// Enum CSEnum for CS
-            /// </summary>
-            [EnumMember(Value = "CS")]
-            CSEnum = 3
+            CPEnum = 2
         }
 
         /// <summary>
-        /// Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).
+        /// Tipo de conta do extrato do Favorecido Cadastrado (CC &#x3D; conta corrente, CP &#x3D; conta poupança).
         /// </summary>
-        /// <value>Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).</value>
+        /// <value>Tipo de conta do extrato do Favorecido Cadastrado (CC &#x3D; conta corrente, CP &#x3D; conta poupança).</value>
         [DataMember(Name="tipoConta")]
         public TipoContaEnum? TipoConta { get; set; }
+
+        /// <summary>
+        /// Nome do titular da conta.
+        /// </summary>
+        /// <value>Nome do titular da conta.</value>
+        [DataMember(Name="nomeTitularConta")]
+        public string NomeTitularConta { get; set; }
+
+        /// <summary>
+        /// Número do CPF ou CNPJ do Favorecido Cadastrado (11 dígitos ou 14 dígitos, respectivamente).
+        /// </summary>
+        /// <value>Número do CPF ou CNPJ do Favorecido Cadastrado (11 dígitos ou 14 dígitos, respectivamente).</value>
+        [DataMember(Name="cpf")]
+        public string Cpf { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -103,13 +104,14 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfDemonstrativoINSSReq {\n");
+            sb.Append("class FavorecidoListaObjFavorecido {\n");
             sb.Append("  CodBanco: ").Append(CodBanco).Append("\n");
-            sb.Append("  Cpf: ").Append(Cpf).Append("\n");
+            sb.Append("  NomeBanco: ").Append(NomeBanco).Append("\n");
             sb.Append("  NumAgencia: ").Append(NumAgencia).Append("\n");
             sb.Append("  NumConta: ").Append(NumConta).Append("\n");
-            sb.Append("  Telefone: ").Append(Telefone).Append("\n");
             sb.Append("  TipoConta: ").Append(TipoConta).Append("\n");
+            sb.Append("  NomeTitularConta: ").Append(NomeTitularConta).Append("\n");
+            sb.Append("  Cpf: ").Append(Cpf).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,15 +134,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfDemonstrativoINSSReq)obj);
+            return obj.GetType() == GetType() && Equals((FavorecidoListaObjFavorecido)obj);
         }
 
         /// <summary>
-        /// Returns true if InfDemonstrativoINSSReq instances are equal
+        /// Returns true if FavorecidoListaObjFavorecido instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfDemonstrativoINSSReq to be compared</param>
+        /// <param name="other">Instance of FavorecidoListaObjFavorecido to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfDemonstrativoINSSReq other)
+        public bool Equals(FavorecidoListaObjFavorecido other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -152,9 +154,9 @@ namespace IO.Swagger.Models
                     CodBanco.Equals(other.CodBanco)
                 ) && 
                 (
-                    Cpf == other.Cpf ||
-                    Cpf != null &&
-                    Cpf.Equals(other.Cpf)
+                    NomeBanco == other.NomeBanco ||
+                    NomeBanco != null &&
+                    NomeBanco.Equals(other.NomeBanco)
                 ) && 
                 (
                     NumAgencia == other.NumAgencia ||
@@ -167,14 +169,19 @@ namespace IO.Swagger.Models
                     NumConta.Equals(other.NumConta)
                 ) && 
                 (
-                    Telefone == other.Telefone ||
-                    Telefone != null &&
-                    Telefone.Equals(other.Telefone)
-                ) && 
-                (
                     TipoConta == other.TipoConta ||
                     TipoConta != null &&
                     TipoConta.Equals(other.TipoConta)
+                ) && 
+                (
+                    NomeTitularConta == other.NomeTitularConta ||
+                    NomeTitularConta != null &&
+                    NomeTitularConta.Equals(other.NomeTitularConta)
+                ) && 
+                (
+                    Cpf == other.Cpf ||
+                    Cpf != null &&
+                    Cpf.Equals(other.Cpf)
                 );
         }
 
@@ -190,16 +197,18 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (CodBanco != null)
                     hashCode = hashCode * 59 + CodBanco.GetHashCode();
-                    if (Cpf != null)
-                    hashCode = hashCode * 59 + Cpf.GetHashCode();
+                    if (NomeBanco != null)
+                    hashCode = hashCode * 59 + NomeBanco.GetHashCode();
                     if (NumAgencia != null)
                     hashCode = hashCode * 59 + NumAgencia.GetHashCode();
                     if (NumConta != null)
                     hashCode = hashCode * 59 + NumConta.GetHashCode();
-                    if (Telefone != null)
-                    hashCode = hashCode * 59 + Telefone.GetHashCode();
                     if (TipoConta != null)
                     hashCode = hashCode * 59 + TipoConta.GetHashCode();
+                    if (NomeTitularConta != null)
+                    hashCode = hashCode * 59 + NomeTitularConta.GetHashCode();
+                    if (Cpf != null)
+                    hashCode = hashCode * 59 + Cpf.GetHashCode();
                 return hashCode;
             }
         }
@@ -207,12 +216,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfDemonstrativoINSSReq left, InfDemonstrativoINSSReq right)
+        public static bool operator ==(FavorecidoListaObjFavorecido left, FavorecidoListaObjFavorecido right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfDemonstrativoINSSReq left, InfDemonstrativoINSSReq right)
+        public static bool operator !=(FavorecidoListaObjFavorecido left, FavorecidoListaObjFavorecido right)
         {
             return !Equals(left, right);
         }

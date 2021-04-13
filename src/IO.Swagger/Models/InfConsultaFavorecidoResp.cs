@@ -22,30 +22,17 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações da resposta de transferência.
+    /// Informações da resposta da requisição de consulta de condições de parcelamento de empréstimo.
     /// </summary>
     [DataContract]
-    public partial class InfTransferenciaResp : IEquatable<InfTransferenciaResp>
+    public partial class InfConsultaFavorecidoResp : IEquatable<InfConsultaFavorecidoResp>
     { 
         /// <summary>
-        /// Gets or Sets Origem
+        /// Gets or Sets ListaFavorecidos
         /// </summary>
-        [DataMember(Name="origem")]
-        public InfTransferenciaRespOrigem Origem { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Destino
-        /// </summary>
-        [DataMember(Name="destino")]
-        public InfTransferenciaRespDestino Destino { get; set; }
-
-        /// <summary>
-        /// Recibo da operação de transferência efetuada. Linhas com 48 posições separadas por \&quot;@\&quot;.
-        /// </summary>
-        /// <value>Recibo da operação de transferência efetuada. Linhas com 48 posições separadas por \&quot;@\&quot;.</value>
         [Required]
-        [DataMember(Name="recibo")]
-        public string Recibo { get; set; }
+        [DataMember(Name="listaFavorecidos")]
+        public List<FavorecidoListaObj> ListaFavorecidos { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -54,10 +41,8 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfTransferenciaResp {\n");
-            sb.Append("  Origem: ").Append(Origem).Append("\n");
-            sb.Append("  Destino: ").Append(Destino).Append("\n");
-            sb.Append("  Recibo: ").Append(Recibo).Append("\n");
+            sb.Append("class InfConsultaFavorecidoResp {\n");
+            sb.Append("  ListaFavorecidos: ").Append(ListaFavorecidos).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -80,34 +65,24 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfTransferenciaResp)obj);
+            return obj.GetType() == GetType() && Equals((InfConsultaFavorecidoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if InfTransferenciaResp instances are equal
+        /// Returns true if InfConsultaFavorecidoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfTransferenciaResp to be compared</param>
+        /// <param name="other">Instance of InfConsultaFavorecidoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfTransferenciaResp other)
+        public bool Equals(InfConsultaFavorecidoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Origem == other.Origem ||
-                    Origem != null &&
-                    Origem.Equals(other.Origem)
-                ) && 
-                (
-                    Destino == other.Destino ||
-                    Destino != null &&
-                    Destino.Equals(other.Destino)
-                ) && 
-                (
-                    Recibo == other.Recibo ||
-                    Recibo != null &&
-                    Recibo.Equals(other.Recibo)
+                    ListaFavorecidos == other.ListaFavorecidos ||
+                    ListaFavorecidos != null &&
+                    ListaFavorecidos.SequenceEqual(other.ListaFavorecidos)
                 );
         }
 
@@ -121,12 +96,8 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Origem != null)
-                    hashCode = hashCode * 59 + Origem.GetHashCode();
-                    if (Destino != null)
-                    hashCode = hashCode * 59 + Destino.GetHashCode();
-                    if (Recibo != null)
-                    hashCode = hashCode * 59 + Recibo.GetHashCode();
+                    if (ListaFavorecidos != null)
+                    hashCode = hashCode * 59 + ListaFavorecidos.GetHashCode();
                 return hashCode;
             }
         }
@@ -134,12 +105,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfTransferenciaResp left, InfTransferenciaResp right)
+        public static bool operator ==(InfConsultaFavorecidoResp left, InfConsultaFavorecidoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfTransferenciaResp left, InfTransferenciaResp right)
+        public static bool operator !=(InfConsultaFavorecidoResp left, InfConsultaFavorecidoResp right)
         {
             return !Equals(left, right);
         }

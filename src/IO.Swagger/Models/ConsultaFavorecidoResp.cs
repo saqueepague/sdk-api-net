@@ -25,14 +25,27 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class PagamentoResp : IEquatable<PagamentoResp>
+    public partial class ConsultaFavorecidoResp : IEquatable<ConsultaFavorecidoResp>
     { 
+        /// <summary>
+        /// Gets or Sets Cripto
+        /// </summary>
+        [DataMember(Name="Cripto")]
+        public CriptoResp Cripto { get; set; }
+
         /// <summary>
         /// Gets or Sets InfTransacao
         /// </summary>
         [Required]
         [DataMember(Name="InfTransacao")]
         public InfTransacaoResp InfTransacao { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InfConsultaFavorecido
+        /// </summary>
+        [Required]
+        [DataMember(Name="InfConsultaFavorecido")]
+        public InfConsultaFavorecidoResp InfConsultaFavorecido { get; set; }
 
         /// <summary>
         /// Gets or Sets Terminal
@@ -42,30 +55,17 @@ namespace IO.Swagger.Models
         public Terminal Terminal { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cripto
-        /// </summary>
-        [DataMember(Name="Cripto")]
-        public CriptoResp Cripto { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InfPagamentoResp
-        /// </summary>
-        [Required]
-        [DataMember(Name="InfPagamentoResp")]
-        public InfPagamentoResp InfPagamentoResp { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PagamentoResp {\n");
-            sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
-            sb.Append("  Terminal: ").Append(Terminal).Append("\n");
+            sb.Append("class ConsultaFavorecidoResp {\n");
             sb.Append("  Cripto: ").Append(Cripto).Append("\n");
-            sb.Append("  InfPagamentoResp: ").Append(InfPagamentoResp).Append("\n");
+            sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
+            sb.Append("  InfConsultaFavorecido: ").Append(InfConsultaFavorecido).Append("\n");
+            sb.Append("  Terminal: ").Append(Terminal).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,39 +88,39 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((PagamentoResp)obj);
+            return obj.GetType() == GetType() && Equals((ConsultaFavorecidoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if PagamentoResp instances are equal
+        /// Returns true if ConsultaFavorecidoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of PagamentoResp to be compared</param>
+        /// <param name="other">Instance of ConsultaFavorecidoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PagamentoResp other)
+        public bool Equals(ConsultaFavorecidoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    InfTransacao == other.InfTransacao ||
-                    InfTransacao != null &&
-                    InfTransacao.Equals(other.InfTransacao)
-                ) && 
-                (
-                    Terminal == other.Terminal ||
-                    Terminal != null &&
-                    Terminal.Equals(other.Terminal)
-                ) && 
-                (
                     Cripto == other.Cripto ||
                     Cripto != null &&
                     Cripto.Equals(other.Cripto)
                 ) && 
                 (
-                    InfPagamentoResp == other.InfPagamentoResp ||
-                    InfPagamentoResp != null &&
-                    InfPagamentoResp.Equals(other.InfPagamentoResp)
+                    InfTransacao == other.InfTransacao ||
+                    InfTransacao != null &&
+                    InfTransacao.Equals(other.InfTransacao)
+                ) && 
+                (
+                    InfConsultaFavorecido == other.InfConsultaFavorecido ||
+                    InfConsultaFavorecido != null &&
+                    InfConsultaFavorecido.Equals(other.InfConsultaFavorecido)
+                ) && 
+                (
+                    Terminal == other.Terminal ||
+                    Terminal != null &&
+                    Terminal.Equals(other.Terminal)
                 );
         }
 
@@ -134,14 +134,14 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (InfTransacao != null)
-                    hashCode = hashCode * 59 + InfTransacao.GetHashCode();
-                    if (Terminal != null)
-                    hashCode = hashCode * 59 + Terminal.GetHashCode();
                     if (Cripto != null)
                     hashCode = hashCode * 59 + Cripto.GetHashCode();
-                    if (InfPagamentoResp != null)
-                    hashCode = hashCode * 59 + InfPagamentoResp.GetHashCode();
+                    if (InfTransacao != null)
+                    hashCode = hashCode * 59 + InfTransacao.GetHashCode();
+                    if (InfConsultaFavorecido != null)
+                    hashCode = hashCode * 59 + InfConsultaFavorecido.GetHashCode();
+                    if (Terminal != null)
+                    hashCode = hashCode * 59 + Terminal.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +149,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(PagamentoResp left, PagamentoResp right)
+        public static bool operator ==(ConsultaFavorecidoResp left, ConsultaFavorecidoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(PagamentoResp left, PagamentoResp right)
+        public static bool operator !=(ConsultaFavorecidoResp left, ConsultaFavorecidoResp right)
         {
             return !Equals(left, right);
         }

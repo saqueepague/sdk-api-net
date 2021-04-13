@@ -25,14 +25,21 @@ namespace IO.Swagger.Models
     /// 
     /// </summary>
     [DataContract]
-    public partial class PagamentoResp : IEquatable<PagamentoResp>
+    public partial class ConsultaFavorecidoReq : IEquatable<ConsultaFavorecidoReq>
     { 
         /// <summary>
         /// Gets or Sets InfTransacao
         /// </summary>
         [Required]
         [DataMember(Name="InfTransacao")]
-        public InfTransacaoResp InfTransacao { get; set; }
+        public InfTransacaoReq InfTransacao { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Cartao
+        /// </summary>
+        [Required]
+        [DataMember(Name="Cartao")]
+        public Cartao Cartao { get; set; }
 
         /// <summary>
         /// Gets or Sets Terminal
@@ -42,30 +49,16 @@ namespace IO.Swagger.Models
         public Terminal Terminal { get; set; }
 
         /// <summary>
-        /// Gets or Sets Cripto
-        /// </summary>
-        [DataMember(Name="Cripto")]
-        public CriptoResp Cripto { get; set; }
-
-        /// <summary>
-        /// Gets or Sets InfPagamentoResp
-        /// </summary>
-        [Required]
-        [DataMember(Name="InfPagamentoResp")]
-        public InfPagamentoResp InfPagamentoResp { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PagamentoResp {\n");
+            sb.Append("class ConsultaFavorecidoReq {\n");
             sb.Append("  InfTransacao: ").Append(InfTransacao).Append("\n");
+            sb.Append("  Cartao: ").Append(Cartao).Append("\n");
             sb.Append("  Terminal: ").Append(Terminal).Append("\n");
-            sb.Append("  Cripto: ").Append(Cripto).Append("\n");
-            sb.Append("  InfPagamentoResp: ").Append(InfPagamentoResp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +81,15 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((PagamentoResp)obj);
+            return obj.GetType() == GetType() && Equals((ConsultaFavorecidoReq)obj);
         }
 
         /// <summary>
-        /// Returns true if PagamentoResp instances are equal
+        /// Returns true if ConsultaFavorecidoReq instances are equal
         /// </summary>
-        /// <param name="other">Instance of PagamentoResp to be compared</param>
+        /// <param name="other">Instance of ConsultaFavorecidoReq to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PagamentoResp other)
+        public bool Equals(ConsultaFavorecidoReq other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
@@ -108,19 +101,14 @@ namespace IO.Swagger.Models
                     InfTransacao.Equals(other.InfTransacao)
                 ) && 
                 (
+                    Cartao == other.Cartao ||
+                    Cartao != null &&
+                    Cartao.Equals(other.Cartao)
+                ) && 
+                (
                     Terminal == other.Terminal ||
                     Terminal != null &&
                     Terminal.Equals(other.Terminal)
-                ) && 
-                (
-                    Cripto == other.Cripto ||
-                    Cripto != null &&
-                    Cripto.Equals(other.Cripto)
-                ) && 
-                (
-                    InfPagamentoResp == other.InfPagamentoResp ||
-                    InfPagamentoResp != null &&
-                    InfPagamentoResp.Equals(other.InfPagamentoResp)
                 );
         }
 
@@ -136,12 +124,10 @@ namespace IO.Swagger.Models
                 // Suitable nullity checks etc, of course :)
                     if (InfTransacao != null)
                     hashCode = hashCode * 59 + InfTransacao.GetHashCode();
+                    if (Cartao != null)
+                    hashCode = hashCode * 59 + Cartao.GetHashCode();
                     if (Terminal != null)
                     hashCode = hashCode * 59 + Terminal.GetHashCode();
-                    if (Cripto != null)
-                    hashCode = hashCode * 59 + Cripto.GetHashCode();
-                    if (InfPagamentoResp != null)
-                    hashCode = hashCode * 59 + InfPagamentoResp.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,12 +135,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(PagamentoResp left, PagamentoResp right)
+        public static bool operator ==(ConsultaFavorecidoReq left, ConsultaFavorecidoReq right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(PagamentoResp left, PagamentoResp right)
+        public static bool operator !=(ConsultaFavorecidoReq left, ConsultaFavorecidoReq right)
         {
             return !Equals(left, right);
         }
