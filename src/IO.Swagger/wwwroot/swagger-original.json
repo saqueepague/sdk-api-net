@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.23.0",
+    "version" : "1.24.0",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.23.0",
+  "basePath" : "/saqueepague/SepTransaction/1.24.0",
   "tags" : [ {
     "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
@@ -59,6 +59,9 @@
   }, {
     "name" : "Transferencia com Cartao",
     "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
+  }, {
+    "name" : "Transferencia com Cartao em Dinheiro",
+    "description" : "Transações necessárias para efetuar uma Transferência com Cartão depositando um valor em dinheiro."
   }, {
     "name" : "Transferencia sem Cartao",
     "description" : "Transações necessárias para efetuar uma Transferência sem Cartão."
@@ -226,7 +229,7 @@
     },
     "/consultaConta" : {
       "post" : {
-        "tags" : [ "Deposito sem Cartao", "Deposito via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Default" ],
+        "tags" : [ "Deposito sem Cartao", "Deposito via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro", "Default" ],
         "description" : "Operação de consulta de conta de favorecido, usada previamente ao depósito para verificar se a conta é válida e está habilitada para depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -435,7 +438,7 @@
     },
     "/consultaFavorecido" : {
       "post" : {
-        "tags" : [ "Transferencia com Cartao", "Default" ],
+        "tags" : [ "Transferencia com Cartao", "Transferencia com Cartao em Dinheiro", "Default" ],
         "description" : "Operação de consulta de condições disponíveis de parcelamento do empréstimo.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -592,7 +595,7 @@
     "/consultaSaque" : {
       "post" : {
         "tags" : [ "Saque sem Cartao", "Default" ],
-        "description" : "Operação de consulta para saque de moeda estrangeira (câmbio). Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
+        "description" : "Operação de consulta para saque. Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1203,7 +1206,7 @@
     },
     "/identificacao" : {
       "post" : {
-        "tags" : [ "Saque com Cartao", "Saldo com Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Deposito com Cartao", "Emprestimo com Cartao", "Pagamento com Cartao", "Transferencia com Cartao", "Default" ],
+        "tags" : [ "Saque com Cartao", "Saldo com Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Deposito com Cartao", "Emprestimo com Cartao", "Pagamento com Cartao", "Transferencia com Cartao", "Transferencia com Cartao em Dinheiro", "Default" ],
         "description" : "Operação de identificação do cliente e informações adicionais de sua conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1760,7 +1763,7 @@
     },
     "/token" : {
       "post" : {
-        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Emprestimo sem Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Titulos de Capitalizacao" ],
+        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Emprestimo sem Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro", "Titulos de Capitalizacao" ],
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1797,7 +1800,7 @@
     },
     "/transferencia" : {
       "post" : {
-        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro" ],
         "description" : "Operação de transferência entre contas.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1849,7 +1852,7 @@
     },
     "/transferenciaConf" : {
       "post" : {
-        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro" ],
         "description" : "Confirmação de operação de transferência.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -2319,6 +2322,7 @@
           "id" : "05100004"
         },
         "InfConsultaFavorecido" : {
+          "nomeCliente" : "Carl Edward Sagan",
           "favorecidos" : [ {
             "numAgencia" : "4029",
             "numConta" : "0082348296",
@@ -3663,6 +3667,11 @@
     "infConsultaFavorecidoResp" : {
       "type" : "object",
       "properties" : {
+        "nomeCliente" : {
+          "type" : "string",
+          "example" : "Carl Edward Sagan",
+          "description" : "Nome do cliente titular da conta."
+        },
         "favorecidos" : {
           "type" : "array",
           "description" : "Lista de favorecidos cadastrados no parceiro.",
@@ -3673,6 +3682,7 @@
       },
       "description" : "Informações da resposta da requisição de consulta de condições de parcelamento de empréstimo.",
       "example" : {
+        "nomeCliente" : "Carl Edward Sagan",
         "favorecidos" : [ {
           "numAgencia" : "4029",
           "numConta" : "0082348296",

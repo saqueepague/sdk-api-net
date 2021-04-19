@@ -29,7 +29,7 @@ namespace IO.Swagger.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class TransferenciaComCartaoApiController : Controller
+    public class TransferenciaComCartaoEmDinheiroApiController : Controller
     { 
         /// <summary>
         /// 
