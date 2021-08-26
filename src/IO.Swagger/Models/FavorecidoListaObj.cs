@@ -22,15 +22,43 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// Informações sobre o destino da tranferência.
+    /// Informações sobre cada favorecido. (Manter o campo VAZIO, por compatibilidade, caso não exista informação).
     /// </summary>
     [DataContract]
-    public partial class InfTransferenciaReqDestino : IEquatable<InfTransferenciaReqDestino>
+    public partial class FavorecidoListaObj : IEquatable<FavorecidoListaObj>
     { 
         /// <summary>
-        /// Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).
+        /// Código do banco do Favorecido Cadastrado (3 dígitos).
         /// </summary>
-        /// <value>Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).</value>
+        /// <value>Código do banco do Favorecido Cadastrado (3 dígitos).</value>
+        [DataMember(Name="codBanco")]
+        public string CodBanco { get; set; }
+
+        /// <summary>
+        /// Nome do Banco Favorecido Cadastrado (sem acento).
+        /// </summary>
+        /// <value>Nome do Banco Favorecido Cadastrado (sem acento).</value>
+        [DataMember(Name="nomeBanco")]
+        public string NomeBanco { get; set; }
+
+        /// <summary>
+        /// Número da agência do Favorecido Cadastrado.
+        /// </summary>
+        /// <value>Número da agência do Favorecido Cadastrado.</value>
+        [DataMember(Name="numAgencia")]
+        public string NumAgencia { get; set; }
+
+        /// <summary>
+        /// Número da conta do Favorecido Cadastrado.
+        /// </summary>
+        /// <value>Número da conta do Favorecido Cadastrado.</value>
+        [DataMember(Name="numConta")]
+        public string NumConta { get; set; }
+
+        /// <summary>
+        /// Tipo de conta do extrato do Favorecido Cadastrado (CC = conta corrente, CP = conta poupança).
+        /// </summary>
+        /// <value>Tipo de conta do extrato do Favorecido Cadastrado (CC = conta corrente, CP = conta poupança).</value>
         [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public enum TipoContaEnum
         {
@@ -45,60 +73,29 @@ namespace IO.Swagger.Models
             /// Enum CPEnum for CP
             /// </summary>
             [EnumMember(Value = "CP")]
-            CPEnum = 2,
-            
-            /// <summary>
-            /// Enum CSEnum for CS
-            /// </summary>
-            [EnumMember(Value = "CS")]
-            CSEnum = 3
+            CPEnum = 2
         }
 
         /// <summary>
-        /// Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).
+        /// Tipo de conta do extrato do Favorecido Cadastrado (CC &#x3D; conta corrente, CP &#x3D; conta poupança).
         /// </summary>
-        /// <value>Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).</value>
-        [Required]
+        /// <value>Tipo de conta do extrato do Favorecido Cadastrado (CC &#x3D; conta corrente, CP &#x3D; conta poupança).</value>
         [DataMember(Name="tipoConta")]
         public TipoContaEnum? TipoConta { get; set; }
 
         /// <summary>
-        /// Código do banco de destino da transferência (3 dígitos).
+        /// Nome do titular da conta.
         /// </summary>
-        /// <value>Código do banco de destino da transferência (3 dígitos).</value>
-        [Required]
-        [DataMember(Name="codBanco")]
-        public string CodBanco { get; set; }
+        /// <value>Nome do titular da conta.</value>
+        [DataMember(Name="nomeTitularConta")]
+        public string NomeTitularConta { get; set; }
 
         /// <summary>
-        /// Número da agência de destino da transferência.
+        /// Número do CPF ou CNPJ do Favorecido Cadastrado (11 dígitos ou 14 dígitos, respectivamente).
         /// </summary>
-        /// <value>Número da agência de destino da transferência.</value>
-        [Required]
-        [DataMember(Name="numAgencia")]
-        public string NumAgencia { get; set; }
-
-        /// <summary>
-        /// Número da conta de destino da transferência.
-        /// </summary>
-        /// <value>Número da conta de destino da transferência.</value>
-        [Required]
-        [DataMember(Name="numConta")]
-        public string NumConta { get; set; }
-
-        /// <summary>
-        /// Número do CPF ou CNPJ de destino da transferência (11 dígitos ou 14 dígitos respectivamente).
-        /// </summary>
-        /// <value>Número do CPF ou CNPJ de destino da transferência (11 dígitos ou 14 dígitos respectivamente).</value>
-        [DataMember(Name="cpfcnpj")]
-        public string Cpfcnpj { get; set; }
-
-        /// <summary>
-        /// Nome de destino da transferência.
-        /// </summary>
-        /// <value>Nome de destino da transferência.</value>
-        [DataMember(Name="nome")]
-        public string Nome { get; set; }
+        /// <value>Número do CPF ou CNPJ do Favorecido Cadastrado (11 dígitos ou 14 dígitos, respectivamente).</value>
+        [DataMember(Name="cpf")]
+        public string Cpf { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -107,13 +104,14 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InfTransferenciaReqDestino {\n");
-            sb.Append("  TipoConta: ").Append(TipoConta).Append("\n");
+            sb.Append("class FavorecidoListaObj {\n");
             sb.Append("  CodBanco: ").Append(CodBanco).Append("\n");
+            sb.Append("  NomeBanco: ").Append(NomeBanco).Append("\n");
             sb.Append("  NumAgencia: ").Append(NumAgencia).Append("\n");
             sb.Append("  NumConta: ").Append(NumConta).Append("\n");
-            sb.Append("  Cpfcnpj: ").Append(Cpfcnpj).Append("\n");
-            sb.Append("  Nome: ").Append(Nome).Append("\n");
+            sb.Append("  TipoConta: ").Append(TipoConta).Append("\n");
+            sb.Append("  NomeTitularConta: ").Append(NomeTitularConta).Append("\n");
+            sb.Append("  Cpf: ").Append(Cpf).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,29 +134,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((InfTransferenciaReqDestino)obj);
+            return obj.GetType() == GetType() && Equals((FavorecidoListaObj)obj);
         }
 
         /// <summary>
-        /// Returns true if InfTransferenciaReqDestino instances are equal
+        /// Returns true if FavorecidoListaObj instances are equal
         /// </summary>
-        /// <param name="other">Instance of InfTransferenciaReqDestino to be compared</param>
+        /// <param name="other">Instance of FavorecidoListaObj to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InfTransferenciaReqDestino other)
+        public bool Equals(FavorecidoListaObj other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    TipoConta == other.TipoConta ||
-                    TipoConta != null &&
-                    TipoConta.Equals(other.TipoConta)
-                ) && 
-                (
                     CodBanco == other.CodBanco ||
                     CodBanco != null &&
                     CodBanco.Equals(other.CodBanco)
+                ) && 
+                (
+                    NomeBanco == other.NomeBanco ||
+                    NomeBanco != null &&
+                    NomeBanco.Equals(other.NomeBanco)
                 ) && 
                 (
                     NumAgencia == other.NumAgencia ||
@@ -171,14 +169,19 @@ namespace IO.Swagger.Models
                     NumConta.Equals(other.NumConta)
                 ) && 
                 (
-                    Cpfcnpj == other.Cpfcnpj ||
-                    Cpfcnpj != null &&
-                    Cpfcnpj.Equals(other.Cpfcnpj)
+                    TipoConta == other.TipoConta ||
+                    TipoConta != null &&
+                    TipoConta.Equals(other.TipoConta)
                 ) && 
                 (
-                    Nome == other.Nome ||
-                    Nome != null &&
-                    Nome.Equals(other.Nome)
+                    NomeTitularConta == other.NomeTitularConta ||
+                    NomeTitularConta != null &&
+                    NomeTitularConta.Equals(other.NomeTitularConta)
+                ) && 
+                (
+                    Cpf == other.Cpf ||
+                    Cpf != null &&
+                    Cpf.Equals(other.Cpf)
                 );
         }
 
@@ -192,18 +195,20 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (TipoConta != null)
-                    hashCode = hashCode * 59 + TipoConta.GetHashCode();
                     if (CodBanco != null)
                     hashCode = hashCode * 59 + CodBanco.GetHashCode();
+                    if (NomeBanco != null)
+                    hashCode = hashCode * 59 + NomeBanco.GetHashCode();
                     if (NumAgencia != null)
                     hashCode = hashCode * 59 + NumAgencia.GetHashCode();
                     if (NumConta != null)
                     hashCode = hashCode * 59 + NumConta.GetHashCode();
-                    if (Cpfcnpj != null)
-                    hashCode = hashCode * 59 + Cpfcnpj.GetHashCode();
-                    if (Nome != null)
-                    hashCode = hashCode * 59 + Nome.GetHashCode();
+                    if (TipoConta != null)
+                    hashCode = hashCode * 59 + TipoConta.GetHashCode();
+                    if (NomeTitularConta != null)
+                    hashCode = hashCode * 59 + NomeTitularConta.GetHashCode();
+                    if (Cpf != null)
+                    hashCode = hashCode * 59 + Cpf.GetHashCode();
                 return hashCode;
             }
         }
@@ -211,12 +216,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(InfTransferenciaReqDestino left, InfTransferenciaReqDestino right)
+        public static bool operator ==(FavorecidoListaObj left, FavorecidoListaObj right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(InfTransferenciaReqDestino left, InfTransferenciaReqDestino right)
+        public static bool operator !=(FavorecidoListaObj left, FavorecidoListaObj right)
         {
             return !Equals(left, right);
         }

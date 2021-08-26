@@ -22,34 +22,24 @@ using Newtonsoft.Json;
 namespace IO.Swagger.Models
 { 
     /// <summary>
-    /// 
+    /// Informações da resposta da requisição de consulta de condições de parcelamento de empréstimo.
     /// </summary>
     [DataContract]
-    public partial class FeeObjB : IEquatable<FeeObjB>
+    public partial class InfConsultaFavorecidoResp : IEquatable<InfConsultaFavorecidoResp>
     { 
         /// <summary>
-        /// Taxa para o valor de recarga.
+        /// Nome do cliente titular da conta.
         /// </summary>
-        /// <value>Taxa para o valor de recarga.</value>
-        [Required]
-        [DataMember(Name="fee")]
-        public string Fee { get; set; }
+        /// <value>Nome do cliente titular da conta.</value>
+        [DataMember(Name="nomeCliente")]
+        public string NomeCliente { get; set; }
 
         /// <summary>
-        /// Identificador do valor fixo para recarga.
+        /// Lista de favorecidos cadastrados no parceiro.
         /// </summary>
-        /// <value>Identificador do valor fixo para recarga.</value>
-        [Required]
-        [DataMember(Name="id")]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Valor de recarga.
-        /// </summary>
-        /// <value>Valor de recarga.</value>
-        [Required]
-        [DataMember(Name="value")]
-        public string Value { get; set; }
+        /// <value>Lista de favorecidos cadastrados no parceiro.</value>
+        [DataMember(Name="favorecidos")]
+        public List<FavorecidoListaObj> Favorecidos { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,10 +48,9 @@ namespace IO.Swagger.Models
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class FeeObjB {\n");
-            sb.Append("  Fee: ").Append(Fee).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("class InfConsultaFavorecidoResp {\n");
+            sb.Append("  NomeCliente: ").Append(NomeCliente).Append("\n");
+            sb.Append("  Favorecidos: ").Append(Favorecidos).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,34 +73,29 @@ namespace IO.Swagger.Models
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            return obj.GetType() == GetType() && Equals((FeeObjB)obj);
+            return obj.GetType() == GetType() && Equals((InfConsultaFavorecidoResp)obj);
         }
 
         /// <summary>
-        /// Returns true if FeeObjB instances are equal
+        /// Returns true if InfConsultaFavorecidoResp instances are equal
         /// </summary>
-        /// <param name="other">Instance of FeeObjB to be compared</param>
+        /// <param name="other">Instance of InfConsultaFavorecidoResp to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(FeeObjB other)
+        public bool Equals(InfConsultaFavorecidoResp other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
 
             return 
                 (
-                    Fee == other.Fee ||
-                    Fee != null &&
-                    Fee.Equals(other.Fee)
+                    NomeCliente == other.NomeCliente ||
+                    NomeCliente != null &&
+                    NomeCliente.Equals(other.NomeCliente)
                 ) && 
                 (
-                    Id == other.Id ||
-                    Id != null &&
-                    Id.Equals(other.Id)
-                ) && 
-                (
-                    Value == other.Value ||
-                    Value != null &&
-                    Value.Equals(other.Value)
+                    Favorecidos == other.Favorecidos ||
+                    Favorecidos != null &&
+                    Favorecidos.SequenceEqual(other.Favorecidos)
                 );
         }
 
@@ -125,12 +109,10 @@ namespace IO.Swagger.Models
             {
                 var hashCode = 41;
                 // Suitable nullity checks etc, of course :)
-                    if (Fee != null)
-                    hashCode = hashCode * 59 + Fee.GetHashCode();
-                    if (Id != null)
-                    hashCode = hashCode * 59 + Id.GetHashCode();
-                    if (Value != null)
-                    hashCode = hashCode * 59 + Value.GetHashCode();
+                    if (NomeCliente != null)
+                    hashCode = hashCode * 59 + NomeCliente.GetHashCode();
+                    if (Favorecidos != null)
+                    hashCode = hashCode * 59 + Favorecidos.GetHashCode();
                 return hashCode;
             }
         }
@@ -138,12 +120,12 @@ namespace IO.Swagger.Models
         #region Operators
         #pragma warning disable 1591
 
-        public static bool operator ==(FeeObjB left, FeeObjB right)
+        public static bool operator ==(InfConsultaFavorecidoResp left, InfConsultaFavorecidoResp right)
         {
             return Equals(left, right);
         }
 
-        public static bool operator !=(FeeObjB left, FeeObjB right)
+        public static bool operator !=(InfConsultaFavorecidoResp left, InfConsultaFavorecidoResp right)
         {
             return !Equals(left, right);
         }

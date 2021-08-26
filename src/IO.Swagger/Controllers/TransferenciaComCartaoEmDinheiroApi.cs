@@ -29,58 +29,28 @@ namespace IO.Swagger.Controllers
     /// <summary>
     /// 
     /// </summary>
-    public class ExtratoComCartaoApiController : Controller
+    public class TransferenciaComCartaoEmDinheiroApiController : Controller
     { 
         /// <summary>
         /// 
         /// </summary>
-        /// <remarks>Confirmação de operação de extrato.</remarks>
+        /// <remarks>Operação de consulta de condições disponíveis de parcelamento do empréstimo.</remarks>
         /// <param name="authenticationType">Tipo de autenticação requerida.</param>
         /// <param name="clientId">Identificação do cliente.</param>
         /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de confirmação de operação de extrato.</param>
+        /// <param name="body">Requisição de consulta parcelas de empréstimo.</param>
         /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
         /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
         /// <response code="401">Acesso não autorizado.</response>
         [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.25.1/extratoConf")]
+        [Route("/saqueepague/SepTransaction/1.25.1/consultaFavorecido")]
         [ValidateModelState]
-        [SwaggerOperation("ExtratoConfPost")]
-        public virtual IActionResult ExtratoConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
+        [SwaggerOperation("ConsultaFavorecidoPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(ConsultaFavorecidoResp), description: "Retorno com sucesso ou com Erro de negócio.")]
+        public virtual IActionResult ConsultaFavorecidoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]ConsultaFavorecidoReq body)
         { 
             //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200);
-
-            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(400);
-
-            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(401);
-
-
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <remarks>Operação de extrato.</remarks>
-        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
-        /// <param name="clientId">Identificação do cliente.</param>
-        /// <param name="token">Chave para validação do acesso ao serviço.</param>
-        /// <param name="body">Requisição de operação de extrato.</param>
-        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
-        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
-        /// <response code="401">Acesso não autorizado.</response>
-        [HttpPost]
-        [Route("/saqueepague/SepTransaction/1.25.1/extrato")]
-        [ValidateModelState]
-        [SwaggerOperation("ExtratoPost")]
-        [SwaggerResponse(statusCode: 200, type: typeof(ExtratoResp), description: "Retorno com sucesso ou com Erro de negócio.")]
-        public virtual IActionResult ExtratoPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]ExtratoReq body)
-        { 
-            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
-            // return StatusCode(200, default(ExtratoResp));
+            // return StatusCode(200, default(ConsultaFavorecidoResp));
 
             //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
             // return StatusCode(400);
@@ -89,11 +59,11 @@ namespace IO.Swagger.Controllers
             // return StatusCode(401);
 
             string exampleJson = null;
-            exampleJson = "{\n  \"InfExtrato\" : {\n    \"recibo\" : \"@                EXTRATO DE CONTA                @                                                @ CLIENTE: EUGENIO SCHMITT COELHO                @ AGENCIA: 0150 CONTA: 03.013689.0-1             @ SALDO DA CONTA                                 @ SALDO DEVEDOR...............R$          450,35-@ TOTAL DEVEDOR...............R$          450,35-@ LIMITE DA CONTA.............R$          100,00 @ LIMITE DA CONTA DISPONIVEL..R$          350,35-@--------- MOVIMENTOS DA CONTA CORRENTE ---------@@    SALDO ANT EM 18/01/2019               93,56-@    MOVIMENTOS JAN/2019                         @    COMPRAS           201218              85,68-@    COMPRAS           201218             139,14-@    COMPRAS           211218              20,70-@    COMPRAS           211218              39,00-@    SALDO NA DATA                        378,08-@\",\n    \"qtdPaginas\" : \"000010\"\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            exampleJson = "{\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  },\n  \"InfConsultaFavorecido\" : {\n    \"nomeCliente\" : \"Carl Edward Sagan\",\n    \"favorecidos\" : [ {\n      \"numAgencia\" : \"4029\",\n      \"numConta\" : \"0082348296\",\n      \"nomeBanco\" : \"BRADESCO\",\n      \"cpf\" : \"02358422785\",\n      \"tipoConta\" : \"CC\",\n      \"codBanco\" : \"237\",\n      \"nomeTitularConta\" : \"Carl Edward Sagan\"\n    }, {\n      \"numAgencia\" : \"4029\",\n      \"numConta\" : \"0082348296\",\n      \"nomeBanco\" : \"BRADESCO\",\n      \"cpf\" : \"02358422785\",\n      \"tipoConta\" : \"CC\",\n      \"codBanco\" : \"237\",\n      \"nomeTitularConta\" : \"Carl Edward Sagan\"\n    } ]\n  }\n}";
             
             var example = exampleJson != null
-            ? JsonConvert.DeserializeObject<ExtratoResp>(exampleJson)
-            : default(ExtratoResp);
+            ? JsonConvert.DeserializeObject<ConsultaFavorecidoResp>(exampleJson)
+            : default(ConsultaFavorecidoResp);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }
@@ -159,6 +129,73 @@ namespace IO.Swagger.Controllers
             var example = exampleJson != null
             ? JsonConvert.DeserializeObject<InfTokenResp>(exampleJson)
             : default(InfTokenResp);
+            //TODO: Change the data returned
+            return new ObjectResult(example);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Confirmação de operação de transferência.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de confirmação de operação de transferência.</param>
+        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
+        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.25.1/transferenciaConf")]
+        [ValidateModelState]
+        [SwaggerOperation("TransferenciaConfPost")]
+        public virtual IActionResult TransferenciaConfPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransacConf body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200);
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>Operação de transferência entre contas.</remarks>
+        /// <param name="authenticationType">Tipo de autenticação requerida.</param>
+        /// <param name="clientId">Identificação do cliente.</param>
+        /// <param name="token">Chave para validação do acesso ao serviço.</param>
+        /// <param name="body">Requisição de operação de transferência.</param>
+        /// <response code="200">Retorno com sucesso ou com Erro de negócio.</response>
+        /// <response code="400">Bad Request ou Erro interno ao qual inviabilizou uma resposta.</response>
+        /// <response code="401">Acesso não autorizado.</response>
+        [HttpPost]
+        [Route("/saqueepague/SepTransaction/1.25.1/transferencia")]
+        [ValidateModelState]
+        [SwaggerOperation("TransferenciaPost")]
+        [SwaggerResponse(statusCode: 200, type: typeof(TransferenciaResp), description: "Retorno com sucesso ou com Erro de negócio.")]
+        public virtual IActionResult TransferenciaPost([FromHeader][Required()]string authenticationType, [FromHeader][Required()]string clientId, [FromHeader][Required()]string token, [FromBody]TransferenciaReq body)
+        { 
+            //TODO: Uncomment the next line to return response 200 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(200, default(TransferenciaResp));
+
+            //TODO: Uncomment the next line to return response 400 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(400);
+
+            //TODO: Uncomment the next line to return response 401 or use other options such as return this.NotFound(), return this.BadRequest(..), ...
+            // return StatusCode(401);
+
+            string exampleJson = null;
+            exampleJson = "{\n  \"Inftransferencia\" : {\n    \"recibo\" : \"          COMPROVANTE DE TRANSFERENCIA          @           TRANSFERENCIA ENTRE CONTAS           @ORIGEM: CONTA CORRENTE - 123/1234567890         @DESTINO: CONTA CORRENTE - 456/9876543210        @VALOR TRANSFERENCIA: 123,456                    \",\n    \"origem\" : {\n      \"nome\" : \"Jean-Luc Picard\"\n    },\n    \"destino\" : {\n      \"nome\" : \"William Thomas Riker\"\n    }\n  },\n  \"InfTransacao\" : {\n    \"cdProc\" : \"029100\",\n    \"mensagemCliente\" : \"Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.\",\n    \"nsu\" : \"000080247206\",\n    \"codMoeda\" : \"986\",\n    \"codOperadora\" : \"00000000914\",\n    \"dataLocal\" : \"1122\",\n    \"errorMessage\" : \"\",\n    \"valor\" : \"5000\",\n    \"horaLocal\" : \"151032\",\n    \"nsuResposta\" : \"820\",\n    \"dataHora\" : \"1122151032\"\n  },\n  \"Cripto\" : {\n    \"hash\" : \"hash\"\n  },\n  \"Terminal\" : {\n    \"codEstab\" : \"000000000742673\",\n    \"tipo\" : \"008\",\n    \"id\" : \"05100004\"\n  }\n}";
+            
+            var example = exampleJson != null
+            ? JsonConvert.DeserializeObject<TransferenciaResp>(exampleJson)
+            : default(TransferenciaResp);
             //TODO: Change the data returned
             return new ObjectResult(example);
         }

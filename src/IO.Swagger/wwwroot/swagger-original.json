@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.25.3",
+    "version" : "1.25.1",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.25.3",
+  "basePath" : "/saqueepague/SepTransaction/1.25.1",
   "tags" : [ {
     "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
@@ -59,6 +59,9 @@
   }, {
     "name" : "Transferencia com Cartao",
     "description" : "Transações necessárias para efetuar uma Transferência com Cartão."
+  }, {
+    "name" : "Transferencia com Cartao em Dinheiro",
+    "description" : "Transações necessárias para efetuar uma Transferência com Cartão depositando um valor em dinheiro."
   }, {
     "name" : "Transferencia sem Cartao",
     "description" : "Transações necessárias para efetuar uma Transferência sem Cartão."
@@ -226,7 +229,7 @@
     },
     "/consultaConta" : {
       "post" : {
-        "tags" : [ "Deposito sem Cartao", "Deposito via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Default" ],
+        "tags" : [ "Deposito sem Cartao", "Deposito via Carteira Digital", "Transferencia sem Cartao", "Default" ],
         "description" : "Operação de consulta de conta de favorecido, usada previamente ao depósito para verificar se a conta é válida e está habilitada para depósito.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -433,6 +436,58 @@
         }
       }
     },
+    "/consultaFavorecido" : {
+      "post" : {
+        "tags" : [ "Transferencia com Cartao", "Transferencia com Cartao em Dinheiro", "Default" ],
+        "description" : "Operação de consulta de condições disponíveis de parcelamento do empréstimo.",
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "authenticationType",
+          "in" : "header",
+          "description" : "Tipo de autenticação requerida.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "auth2"
+        }, {
+          "name" : "clientId",
+          "in" : "header",
+          "description" : "Identificação do cliente.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "prd-client"
+        }, {
+          "name" : "token",
+          "in" : "header",
+          "description" : "Chave para validação do acesso ao serviço.",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInByb2ZpbGUiOltdLCJpYXQiOjE0OTkwOsY4NDV9.uR5WH3c2ZztGmZVCfcJPu-1ix1w-j7shJw_X_ZlFfAo"
+        }, {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Requisição de consulta parcelas de empréstimo.",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/consultaFavorecidoReq"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Retorno com sucesso ou com Erro de negócio.",
+            "schema" : {
+              "$ref" : "#/definitions/consultaFavorecidoResp"
+            }
+          },
+          "400" : {
+            "description" : "Bad Request ou Erro interno ao qual inviabilizou uma resposta."
+          },
+          "401" : {
+            "description" : "Acesso não autorizado."
+          }
+        }
+      }
+    },
     "/consultaPrePago" : {
       "post" : {
         "tags" : [ "Recarga Celular", "Default" ],
@@ -540,7 +595,7 @@
     "/consultaSaque" : {
       "post" : {
         "tags" : [ "Saque sem Cartao", "Default" ],
-        "description" : "Operação de consulta para saque de moeda estrangeira (câmbio). Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
+        "description" : "Operação de consulta para saque. Efetuada para autenticar cliente, retornando valorde saque, moeda e dados adicionais.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1151,7 +1206,7 @@
     },
     "/identificacao" : {
       "post" : {
-        "tags" : [ "Saque com Cartao", "Saldo com Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Deposito com Cartao", "Emprestimo com Cartao", "Pagamento com Cartao", "Transferencia com Cartao", "Default" ],
+        "tags" : [ "Saque com Cartao", "Saldo com Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Deposito com Cartao", "Emprestimo com Cartao", "Pagamento com Cartao", "Transferencia com Cartao", "Transferencia com Cartao em Dinheiro", "Default" ],
         "description" : "Operação de identificação do cliente e informações adicionais de sua conta.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1708,7 +1763,7 @@
     },
     "/token" : {
       "post" : {
-        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Emprestimo sem Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Titulos de Capitalizacao" ],
+        "tags" : [ "Default", "Deposito com Cartao", "Deposito sem Cartao", "Deposito via Carteira Digital", "Emprestimo com Cartao", "Emprestimo sem Cartao", "Extrato com Cartao", "Demonstrativo INSS com Cartao", "Pagamento com Cartao", "Pagamento sem Cartao", "Recarga", "Recarga Celular", "Saldo com Cartao", "Saque com Cartao", "Saque sem Cartao", "Saque via Carteira Digital", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro", "Titulos de Capitalizacao" ],
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
         "parameters" : [ {
@@ -1745,7 +1800,7 @@
     },
     "/transferencia" : {
       "post" : {
-        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro" ],
         "description" : "Operação de transferência entre contas.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -1797,7 +1852,7 @@
     },
     "/transferenciaConf" : {
       "post" : {
-        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao" ],
+        "tags" : [ "Default", "Transferencia com Cartao", "Transferencia sem Cartao", "Transferencia com Cartao em Dinheiro" ],
         "description" : "Confirmação de operação de transferência.",
         "consumes" : [ "application/json" ],
         "produces" : [ "application/json" ],
@@ -2034,14 +2089,11 @@
         },
         "InfConsultaConta" : {
           "solicDoc" : "00",
-          "numAgencia" : "4029",
-          "numConta" : "0082348296",
           "modalidadeDeposito" : "00",
           "depositoVarejista" : "01",
           "nomeCliente" : "Carl Edward Sagan",
           "depositoIdentificado" : "00",
-          "habilitaDeposito" : "01",
-          "codBanco" : "237"
+          "habilitaDeposito" : "01"
         },
         "Cripto" : {
           "hash" : "hash"
@@ -2156,32 +2208,34 @@
             "valorParcela" : "000000005000",
             "qntParcelas" : "5",
             "tributos" : {
-              "taxaJurosMensal" : "0809445",
-              "iof" : "0809445",
-              "cetAnual" : "0809445",
-              "cetMensal" : "0809445",
+              "taxaJurosMensal" : "0008094",
+              "iof" : "0008094",
+              "cetAnual" : "0008094",
+              "cetMensal" : "0008094",
+              "valorTotalParcelas" : "000000500010",
               "valorSolicitado" : "000000000499",
               "dataContratacao" : "20200928",
-              "valorJuros" : "0002422",
-              "taxaJurosAnual" : "0809445",
+              "valorJuros" : "000000001099",
+              "taxaJurosAnual" : "0008094",
               "ultimoVencimento" : "20200928",
-              "iofAdicional" : "0809445",
+              "iofAdicional" : "0008094",
               "primeiroVencimento" : "20200928"
             }
           }, {
             "valorParcela" : "000000005000",
             "qntParcelas" : "5",
             "tributos" : {
-              "taxaJurosMensal" : "0809445",
-              "iof" : "0809445",
-              "cetAnual" : "0809445",
-              "cetMensal" : "0809445",
+              "taxaJurosMensal" : "0008094",
+              "iof" : "0008094",
+              "cetAnual" : "0008094",
+              "cetMensal" : "0008094",
+              "valorTotalParcelas" : "000000500010",
               "valorSolicitado" : "000000000499",
               "dataContratacao" : "20200928",
-              "valorJuros" : "0002422",
-              "taxaJurosAnual" : "0809445",
+              "valorJuros" : "000000001099",
+              "taxaJurosAnual" : "0008094",
               "ultimoVencimento" : "20200928",
-              "iofAdicional" : "0809445",
+              "iofAdicional" : "0008094",
               "primeiroVencimento" : "20200928"
             }
           } ],
@@ -2212,6 +2266,82 @@
           "codEstab" : "000000000742673",
           "tipo" : "008",
           "id" : "05100004"
+        }
+      }
+    },
+    "consultaFavorecidoReq" : {
+      "type" : "object",
+      "required" : [ "Cartao", "InfTransacao", "Terminal" ],
+      "properties" : {
+        "InfTransacao" : {
+          "$ref" : "#/definitions/infTransacaoReq"
+        },
+        "Cartao" : {
+          "$ref" : "#/definitions/cartao"
+        },
+        "Terminal" : {
+          "$ref" : "#/definitions/terminal"
+        }
+      }
+    },
+    "consultaFavorecidoResp" : {
+      "type" : "object",
+      "required" : [ "InfConsultaFavorecido", "InfTransacao", "Terminal" ],
+      "properties" : {
+        "Cripto" : {
+          "$ref" : "#/definitions/criptoResp"
+        },
+        "InfTransacao" : {
+          "$ref" : "#/definitions/infTransacaoResp"
+        },
+        "InfConsultaFavorecido" : {
+          "$ref" : "#/definitions/infConsultaFavorecidoResp"
+        },
+        "Terminal" : {
+          "$ref" : "#/definitions/terminal"
+        }
+      },
+      "example" : {
+        "InfTransacao" : {
+          "cdProc" : "029100",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "codOperadora" : "00000000914",
+          "dataLocal" : "1122",
+          "errorMessage" : "",
+          "valor" : "5000",
+          "horaLocal" : "151032",
+          "nsuResposta" : "820",
+          "dataHora" : "1122151032"
+        },
+        "Cripto" : {
+          "hash" : "hash"
+        },
+        "Terminal" : {
+          "codEstab" : "000000000742673",
+          "tipo" : "008",
+          "id" : "05100004"
+        },
+        "InfConsultaFavorecido" : {
+          "nomeCliente" : "Carl Edward Sagan",
+          "favorecidos" : [ {
+            "numAgencia" : "4029",
+            "numConta" : "0082348296",
+            "nomeBanco" : "BRADESCO",
+            "cpf" : "02358422785",
+            "tipoConta" : "CC",
+            "codBanco" : "237",
+            "nomeTitularConta" : "Carl Edward Sagan"
+          }, {
+            "numAgencia" : "4029",
+            "numConta" : "0082348296",
+            "nomeBanco" : "BRADESCO",
+            "cpf" : "02358422785",
+            "tipoConta" : "CC",
+            "codBanco" : "237",
+            "nomeTitularConta" : "Carl Edward Sagan"
+          } ]
         }
       }
     },
@@ -3114,6 +3244,7 @@
       "example" : {
         "InfIdentificacao" : {
           "pedirToken" : "01",
+          "valorLimiteFavorecido" : "000000030000",
           "frase" : "Informe o token gerado em seu app:",
           "numAgencia" : "4029",
           "perguntas" : [ {
@@ -3335,37 +3466,16 @@
           "example" : "01",
           "description" : "Indica se a conta em questão permite Depósito Varejista  (00 = Não / 01 = Sim).",
           "enum" : [ "00", "01" ]
-        },
-        "codBanco" : {
-          "type" : "string",
-          "example" : "237",
-          "description" : "Código do banco utilizado na operação (3 dígitos).",
-          "pattern" : "^\\d{3}$"
-        },
-        "numAgencia" : {
-          "type" : "string",
-          "example" : "4029",
-          "description" : "Número da agência utilizada na operação.",
-          "pattern" : "^\\d+$"
-        },
-        "numConta" : {
-          "type" : "string",
-          "example" : "0082348296",
-          "description" : "Número da conta utilizada na operação.",
-          "pattern" : "^\\d+$"
         }
       },
       "description" : "Informações da resposta da requisição de consulta de conta do favorecido.",
       "example" : {
         "solicDoc" : "00",
-        "numAgencia" : "4029",
-        "numConta" : "0082348296",
         "modalidadeDeposito" : "00",
         "depositoVarejista" : "01",
         "nomeCliente" : "Carl Edward Sagan",
         "depositoIdentificado" : "00",
-        "habilitaDeposito" : "01",
-        "codBanco" : "237"
+        "habilitaDeposito" : "01"
       }
     },
     "infConsultaLimitesEmprestimoResp" : {
@@ -3481,32 +3591,34 @@
           "valorParcela" : "000000005000",
           "qntParcelas" : "5",
           "tributos" : {
-            "taxaJurosMensal" : "0809445",
-            "iof" : "0809445",
-            "cetAnual" : "0809445",
-            "cetMensal" : "0809445",
+            "taxaJurosMensal" : "0008094",
+            "iof" : "0008094",
+            "cetAnual" : "0008094",
+            "cetMensal" : "0008094",
+            "valorTotalParcelas" : "000000500010",
             "valorSolicitado" : "000000000499",
             "dataContratacao" : "20200928",
-            "valorJuros" : "0002422",
-            "taxaJurosAnual" : "0809445",
+            "valorJuros" : "000000001099",
+            "taxaJurosAnual" : "0008094",
             "ultimoVencimento" : "20200928",
-            "iofAdicional" : "0809445",
+            "iofAdicional" : "0008094",
             "primeiroVencimento" : "20200928"
           }
         }, {
           "valorParcela" : "000000005000",
           "qntParcelas" : "5",
           "tributos" : {
-            "taxaJurosMensal" : "0809445",
-            "iof" : "0809445",
-            "cetAnual" : "0809445",
-            "cetMensal" : "0809445",
+            "taxaJurosMensal" : "0008094",
+            "iof" : "0008094",
+            "cetAnual" : "0008094",
+            "cetMensal" : "0008094",
+            "valorTotalParcelas" : "000000500010",
             "valorSolicitado" : "000000000499",
             "dataContratacao" : "20200928",
-            "valorJuros" : "0002422",
-            "taxaJurosAnual" : "0809445",
+            "valorJuros" : "000000001099",
+            "taxaJurosAnual" : "0008094",
             "ultimoVencimento" : "20200928",
-            "iofAdicional" : "0809445",
+            "iofAdicional" : "0008094",
             "primeiroVencimento" : "20200928"
           }
         } ],
@@ -3542,18 +3654,112 @@
         "valorParcela" : "000000005000",
         "qntParcelas" : "5",
         "tributos" : {
-          "taxaJurosMensal" : "0809445",
-          "iof" : "0809445",
-          "cetAnual" : "0809445",
-          "cetMensal" : "0809445",
+          "taxaJurosMensal" : "0008094",
+          "iof" : "0008094",
+          "cetAnual" : "0008094",
+          "cetMensal" : "0008094",
+          "valorTotalParcelas" : "000000500010",
           "valorSolicitado" : "000000000499",
           "dataContratacao" : "20200928",
-          "valorJuros" : "0002422",
-          "taxaJurosAnual" : "0809445",
+          "valorJuros" : "000000001099",
+          "taxaJurosAnual" : "0008094",
           "ultimoVencimento" : "20200928",
-          "iofAdicional" : "0809445",
+          "iofAdicional" : "0008094",
           "primeiroVencimento" : "20200928"
         }
+      }
+    },
+    "infConsultaFavorecidoResp" : {
+      "type" : "object",
+      "properties" : {
+        "nomeCliente" : {
+          "type" : "string",
+          "example" : "Carl Edward Sagan",
+          "description" : "Nome do cliente titular da conta."
+        },
+        "favorecidos" : {
+          "type" : "array",
+          "description" : "Lista de favorecidos cadastrados no parceiro.",
+          "items" : {
+            "$ref" : "#/definitions/favorecidoListaObj"
+          }
+        }
+      },
+      "description" : "Informações da resposta da requisição de consulta de condições de parcelamento de empréstimo.",
+      "example" : {
+        "nomeCliente" : "Carl Edward Sagan",
+        "favorecidos" : [ {
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
+          "nomeBanco" : "BRADESCO",
+          "cpf" : "02358422785",
+          "tipoConta" : "CC",
+          "codBanco" : "237",
+          "nomeTitularConta" : "Carl Edward Sagan"
+        }, {
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
+          "nomeBanco" : "BRADESCO",
+          "cpf" : "02358422785",
+          "tipoConta" : "CC",
+          "codBanco" : "237",
+          "nomeTitularConta" : "Carl Edward Sagan"
+        } ]
+      }
+    },
+    "favorecidoListaObj" : {
+      "type" : "object",
+      "properties" : {
+        "codBanco" : {
+          "type" : "string",
+          "example" : "237",
+          "description" : "Código do banco do Favorecido Cadastrado (3 dígitos).",
+          "pattern" : "^\\d{3}$"
+        },
+        "nomeBanco" : {
+          "type" : "string",
+          "example" : "BRADESCO",
+          "description" : "Nome do Banco Favorecido Cadastrado (sem acento)."
+        },
+        "numAgencia" : {
+          "type" : "string",
+          "example" : "4029",
+          "description" : "Número da agência do Favorecido Cadastrado.",
+          "pattern" : "^\\d+$"
+        },
+        "numConta" : {
+          "type" : "string",
+          "example" : "0082348296",
+          "description" : "Número da conta do Favorecido Cadastrado.",
+          "pattern" : "^\\d+$"
+        },
+        "tipoConta" : {
+          "type" : "string",
+          "example" : "CC",
+          "description" : "Tipo de conta do extrato do Favorecido Cadastrado (CC = conta corrente, CP = conta poupança).",
+          "enum" : [ "CC", "CP" ]
+        },
+        "nomeTitularConta" : {
+          "type" : "string",
+          "example" : "Carl Edward Sagan",
+          "description" : "Nome do titular da conta."
+        },
+        "cpf" : {
+          "type" : "string",
+          "example" : "02358422785",
+          "description" : "Número do CPF ou CNPJ do Favorecido Cadastrado (11 dígitos ou 14 dígitos, respectivamente).",
+          "pattern" : "^\\d{14}|\\d{11}$"
+        }
+      },
+      "description" : "Informações sobre cada favorecido. (Manter o campo VAZIO, por compatibilidade, caso não exista informação).",
+      "example" : {
+        "numAgencia" : "4029",
+        "numConta" : "0082348296",
+        "nomeBanco" : "BRADESCO",
+        "cpf" : "02358422785",
+        "tipoConta" : "CC",
+        "codBanco" : "237",
+        "nomeTitularConta" : "Carl Edward Sagan"
       }
     },
     "infRecargaPrePagoReq" : {
@@ -4671,11 +4877,18 @@
           "example" : "068101068010",
           "description" : "Códigos de processamento das transações habilitadas para o cliente concatenados (6 dígitos cada código).",
           "pattern" : "^(?:\\d{6})*$"
+        },
+        "valorLimiteFavorecido" : {
+          "type" : "string",
+          "example" : "000000030000",
+          "description" : "Valor de limite para a TED (12 dígitos, incluindo centavos). Quando ultrapassar esse valor retornado pelo parceiro, devemos enviar a transação /consultaFavorecido.",
+          "pattern" : "^\\d{12}$"
         }
       },
       "description" : "Informações da resposta da requisição de identificação. Contém informações de como o usuário deve se identificar durante alguma futura transação. Usuário pode usar uma pergunta, token ou senha de sílabas.",
       "example" : {
         "pedirToken" : "01",
+        "valorLimiteFavorecido" : "000000030000",
         "frase" : "Informe o token gerado em seu app:",
         "numAgencia" : "4029",
         "perguntas" : [ {
@@ -5050,11 +5263,18 @@
           "example" : "                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 ",
           "description" : "Recibo da operação de saque efetuada. Linhas com 48 posições separadas por \"@\". Substituir os valores do recibo pela tag %VALOR%. A Saque e Pague substituirá essa tag no comprovante pelo valor realmente sacado pelo cliente.",
           "pattern" : "^[^@]{0,48}(\\@[^@]{0,48})*$"
+        },
+        "ispb" : {
+          "type" : "string",
+          "example" : "01234567",
+          "description" : "Código da Intituição registrada no Sistema Brasileiro de Pagamentos. Campo obrigatório, para transações de Saque QR Code, afim de identificar a instituição parceira da transação.",
+          "pattern" : "^\\d{8}$"
         }
       },
       "description" : "Informações da resposta de saque.",
       "example" : {
-        "recibo" : "                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 "
+        "recibo" : "                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 ",
+        "ispb" : "01234567"
       }
     },
     "infTransacaoConf" : {
@@ -5718,7 +5938,8 @@
       },
       "example" : {
         "InfSaque" : {
-          "recibo" : "                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 "
+          "recibo" : "                 SAQUE DE CONTA                 @                036200005433591                @               13/10/2018  20:24               @                 BANCO: BANCO                  @                AGENCIA: 4029                  @              CONTA: 0082348296                @               %VALOR%: R$ 50,00                 ",
+          "ispb" : "01234567"
         },
         "InfTransacao" : {
           "cdProc" : "029100",
@@ -5920,32 +6141,32 @@
         },
         "iof" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações do imposto sobre operações financeiras (07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações do imposto sobre operações financeiras (07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
         },
         "iofAdicional" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações do imposto sobre operações financeiras adicional (07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações do imposto sobre operações financeiras adicional (07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
         },
         "valorJuros" : {
           "type" : "string",
-          "example" : "0002422",
-          "description" : "Valor dos juros calculado (07 dígitos, valor total = 80,9445%).",
-          "pattern" : "^\\d{07}$"
+          "example" : "000000001099",
+          "description" : "Valor dos juros calculado em reias (12 dígitos, incluindo centavos).",
+          "pattern" : "^\\d{12}$"
         },
         "taxaJurosAnual" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações sobre taxas de juros anual (07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações sobre taxas de juros anual (07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
         },
         "taxaJurosMensal" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações sobre taxas de juros mensal (07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações sobre taxas de juros mensal (07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
         },
         "dataContratacao" : {
@@ -5968,29 +6189,36 @@
         },
         "cetAnual" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações sobre a soma de taxas de juros anual (07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações sobre a soma de taxas de juros anual (07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
         },
         "cetMensal" : {
           "type" : "string",
-          "example" : "0809445",
-          "description" : "Informações sobre a soma de taxas de juros mensal(07 dígitos, valor total = 80,9445%).",
+          "example" : "0008094",
+          "description" : "Informações sobre a soma de taxas de juros mensal(07 dígitos, valor total = 80,94%).",
           "pattern" : "^\\d{07}$"
+        },
+        "valorTotalParcelas" : {
+          "type" : "string",
+          "example" : "000000500010",
+          "description" : "Informações sobre o valor total da soma de todas parcelas (12 dígitos, incluindo centavos).",
+          "pattern" : "^\\d{12}$"
         }
       },
       "description" : "Informações sobre cada parcela.",
       "example" : {
-        "taxaJurosMensal" : "0809445",
-        "iof" : "0809445",
-        "cetAnual" : "0809445",
-        "cetMensal" : "0809445",
+        "taxaJurosMensal" : "0008094",
+        "iof" : "0008094",
+        "cetAnual" : "0008094",
+        "cetMensal" : "0008094",
+        "valorTotalParcelas" : "000000500010",
         "valorSolicitado" : "000000000499",
         "dataContratacao" : "20200928",
-        "valorJuros" : "0002422",
-        "taxaJurosAnual" : "0809445",
+        "valorJuros" : "000000001099",
+        "taxaJurosAnual" : "0008094",
         "ultimoVencimento" : "20200928",
-        "iofAdicional" : "0809445",
+        "iofAdicional" : "0008094",
         "primeiroVencimento" : "20200928"
       }
     },
