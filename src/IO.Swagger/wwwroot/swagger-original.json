@@ -2,7 +2,7 @@
   "swagger" : "2.0",
   "info" : {
     "description" : "Modelo de API para transações da Saque e Pague. O parceiro interessado deve implementar as operações desejadas para que a SeP consiga se comunicar com o mesmo.",
-    "version" : "1.27.0",
+    "version" : "1.27.1",
     "title" : "Saque e Pague Transacional",
     "contact" : {
       "name" : "Time Saque e Pague",
@@ -10,7 +10,7 @@
     }
   },
   "host" : "api-saqueepague.sensedia.com",
-  "basePath" : "/saqueepague/SepTransaction/1.27.0",
+  "basePath" : "/saqueepague/SepTransaction/1.27.1",
   "tags" : [ {
     "name" : "Deposito com Cartao",
     "description" : "Transações necessárias para efetuar um Depósito com Cartão."
@@ -3078,6 +3078,7 @@
             "valor" : "0003000",
             "eanProduto" : "4260433452913",
             "priority" : "1",
+            "logoURL" : "dHUgw6kgbyBjYXJhIDsp",
             "descricaoProduto" : "Cartao Presente",
             "valorMaximo" : "0003000",
             "idProvedor" : "132",
@@ -3085,7 +3086,10 @@
             "statusProduto" : "1",
             "valorMinimo" : "0003000",
             "tipoProduto" : "PIN",
-            "informacoes" : "\"dHUgw6kgbyBjYXJhIDsp\"",
+            "informacoes" : {
+              "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+              "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+            },
             "nomeProduto" : "Cartao Presente",
             "tipoMoeda" : "BRL"
           }, {
@@ -3093,6 +3097,7 @@
             "valor" : "0003000",
             "eanProduto" : "4260433452913",
             "priority" : "1",
+            "logoURL" : "dHUgw6kgbyBjYXJhIDsp",
             "descricaoProduto" : "Cartao Presente",
             "valorMaximo" : "0003000",
             "idProvedor" : "132",
@@ -3100,7 +3105,10 @@
             "statusProduto" : "1",
             "valorMinimo" : "0003000",
             "tipoProduto" : "PIN",
-            "informacoes" : "\"dHUgw6kgbyBjYXJhIDsp\"",
+            "informacoes" : {
+              "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+              "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+            },
             "nomeProduto" : "Cartao Presente",
             "tipoMoeda" : "BRL"
           } ]
@@ -4113,21 +4121,21 @@
     },
     "infEfetuarCompraCartaoPresenteReq" : {
       "type" : "object",
-      "required" : [ "cpf", "ddd", "id", "telefone", "valor" ],
+      "required" : [ "ddd", "telefone" ],
       "properties" : {
-        "cpf" : {
+        "cpfCliente" : {
           "type" : "string",
           "example" : "12345678901",
           "description" : "CPF do cliente para a compra de cartão presente.",
           "pattern" : "^\\d{11}$"
         },
-        "id" : {
+        "idCartaoPresente" : {
           "type" : "string",
           "example" : "113183",
           "description" : "ID do produto para a compra de cartão presente.",
           "pattern" : "^.*$"
         },
-        "valor" : {
+        "valorCartaoPresente" : {
           "type" : "string",
           "example" : "000000005000",
           "description" : "Valor do cartão presente.",
@@ -4369,6 +4377,7 @@
           "valor" : "0003000",
           "eanProduto" : "4260433452913",
           "priority" : "1",
+          "logoURL" : "dHUgw6kgbyBjYXJhIDsp",
           "descricaoProduto" : "Cartao Presente",
           "valorMaximo" : "0003000",
           "idProvedor" : "132",
@@ -4376,7 +4385,10 @@
           "statusProduto" : "1",
           "valorMinimo" : "0003000",
           "tipoProduto" : "PIN",
-          "informacoes" : "\"dHUgw6kgbyBjYXJhIDsp\"",
+          "informacoes" : {
+            "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+            "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+          },
           "nomeProduto" : "Cartao Presente",
           "tipoMoeda" : "BRL"
         }, {
@@ -4384,6 +4396,7 @@
           "valor" : "0003000",
           "eanProduto" : "4260433452913",
           "priority" : "1",
+          "logoURL" : "dHUgw6kgbyBjYXJhIDsp",
           "descricaoProduto" : "Cartao Presente",
           "valorMaximo" : "0003000",
           "idProvedor" : "132",
@@ -4391,7 +4404,10 @@
           "statusProduto" : "1",
           "valorMinimo" : "0003000",
           "tipoProduto" : "PIN",
-          "informacoes" : "\"dHUgw6kgbyBjYXJhIDsp\"",
+          "informacoes" : {
+            "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+            "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+          },
           "nomeProduto" : "Cartao Presente",
           "tipoMoeda" : "BRL"
         } ]
@@ -4471,6 +4487,12 @@
         "informacoes" : {
           "$ref" : "#/definitions/cartaoPresenteProdutoObj_informacoes"
         },
+        "logoURL" : {
+          "type" : "string",
+          "example" : "dHUgw6kgbyBjYXJhIDsp",
+          "description" : "Logo do produto no formato base64.",
+          "pattern" : "^\\d+$"
+        },
         "priority" : {
           "type" : "string",
           "example" : "1",
@@ -4484,6 +4506,7 @@
         "valor" : "0003000",
         "eanProduto" : "4260433452913",
         "priority" : "1",
+        "logoURL" : "dHUgw6kgbyBjYXJhIDsp",
         "descricaoProduto" : "Cartao Presente",
         "valorMaximo" : "0003000",
         "idProvedor" : "132",
@@ -4491,7 +4514,10 @@
         "statusProduto" : "1",
         "valorMinimo" : "0003000",
         "tipoProduto" : "PIN",
-        "informacoes" : "\"dHUgw6kgbyBjYXJhIDsp\"",
+        "informacoes" : {
+          "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+          "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+        },
         "nomeProduto" : "Cartao Presente",
         "tipoMoeda" : "BRL"
       }
@@ -6777,8 +6803,11 @@
           "description" : "Descrição de como resgatar o produto."
         }
       },
-      "description" : "Logo do produto no formato base64.",
-      "example" : "\"dHUgw6kgbyBjYXJhIDsp\""
+      "description" : "Informações adicionais como termo de uso e como utilizar.",
+      "example" : {
+        "descricaoResgate" : "O cartão presente deve ser resgatado de tal forma.",
+        "termoDeUso" : "O produto só poderá ser resgatado uma vez."
+      }
     },
     "capitalizationBondObj_tema" : {
       "properties" : {
