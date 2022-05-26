@@ -2092,15 +2092,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -2173,15 +2175,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Terminal" : {
@@ -2232,15 +2236,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaConta" : {
@@ -2301,15 +2307,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaLimitesEmprestimo" : {
@@ -2413,15 +2421,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -2469,15 +2479,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -2542,15 +2554,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfRecargaPrePago" : {
@@ -2596,15 +2610,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaPrePago" : {
@@ -2659,15 +2675,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaProdutosRecarga" : {
@@ -2721,15 +2739,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaSaque" : {
@@ -2814,15 +2834,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -2864,15 +2886,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaTitulosCapitalizacao" : {
@@ -2953,15 +2977,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "InfConsultaValoresRecarga" : {
@@ -3124,15 +3150,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Terminal" : {
@@ -3180,15 +3208,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Terminal" : {
@@ -3294,15 +3324,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -3359,15 +3391,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -3428,15 +3462,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -3494,15 +3530,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -3595,15 +3633,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -6050,6 +6090,18 @@
           "description" : "Igual à requisição.",
           "pattern" : "^\\d{11}$"
         },
+        "numAgencia" : {
+          "type" : "string",
+          "example" : "4029",
+          "description" : "Número da agência utilizada na operação.",
+          "pattern" : "^\\d+$"
+        },
+        "numConta" : {
+          "type" : "string",
+          "example" : "0082348296",
+          "description" : "Número da conta utilizada na operação.",
+          "pattern" : "^\\d+$"
+        },
         "dataHora" : {
           "type" : "string",
           "example" : "1122151032",
@@ -6100,15 +6152,17 @@
       "description" : "Informações sobre a resposta da requisição de transação.",
       "example" : {
         "cdProc" : "029100",
-        "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-        "nsu" : "000080247206",
-        "codMoeda" : "986",
         "codOperadora" : "00000000914",
         "dataLocal" : "1122",
         "errorMessage" : "",
         "valor" : "5000",
         "horaLocal" : "151032",
         "nsuResposta" : "820",
+        "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+        "nsu" : "000080247206",
+        "codMoeda" : "986",
+        "numAgencia" : "4029",
+        "numConta" : "0082348296",
         "dataHora" : "1122151032"
       }
     },
@@ -6290,15 +6344,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -6361,15 +6417,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Terminal" : {
@@ -6420,15 +6478,17 @@
       "example" : {
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Terminal" : {
@@ -6506,15 +6566,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -6572,15 +6634,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {
@@ -6643,15 +6707,17 @@
         },
         "InfTransacao" : {
           "cdProc" : "029100",
-          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
-          "nsu" : "000080247206",
-          "codMoeda" : "986",
           "codOperadora" : "00000000914",
           "dataLocal" : "1122",
           "errorMessage" : "",
           "valor" : "5000",
           "horaLocal" : "151032",
           "nsuResposta" : "820",
+          "mensagemCliente" : "Esta &eacute; uma mensagem para exibi&ccedil;&atilde;o em tela.",
+          "nsu" : "000080247206",
+          "codMoeda" : "986",
+          "numAgencia" : "4029",
+          "numConta" : "0082348296",
           "dataHora" : "1122151032"
         },
         "Cripto" : {

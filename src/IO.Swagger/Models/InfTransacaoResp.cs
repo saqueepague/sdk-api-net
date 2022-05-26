@@ -51,6 +51,20 @@ namespace IO.Swagger.Models
         public string CodOperadora { get; set; }
 
         /// <summary>
+        /// Número da agência utilizada na operação.
+        /// </summary>
+        /// <value>Número da agência utilizada na operação.</value>
+        [DataMember(Name="numAgencia")]
+        public string NumAgencia { get; set; }
+
+        /// <summary>
+        /// Número da conta utilizada na operação.
+        /// </summary>
+        /// <value>Número da conta utilizada na operação.</value>
+        [DataMember(Name="numConta")]
+        public string NumConta { get; set; }
+
+        /// <summary>
         /// Data e hora da transação (MMDDhhmmss).
         /// </summary>
         /// <value>Data e hora da transação (MMDDhhmmss).</value>
@@ -122,6 +136,8 @@ namespace IO.Swagger.Models
             sb.Append("  CdProc: ").Append(CdProc).Append("\n");
             sb.Append("  CodMoeda: ").Append(CodMoeda).Append("\n");
             sb.Append("  CodOperadora: ").Append(CodOperadora).Append("\n");
+            sb.Append("  NumAgencia: ").Append(NumAgencia).Append("\n");
+            sb.Append("  NumConta: ").Append(NumConta).Append("\n");
             sb.Append("  DataHora: ").Append(DataHora).Append("\n");
             sb.Append("  DataLocal: ").Append(DataLocal).Append("\n");
             sb.Append("  ErrorMessage: ").Append(ErrorMessage).Append("\n");
@@ -182,6 +198,16 @@ namespace IO.Swagger.Models
                     CodOperadora.Equals(other.CodOperadora)
                 ) && 
                 (
+                    NumAgencia == other.NumAgencia ||
+                    NumAgencia != null &&
+                    NumAgencia.Equals(other.NumAgencia)
+                ) && 
+                (
+                    NumConta == other.NumConta ||
+                    NumConta != null &&
+                    NumConta.Equals(other.NumConta)
+                ) && 
+                (
                     DataHora == other.DataHora ||
                     DataHora != null &&
                     DataHora.Equals(other.DataHora)
@@ -239,6 +265,10 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + CodMoeda.GetHashCode();
                     if (CodOperadora != null)
                     hashCode = hashCode * 59 + CodOperadora.GetHashCode();
+                    if (NumAgencia != null)
+                    hashCode = hashCode * 59 + NumAgencia.GetHashCode();
+                    if (NumConta != null)
+                    hashCode = hashCode * 59 + NumConta.GetHashCode();
                     if (DataHora != null)
                     hashCode = hashCode * 59 + DataHora.GetHashCode();
                     if (DataLocal != null)
