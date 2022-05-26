@@ -92,6 +92,13 @@ namespace IO.Swagger.Models
         public string TelefoneFavorecido { get; set; }
 
         /// <summary>
+        /// Código da Intituição registrada no Sistema Brasileiro de Pagamentos. Campo obrigatório, para transações de Saque QR Code, afim de identificar a instituição parceira da transação.
+        /// </summary>
+        /// <value>Código da Intituição registrada no Sistema Brasileiro de Pagamentos. Campo obrigatório, para transações de Saque QR Code, afim de identificar a instituição parceira da transação.</value>
+        [DataMember(Name="ispb")]
+        public string Ispb { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +112,7 @@ namespace IO.Swagger.Models
             sb.Append("  NumAgencia: ").Append(NumAgencia).Append("\n");
             sb.Append("  NumConta: ").Append(NumConta).Append("\n");
             sb.Append("  TelefoneFavorecido: ").Append(TelefoneFavorecido).Append("\n");
+            sb.Append("  Ispb: ").Append(Ispb).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +178,11 @@ namespace IO.Swagger.Models
                     TelefoneFavorecido == other.TelefoneFavorecido ||
                     TelefoneFavorecido != null &&
                     TelefoneFavorecido.Equals(other.TelefoneFavorecido)
+                ) && 
+                (
+                    Ispb == other.Ispb ||
+                    Ispb != null &&
+                    Ispb.Equals(other.Ispb)
                 );
         }
 
@@ -195,6 +208,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + NumConta.GetHashCode();
                     if (TelefoneFavorecido != null)
                     hashCode = hashCode * 59 + TelefoneFavorecido.GetHashCode();
+                    if (Ispb != null)
+                    hashCode = hashCode * 59 + Ispb.GetHashCode();
                 return hashCode;
             }
         }

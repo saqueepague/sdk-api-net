@@ -180,6 +180,41 @@ namespace IO.Swagger.Models
         public DepositoVarejistaEnum? DepositoVarejista { get; set; }
 
         /// <summary>
+        /// Código do banco utilizado na operação (3 dígitos).
+        /// </summary>
+        /// <value>Código do banco utilizado na operação (3 dígitos).</value>
+        [DataMember(Name="codBanco")]
+        public string CodBanco { get; set; }
+
+        /// <summary>
+        /// Número da agência utilizada na operação.
+        /// </summary>
+        /// <value>Número da agência utilizada na operação.</value>
+        [DataMember(Name="numAgencia")]
+        public string NumAgencia { get; set; }
+
+        /// <summary>
+        /// Número da conta utilizada na operação.
+        /// </summary>
+        /// <value>Número da conta utilizada na operação.</value>
+        [DataMember(Name="numConta")]
+        public string NumConta { get; set; }
+
+        /// <summary>
+        /// Número do CPF ou CNPJ do cliente favorecido da transação (11 dígitos ou 14 dígitos respectivamente).
+        /// </summary>
+        /// <value>Número do CPF ou CNPJ do cliente favorecido da transação (11 dígitos ou 14 dígitos respectivamente).</value>
+        [DataMember(Name="cpfFavorecido")]
+        public string CpfFavorecido { get; set; }
+
+        /// <summary>
+        /// Código da Intituição registrada no Sistema Brasileiro de Pagamentos. Campo obrigatório, para transações de Saque QR Code, afim de identificar a instituição parceira da transação.
+        /// </summary>
+        /// <value>Código da Intituição registrada no Sistema Brasileiro de Pagamentos. Campo obrigatório, para transações de Saque QR Code, afim de identificar a instituição parceira da transação.</value>
+        [DataMember(Name="ispb")]
+        public string Ispb { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -193,6 +228,11 @@ namespace IO.Swagger.Models
             sb.Append("  NomeCliente: ").Append(NomeCliente).Append("\n");
             sb.Append("  SolicDoc: ").Append(SolicDoc).Append("\n");
             sb.Append("  DepositoVarejista: ").Append(DepositoVarejista).Append("\n");
+            sb.Append("  CodBanco: ").Append(CodBanco).Append("\n");
+            sb.Append("  NumAgencia: ").Append(NumAgencia).Append("\n");
+            sb.Append("  NumConta: ").Append(NumConta).Append("\n");
+            sb.Append("  CpfFavorecido: ").Append(CpfFavorecido).Append("\n");
+            sb.Append("  Ispb: ").Append(Ispb).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +298,31 @@ namespace IO.Swagger.Models
                     DepositoVarejista == other.DepositoVarejista ||
                     DepositoVarejista != null &&
                     DepositoVarejista.Equals(other.DepositoVarejista)
+                ) && 
+                (
+                    CodBanco == other.CodBanco ||
+                    CodBanco != null &&
+                    CodBanco.Equals(other.CodBanco)
+                ) && 
+                (
+                    NumAgencia == other.NumAgencia ||
+                    NumAgencia != null &&
+                    NumAgencia.Equals(other.NumAgencia)
+                ) && 
+                (
+                    NumConta == other.NumConta ||
+                    NumConta != null &&
+                    NumConta.Equals(other.NumConta)
+                ) && 
+                (
+                    CpfFavorecido == other.CpfFavorecido ||
+                    CpfFavorecido != null &&
+                    CpfFavorecido.Equals(other.CpfFavorecido)
+                ) && 
+                (
+                    Ispb == other.Ispb ||
+                    Ispb != null &&
+                    Ispb.Equals(other.Ispb)
                 );
         }
 
@@ -283,6 +348,16 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + SolicDoc.GetHashCode();
                     if (DepositoVarejista != null)
                     hashCode = hashCode * 59 + DepositoVarejista.GetHashCode();
+                    if (CodBanco != null)
+                    hashCode = hashCode * 59 + CodBanco.GetHashCode();
+                    if (NumAgencia != null)
+                    hashCode = hashCode * 59 + NumAgencia.GetHashCode();
+                    if (NumConta != null)
+                    hashCode = hashCode * 59 + NumConta.GetHashCode();
+                    if (CpfFavorecido != null)
+                    hashCode = hashCode * 59 + CpfFavorecido.GetHashCode();
+                    if (Ispb != null)
+                    hashCode = hashCode * 59 + Ispb.GetHashCode();
                 return hashCode;
             }
         }

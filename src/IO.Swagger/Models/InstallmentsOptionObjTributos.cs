@@ -112,6 +112,20 @@ namespace IO.Swagger.Models
         public string ValorTotalParcelas { get; set; }
 
         /// <summary>
+        /// Representa o quanto o valor solicitado representa sobre o valor financiado. (07 digitos, valor total &#x3D; 70,00%)
+        /// </summary>
+        /// <value>Representa o quanto o valor solicitado representa sobre o valor financiado. (07 digitos, valor total &#x3D; 70,00%)</value>
+        [DataMember(Name="taxaValorSolicitado")]
+        public string TaxaValorSolicitado { get; set; }
+
+        /// <summary>
+        /// Representa o quanto o valor do iof representa sobre o valor financiado. (07 digitos, valor total &#x3D; 50,12%)
+        /// </summary>
+        /// <value>Representa o quanto o valor do iof representa sobre o valor financiado. (07 digitos, valor total &#x3D; 50,12%)</value>
+        [DataMember(Name="taxaValorIof")]
+        public string TaxaValorIof { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +145,8 @@ namespace IO.Swagger.Models
             sb.Append("  CetAnual: ").Append(CetAnual).Append("\n");
             sb.Append("  CetMensal: ").Append(CetMensal).Append("\n");
             sb.Append("  ValorTotalParcelas: ").Append(ValorTotalParcelas).Append("\n");
+            sb.Append("  TaxaValorSolicitado: ").Append(TaxaValorSolicitado).Append("\n");
+            sb.Append("  TaxaValorIof: ").Append(TaxaValorIof).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -226,6 +242,16 @@ namespace IO.Swagger.Models
                     ValorTotalParcelas == other.ValorTotalParcelas ||
                     ValorTotalParcelas != null &&
                     ValorTotalParcelas.Equals(other.ValorTotalParcelas)
+                ) && 
+                (
+                    TaxaValorSolicitado == other.TaxaValorSolicitado ||
+                    TaxaValorSolicitado != null &&
+                    TaxaValorSolicitado.Equals(other.TaxaValorSolicitado)
+                ) && 
+                (
+                    TaxaValorIof == other.TaxaValorIof ||
+                    TaxaValorIof != null &&
+                    TaxaValorIof.Equals(other.TaxaValorIof)
                 );
         }
 
@@ -263,6 +289,10 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + CetMensal.GetHashCode();
                     if (ValorTotalParcelas != null)
                     hashCode = hashCode * 59 + ValorTotalParcelas.GetHashCode();
+                    if (TaxaValorSolicitado != null)
+                    hashCode = hashCode * 59 + TaxaValorSolicitado.GetHashCode();
+                    if (TaxaValorIof != null)
+                    hashCode = hashCode * 59 + TaxaValorIof.GetHashCode();
                 return hashCode;
             }
         }

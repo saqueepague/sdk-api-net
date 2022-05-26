@@ -98,6 +98,40 @@ namespace IO.Swagger.Models
         public string TelefoneFavorecido { get; set; }
 
         /// <summary>
+        /// Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).
+        /// </summary>
+        /// <value>Tipo de conta do extrato (CC = conta corrente, CP = conta poupança, CS = conta salário).</value>
+        [JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public enum TipoContaEnum
+        {
+            
+            /// <summary>
+            /// Enum CCEnum for CC
+            /// </summary>
+            [EnumMember(Value = "CC")]
+            CCEnum = 1,
+            
+            /// <summary>
+            /// Enum CPEnum for CP
+            /// </summary>
+            [EnumMember(Value = "CP")]
+            CPEnum = 2,
+            
+            /// <summary>
+            /// Enum CSEnum for CS
+            /// </summary>
+            [EnumMember(Value = "CS")]
+            CSEnum = 3
+        }
+
+        /// <summary>
+        /// Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).
+        /// </summary>
+        /// <value>Tipo de conta do extrato (CC &#x3D; conta corrente, CP &#x3D; conta poupança, CS &#x3D; conta salário).</value>
+        [DataMember(Name="tipoConta")]
+        public TipoContaEnum? TipoConta { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -115,6 +149,7 @@ namespace IO.Swagger.Models
             sb.Append("  NumConta: ").Append(NumConta).Append("\n");
             sb.Append("  TelefoneDepositante: ").Append(TelefoneDepositante).Append("\n");
             sb.Append("  TelefoneFavorecido: ").Append(TelefoneFavorecido).Append("\n");
+            sb.Append("  TipoConta: ").Append(TipoConta).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +235,11 @@ namespace IO.Swagger.Models
                     TelefoneFavorecido == other.TelefoneFavorecido ||
                     TelefoneFavorecido != null &&
                     TelefoneFavorecido.Equals(other.TelefoneFavorecido)
+                ) && 
+                (
+                    TipoConta == other.TipoConta ||
+                    TipoConta != null &&
+                    TipoConta.Equals(other.TipoConta)
                 );
         }
 
@@ -233,6 +273,8 @@ namespace IO.Swagger.Models
                     hashCode = hashCode * 59 + TelefoneDepositante.GetHashCode();
                     if (TelefoneFavorecido != null)
                     hashCode = hashCode * 59 + TelefoneFavorecido.GetHashCode();
+                    if (TipoConta != null)
+                    hashCode = hashCode * 59 + TipoConta.GetHashCode();
                 return hashCode;
             }
         }
